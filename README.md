@@ -35,8 +35,6 @@ Trabalho ainda em andamento com previsão de conclusão para Julho de 2020
 
 --- 
 
-**Escola SENAI "VICENTE AMATO"**
-
 <br> 
 
 #### Escola SENAI "VICENTE AMATO"
