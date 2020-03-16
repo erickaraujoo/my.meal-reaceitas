@@ -35,13 +35,11 @@ Trabalho ainda em andamento com previsão de conclusão para Julho de 2020
 
 --- 
 
-<<<<<<< HEAD
-****Escola SENAI "VICENTE AMATO"***
+**Escola SENAI "VICENTE AMATO"**
 
 <br> 
-=======
+
 #### Escola SENAI "VICENTE AMATO"
->>>>>>> homologacao
 
 - **Equipe: Erick Araujo, Gabriel Duarte, Isabella Freitas, Leticia Sena**
 - **Início em: 09/03/2020**
