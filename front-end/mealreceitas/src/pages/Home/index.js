@@ -16,7 +16,7 @@ function Home() {
 
                     <Search>
                         <input type="text" placeholder="Pesquise por receitas..." />
-                        <img src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/search-512.png"/>
+                        <img src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/search-512.png" alt="Pesquisar" />
                     </Search>
                 </Modal>
             </Container>
