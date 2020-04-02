@@ -2,7 +2,10 @@ import React from 'react';
 
 import Header from './../../components/Header'
 
-import { Container, Modal, Search } from './styles'
+import { Container, Modal } from './styles'
+import { InputSearch } from './../../styles';
+
+import ImageSearch from './../../assets/search.png';
 
 function Home() {
 
@@ -14,10 +17,12 @@ function Home() {
                     <h2>PESQUISE SUA RECEITA FAVORITA</h2>
                     <p>OU PESQUISE POR INGREDIENTE</p>
 
-                    <Search>
-                        <input type="text" placeholder="Pesquise por receitas..." />
-                        <img src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/search-512.png" alt="Pesquisar" />
-                    </Search>
+                    <InputSearch width={95} margin={{ top: '3.5em' }}>
+                        <input placeholder="Pesquisar..." />
+                        <button>
+                            <img src={ImageSearch} alt="Pesquisar"/>
+                        </button>
+                    </InputSearch>
                 </Modal>
             </Container>
         </>
