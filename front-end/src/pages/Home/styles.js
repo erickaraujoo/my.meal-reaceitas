@@ -16,7 +16,7 @@ export const Modal = styled.div`
     text-align: center;
     padding: 2em 1em;
 
-    & h2{
+    & h1{
         color: #fff;
     }
 
@@ -26,5 +26,16 @@ export const Modal = styled.div`
         line-height: 1.5;
         color: #FFFFFF;
         margin-top: 1.5em
+    }
+
+    @media(min-width: 700px){
+        width: 800px;
+        height: 320px;
+        padding: 2.2em 1em 3em 1em;
+
+        & div{
+            margin-top: 4.5em;
+            max-width: 680px;
+        }
     }
 `
