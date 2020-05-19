@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import Header from './../../components/Header'
 
@@ -18,6 +19,17 @@ import { Main, FilterByIngredient, OrderBy, ContainerCards, Category } from './s
 function Recipes() {
 
     const [ heightCategory, setHeightCategory ] = useState(0);
+    let [ textSearch, setTextSearch ] = useState('');
+
+    // Consumindo os parâmetros da URL
+    let query = new URLSearchParams(useLocation().search);
+
+    const history = useHistory();
+
+    function handleSearchRecipes() {
+        history.push(`?search=${textSearch}`);
+        setTextSearch('');
+    }
 
     useEffect(() => {
         const cardCategory = document.getElementById('card-category');
@@ -29,9 +41,10 @@ function Recipes() {
 
     return(
         <>
-            <Header />
+            <Header customHeader={true} />
             <Main>
-                <h1>Você pesquisou por: Bolo de Fubá</h1>
+                {/* Pegando da URL apenas a QUERY 'search' */}
+                <h1>Você pesquisou por: {query.get('search')} </h1>
                 <p className="pTotal-recipes">Foram encontrados 1.152 receitas</p>
 
                     <section className="section-data-classification">
@@ -48,9 +61,15 @@ function Recipes() {
                                 </select>
                             </OrderBy>
 
-                            <InputSearch width={100} className="input-search">
-                                <input type="text" placeholder="Search..." />
-                                <button>
+                            <InputSearch width={100} className="input-search" style={ { height: '45px' } }>
+                                <input 
+                                    placeholder="Search..." 
+                                    value={textSearch} 
+                                    onChange={ e => setTextSearch(e.target.value) }
+                                    // O mesmo serve para a tecla 'enter'
+                                    onKeyPress={e => e.which === 13 ? handleSearchRecipes() : ''} 
+                                />
+                                <button onClick={handleSearchRecipes}>
                                     <img src={ImageSearch} alt="Pesquisar"/>
                                 </button>
                             </InputSearch>

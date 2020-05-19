@@ -1,26 +1,40 @@
 import React from 'react'
 
-import { Container, Nav, ImageUser, ImageLogo } from './styles'
+import { Container } from './styles'
 
-export default function Header() {
+import ImageMenu from './../../assets/burger_menu.png';
+
+export default function Header({ customHeader }) {
+
     return(
-        <Container className="container-header">
-            <Nav className="nav-header">
-                <ol className='ol-header'>
-                    <li className="li-chefs">CHEFS</li>
-                    <li className="li-recipe">RECEITAS</li>
-                    <li className="li-category">CATEGORIAS</li>
-                    <li className="li-logo">
-                        <ImageLogo src="https://appsgeyser.com/blog/wp-content/uploads/2016/12/recipe-icon-6.png" />
-                    </li>
-                    <li className="li-publish">PUBLICAR</li>
-                    <li className="li-feedback">FEEDBACK</li>
-                    <li className="li-login">
-                        Login
-                        <ImageUser src="https://image.flaticon.com/icons/png/512/23/23228.png" />
-                    </li>
-                </ol>
-            </Nav>
+        <Container customHeader={customHeader}>
+            <section className="header_mobile">
+                <h1>MEAL RECEITAS</h1>
+                <img src={ImageMenu} alt="" />
+            </section>
+
+            <section className="header_web">
+                <h1>MEAL RECEITAS</h1>
+
+                <nav>
+                    <ul>
+                        <li>CHEFS</li>
+                        <li>RECEITAS</li>
+                        <li>CATEGORIAS</li>
+                        <li>PUBLICAR</li>
+                        <li>FEEDBACK</li>
+                    </ul>
+                </nav>
+
+                <div className="register_header">
+                    <div className="login">
+                        <p>LOG IN</p>
+                    </div>
+                    <div className="register">
+                        <p>REGISTER</p>
+                    </div>
+                </div>
+            </section>
         </Container>
     )
 }

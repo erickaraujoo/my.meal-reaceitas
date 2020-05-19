@@ -3,32 +3,22 @@ import styled from 'styled-components';
 export const Main = styled.div`
     width: 100%;
     height: auto;
-    margin: 5em 0 0 0;
     padding: 0 1.5em;
 
-    & h1{
-        color: #254B6E;
-    }
+    & h1 { color: #254B6E };
 
-    & p.pTotal-recipes{
-        margin-top: 3em;
-        font-size: 1.15rem;
-        text-align: right;
-    }
+    & p.pTotal-recipes { margin-top: 3em; font-size: 1.15rem; text-align: right };
 
     @media(min-width: 1000px) {
         padding: 0;
         display: grid;
-        grid-template-columns: repeat(1, minmax(auto, 40px)) repeat(1, minmax(auto, 300px)) repeat(1,minmax(auto, 420px)) repeat(1,minmax(auto, 340px)) 1fr;
+        grid-template-columns: 1fr repeat(1, minmax(auto, 300px)) repeat(1,minmax(auto, 420px)) repeat(1,minmax(auto, 340px)) 1fr;
         column-gap: 2em;
+        padding-top:  calc(100px + 5em);
 
-        & h1{
-            grid-column: 2/5;
-        }
+        & h1{ grid-column: 2/5 };
 
-        & p.pTotal-recipes{
-            grid-column: 2/5;
-        }
+        & p.pTotal-recipes{ grid-column: 2/5 };
 
         & section.section-data-classification {
             grid-column: 2/5;
@@ -39,21 +29,9 @@ export const Main = styled.div`
                 column-gap: 2em;
             }
 
-            & div.filter-ingredients {
-                grid-column: 1;
-                width: 100%;
-                margin-top: 1.5em;
-            }
-
-            & div.order-by{
-                grid-column: 2;
-                width: 100%;
-            }
-
-            & div.input-search{
-                grid-column: 3;
-                width: 100%;
-            }
+            & div.filter-ingredients { grid-column: 1; width: 100%; margin-top: 1.5em };
+            & div.order-by{ grid-column: 2; width: 100% };
+            & div.input-search{ grid-column: 3; width: 100% };
         }
 
         & section.section-category-cards {
@@ -66,9 +44,7 @@ export const Main = styled.div`
             }
         }
 
-        & div.card-container{
-            grid-column: 2/5;
-        }
+        & div.card-container{ grid-column: 2/5 };
     }
 `
 export const FilterByIngredient = styled.div`
@@ -80,15 +56,14 @@ export const FilterByIngredient = styled.div`
     margin-top: 3.5rem;
     background: white;
     border: 1px solid rgba(34,36,38,.15);
-    cursor: pointer;
-    height: 50px;
+    height: 45px;
+    transition: filter 0.1s;
 
-    & img{
-        width: 40px;
-        height: auto;
-        margin: 0.15rem 1.5rem 0.15rem 1.25rem;
-    }
+    &:hover { filter: brightness(95%); cursor: pointer };
+
+    & img { width: 35px; height: auto; margin: 0 1rem 0 1.25rem };
 `
+
 export const OrderBy = styled.div`
     position: relative;
     display: flex;
@@ -99,11 +74,9 @@ export const OrderBy = styled.div`
     background: white;
     border: 1px solid rgba(34,36,38,.15);
     padding: 0.35rem 1.25rem;
-    height: 50px;
+    height: 45px;
 
-    & p {
-        margin-right: 1em;
-    }
+    & p { margin-right: 1em };
 
     & select {
         width: calc(100% - 125px);
@@ -111,11 +84,12 @@ export const OrderBy = styled.div`
         border: 1px solid rgba(34,36,38,.15);
         border-radius: .4571429rem;
         color: rgba( 0, 0, 0, .87);
-        padding: .47857143em 1em;
+        padding: .37857143em 1em;
         cursor: pointer;
         font-size: 1rem;
     }
 `
+
 export const ContainerCards = styled.section`
     width: 100%;
     margin-top: 3rem;
@@ -135,41 +109,21 @@ export const ContainerCards = styled.section`
                 cursor: pointer;
             }
 
-            & li:hover{
-                box-shadow: 0 0 12.5px rgba(0, 0, 0, .5);
-            }
+            & li:hover { box-shadow: 0 0 12.5px rgba(0, 0, 0, .5) };
 
-            & li div + div + div {
-                padding: 1em;
-            }
+            & li div + div + div { padding: 1em };
 
-            & li div img.imgRecipe{
-                width: 100%;
-                height: 150px;
-                border-radius: 8px 8px 0 0;
-            }
+            & li div img.imgRecipe{ width: 100%; height: 150px; border-radius: 8px 8px 0 0 };
 
-            & div.best-recipe{
-                display: none;
-            }
+            & div.best-recipe{ display: none };
 
             & li div.data-recipe {
                 border-bottom: solid 1px rgba(0, 0, 0, .15);
 
-                & strong {
-                    font-size: 1.35rem;
-                }
+                & strong { font-size: 1.35rem };
 
-                & p.description {
-                    font-size: 1rem;
-                    margin-top: 1em;
-                    text-align: justify;
-                }
-
-                & p.author {
-                    font-size: 0.85rem;
-                    font-style: italic;
-                }
+                & p.description { font-size: 1rem; margin-top: 1em; text-align: justify };
+                & p.author { font-size: 0.85rem; font-style: italic };
             }
 
             & li div.info-recipe {
@@ -177,24 +131,13 @@ export const ContainerCards = styled.section`
                 justify-content: space-between;
                 padding: 0.65em 1em 0 1em;
 
-                & div:first-child {
-                    display: none;
-                }
+                & div:first-child { display: none };
 
-                & div + div {
-                    padding: 1em;
-                    font-size: 0.8rem;
-                }
+                & div + div { padding: 1em; font-size: 0.8rem };
 
                 & div.date-info {
-                    & p{
-                        font-size: 1em;
-                        font-weight: 0;
-                    }
-
-                    & p + p {
-                        font-weight: bold;
-                    }
+                    & p { font-size: 1em; font-weight: 0 };
+                    & p + p { font-weight: bold };
                 }
 
                 & div.avaliation-info {
@@ -215,54 +158,32 @@ export const ContainerCards = styled.section`
 
             @media(min-width: 1000px) {
 
-                & li:first-child {
-                    margin-top: 0;
-                }
+                & li:first-child { margin-top: 0 };
 
-                & li + li {
-                    margin-top: 1.5em;
-                }
+                & li + li { margin-top: 1.5em };
 
                 & li {
                     display: grid;
                     grid-template-columns: repeat(1, minmax(auto, 30%)) repeat(1, minmax(auto, 47.5%)) repeat(1, minmax(auto, 22.5%));
 
                     & div.best-recipe{
-                        grid-column: 1/4;
+                        grid-column: 1/5;
                         border-radius: 5px 5px 0 0;
                         background-color: #254B6E;
                         display: flex;
                         align-items: center;
                         padding: 0.50em 0.40em;
 
-                        & img {
-                            width: 20px;
-                            height: 20px;
-                            margin-left: 0.5em;
-                        }
+                        & img { width: 20px; height: 20px; margin-left: 0.5em };
 
-                        & p{
-                            color: #fff;
-                            margin-left: 0.5em;
-                            font-size: 1.0625em;
-                        }
+                        & p{ color: #fff; margin-left: 0.5em; font-size: 1.0625em };
                     }
 
-                    & div.image-recipe {
-                        width: 100%;
-                        height: 100%;
-                        grid-column: 1;
-
-                        & img {
-                            width: 100%;
-                            height: 100%;
-                            border-radius: 8px 0 0 8px;
-                        }
+                    & div.image-recipe { width: 100%; height: 100%; grid-column: 1;
+                        & img { width: 100%; height: 100%; border-radius: 8px 0 0 8px };
                     }
 
-                    & div.data-recipe {
-                        grid-column: 2;
-                    }
+                    & div.data-recipe { grid-column: 2 };
 
                     & div.info-recipe {
                         grid-column: 3;
@@ -270,11 +191,7 @@ export const ContainerCards = styled.section`
                         padding: 1em;
                         border-left: solid 1px rgba(0, 0, 0, .1);
 
-                        & div {
-                            width: 100%;
-                            text-align: right;
-                            margin-right: 35px;
-                        }
+                        & div { width: 100%; text-align: right; margin-right: 35px };
 
                         & div.favorite-info {
                             padding: 0 1em 1em 0;
@@ -282,46 +199,25 @@ export const ContainerCards = styled.section`
                             align-items: flex-start;
                             justify-content: flex-end;
 
-                            & img {
-                                width: 20px;
-                                height: 20px;
-                                margin-right: 5px;
-                            }
+                            & img { width: 20px; height: 20px; margin-right: 5px };
 
-                            & p {
-                                font-size: 1em;
-                            }
-
-                            & p span{
-                                font-weight: bold;
-                            }
+                            & p { font-size: 1em };
+                            & p span { font-weight: bold };
                         }
 
                         & div.date-info {
-
-                            & p {
-                                font-weight: normal;
-                                font-size: 0.8rem;
-                            }
-                            
-                            & p + p {
-                                color: #254B6E;
-                                font-weight: bold;
-                                font-size: 0.95rem;
-                                margin-top: 0.25em;
-                            }
+                            & p { font-weight: normal; font-size: 0.8rem };
+                            & p + p { color: #254B6E; font-weight: bold; font-size: 0.95rem; margin-top: 0.25em };
                         }
 
-                        & div.avaliation-info {
-                            padding: 1em 1em 0 1em;
-                            justify-content: flex-end; 
-                        }
+                        & div.avaliation-info { padding: 1em 1em 0 1em; justify-content: flex-end };
                     }
                 }
             }
         }
     }
 `
+
 export const Category = styled.div`
     width: 100%;
     max-height: ${props => props.height + 2}px;
@@ -329,26 +225,13 @@ export const Category = styled.div`
     border: 1px solid rgba(34,36,38,.15);
     border-radius: .28571429rem;
 
-    @media(min-width: 700px) {
-        grid-column: 1; 
-    }
+    @media(min-width: 700px) { grid-column: 1 };
 
-    & div#titleCategory{
-        display: flex;
-        align-items: center;
-        padding: .5rem 1em;
-    }
+    & div#titleCategory{ display: flex; align-items: center; padding: .5rem 1em };
 
-    & img {
-        width: 25px;
-        height: auto;
-        margin-right: 1rem;
-    }
+    & img { width: 25px; height: auto; margin-right: 1rem };
 
-    & p {
-        color: #fff;
-        font-size: 1.25rem;
-    }
+    & p { color: #fff; font-size: 1.25rem };
 
     & ol.list-category{
         display: block;
@@ -362,10 +245,11 @@ export const Category = styled.div`
             display: flex;
             align-items: center;
             border-bottom: solid 1px rgba(0, 0, 0, .15);
+            transition: filter 0.1s;
         }
 
-        & li:last-child {
-            border-radius: 0 0 .28571429rem .28571429rem;;
-        } 
+        & li:last-child { border-radius: 0 0 .28571429rem .28571429rem }; 
+
+        & li:hover { filter: brightness(95%); cursor: pointer };
     }
 `
