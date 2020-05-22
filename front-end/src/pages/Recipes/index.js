@@ -14,7 +14,7 @@ import ImageHeart from './../../assets/heart_blue.png';
 import ImageReport from './../../assets/recipe_icon.png';
   
 import { InputSearch } from './../../styles';
-import { Main, FilterByIngredient, OrderBy, ContainerCards, Category } from './styles';
+import { Main, FilterByIngredient, OrderBy, ContainerCards, Category, ImageRecipe } from './styles';
 
 function Recipes() {
 
@@ -116,7 +116,7 @@ function Recipes() {
                                             <p>Esta é a receita que você esta procurando!</p>
                                         </div>
                                         <div className="image-recipe">
-                                            <img className="imgRecipe" src="https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg" alt="Bolo de fubá"/>
+                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
                                         </div>
 
                                         <div className="data-recipe">
@@ -150,14 +150,9 @@ function Recipes() {
                                             </div>
                                         </div>
                                     </li>
-                                    
                                     <li>
-                                        <div className="best-recipe">
-                                            <img src={ImageReport} alt="Best"/>
-                                            <p>Esta é a receita que você esta procurando!</p>
-                                        </div>
                                         <div className="image-recipe">
-                                            <img className="imgRecipe" src="https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg" alt="Bolo de fubá"/>
+                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
                                         </div>
 
                                         <div className="data-recipe">
@@ -186,19 +181,14 @@ function Recipes() {
                                             </div>
 
                                             <div className="avaliation-info">
-                                                Avaliação: 
+                                                <p>Avaliação:</p>
                                                 <p className="note-avaliation"> 8,9 </p>
                                             </div>
                                         </div>
                                     </li>
-                                    
                                     <li>
-                                        <div className="best-recipe">
-                                            <img src={ImageReport} alt="Best"/>
-                                            <p>Esta é a receita que você esta procurando!</p>
-                                        </div>
                                         <div className="image-recipe">
-                                            <img className="imgRecipe" src="https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg" alt="Bolo de fubá"/>
+                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
                                         </div>
 
                                         <div className="data-recipe">
@@ -227,19 +217,14 @@ function Recipes() {
                                             </div>
 
                                             <div className="avaliation-info">
-                                                Avaliação: 
+                                                <p>Avaliação:</p>
                                                 <p className="note-avaliation"> 8,9 </p>
                                             </div>
                                         </div>
                                     </li>
-                                    
                                     <li>
-                                        <div className="best-recipe">
-                                            <img src={ImageReport} alt="Best"/>
-                                            <p>Esta é a receita que você esta procurando!</p>
-                                        </div>
                                         <div className="image-recipe">
-                                            <img className="imgRecipe" src="https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg" alt="Bolo de fubá"/>
+                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
                                         </div>
 
                                         <div className="data-recipe">
@@ -268,19 +253,14 @@ function Recipes() {
                                             </div>
 
                                             <div className="avaliation-info">
-                                                Avaliação: 
+                                                <p>Avaliação:</p>
                                                 <p className="note-avaliation"> 8,9 </p>
                                             </div>
                                         </div>
                                     </li>
-                                    
                                     <li>
-                                        <div className="best-recipe">
-                                            <img src={ImageReport} alt="Best"/>
-                                            <p>Esta é a receita que você esta procurando!</p>
-                                        </div>
                                         <div className="image-recipe">
-                                            <img className="imgRecipe" src="https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg" alt="Bolo de fubá"/>
+                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
                                         </div>
 
                                         <div className="data-recipe">
@@ -309,19 +289,14 @@ function Recipes() {
                                             </div>
 
                                             <div className="avaliation-info">
-                                                Avaliação: 
+                                                <p>Avaliação:</p>
                                                 <p className="note-avaliation"> 8,9 </p>
                                             </div>
                                         </div>
                                     </li>
-                                    
                                     <li>
-                                        <div className="best-recipe">
-                                            <img src={ImageReport} alt="Best"/>
-                                            <p>Esta é a receita que você esta procurando!</p>
-                                        </div>
                                         <div className="image-recipe">
-                                            <img className="imgRecipe" src="https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg" alt="Bolo de fubá"/>
+                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
                                         </div>
 
                                         <div className="data-recipe">
@@ -350,7 +325,7 @@ function Recipes() {
                                             </div>
 
                                             <div className="avaliation-info">
-                                                Avaliação: 
+                                                <p>Avaliação:</p>
                                                 <p className="note-avaliation"> 8,9 </p>
                                             </div>
                                         </div>

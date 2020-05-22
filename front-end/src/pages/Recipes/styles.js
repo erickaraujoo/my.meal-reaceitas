@@ -111,7 +111,9 @@ export const ContainerCards = styled.section`
 
             & li:hover { box-shadow: 0 0 12.5px rgba(0, 0, 0, .5) };
 
-            & li div + div + div { padding: 1em };
+            /* & li div + div + div { padding: 1em }; */
+
+            & div.data-recipe, & div.access-info { padding: 1em };
 
             & li div img.imgRecipe{ width: 100%; height: 150px; border-radius: 8px 8px 0 0 };
 
@@ -120,10 +122,10 @@ export const ContainerCards = styled.section`
             & li div.data-recipe {
                 border-bottom: solid 1px rgba(0, 0, 0, .15);
 
-                & strong { font-size: 1.35rem };
+                & strong { font-size: 1.375rem; letter-spacing: 0.75px; font-family: PoppinsRegular };
 
-                & p.description { font-size: 1rem; margin-top: 1em; text-align: justify };
-                & p.author { font-size: 0.85rem; font-style: italic };
+                & p.description { font-size: .875rem; margin-top: 2em; text-align: justify; font-family: PoppinsRegular };
+                & p.author { font-size: 0.875rem; font-style: italic; margin-top: 0.25em };
             }
 
             & li div.info-recipe {
@@ -133,7 +135,7 @@ export const ContainerCards = styled.section`
 
                 & div:first-child { display: none };
 
-                & div + div { padding: 1em; font-size: 0.8rem };
+                & div + div { font-size: 0.75rem; letter-spacing: .5px };
 
                 & div.date-info {
                     & p { font-size: 1em; font-weight: 0 };
@@ -144,8 +146,10 @@ export const ContainerCards = styled.section`
                     display: flex;
                     align-items: center;
 
+                    & p { font-size: 0.875rem }; 
+
                     & p.note-avaliation{
-                        font-size: 0.85rem;
+                        font-size: 0.875rem;
                         padding: 0.2em .45em;
                         background-color: #254B6E;
                         border-radius: 5px;
@@ -158,7 +162,9 @@ export const ContainerCards = styled.section`
 
             @media(min-width: 1000px) {
 
-                & li:first-child { margin-top: 0 };
+                & li:first-child { margin-top: 0;
+                    & div.image-recipe img { border-radius: 0 0 0 8px };
+                };
 
                 & li + li { margin-top: 1.5em };
 
@@ -179,10 +185,7 @@ export const ContainerCards = styled.section`
                         & p{ color: #fff; margin-left: 0.5em; font-size: 1.0625em };
                     }
 
-                    & div.image-recipe { width: 100%; height: 100%; grid-column: 1;
-                        & img { width: 100%; height: 100%; border-radius: 8px 0 0 8px };
-                    }
-
+                    & div.image-recipe { width: 100%; height: 100%; grid-column: 1 };
                     & div.data-recipe { grid-column: 2 };
 
                     & div.info-recipe {
@@ -194,29 +197,48 @@ export const ContainerCards = styled.section`
                         & div { width: 100%; text-align: right; margin-right: 35px };
 
                         & div.favorite-info {
-                            padding: 0 1em 1em 0;
+                            padding-bottom: 1em;
                             display: flex;
-                            align-items: flex-start;
+                            align-items: center;
                             justify-content: flex-end;
 
-                            & img { width: 20px; height: 20px; margin-right: 5px };
+                            & img { width: 18px; height: 18px; margin-right: 7px };
 
-                            & p { font-size: 1em };
+                            & p { font-size: 1em; letter-spacing: .5px };
                             & p span { font-weight: bold };
                         }
 
-                        & div.date-info {
-                            & p { font-weight: normal; font-size: 0.8rem };
-                            & p + p { color: #254B6E; font-weight: bold; font-size: 0.95rem; margin-top: 0.25em };
+                        & div.access-info { padding: 1em 0 };
+
+                        & div.date-info { padding: 1em 0;
+                            & p { font-weight: normal; font-size: 0.75rem };
+                            & p + p { color: #254B6E; font-weight: bold; font-size: 0.875rem; margin-top: 0.25em };
                         }
 
-                        & div.avaliation-info { padding: 1em 1em 0 1em; justify-content: flex-end };
+                        & div.avaliation-info { padding-top: 1em; justify-content: flex-end };
                     }
                 }
             }
         }
     }
 `
+
+export const ImageRecipe = styled.img`
+    width: 100%; 
+    height: 150px;
+    border-radius: 8px 8px 0 0;
+    background-image: url(${props => props.background });
+    background-size: cover;
+    height: 150px;
+    background-position: top;
+    filter: brightness(80%);
+
+    @media(min-width: 1000px) {
+        background-position: center;
+        height: 100%; 
+        border-radius: 8px 0 0 8px;
+    } 
+`;
 
 export const Category = styled.div`
     width: 100%;

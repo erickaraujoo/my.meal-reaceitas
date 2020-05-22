@@ -43,7 +43,7 @@ export const Container = styled.header`
             & nav ul { display: flex;
 
                 & li { list-style: none; color: white; cursor: pointer; font-size: 1rem;
-                    &:hover {  color: #C9A872 };
+                    &:hover {  color: #468DCE };
                 }
 
                 & li + li { margin-left: 40px };
@@ -54,24 +54,34 @@ export const Container = styled.header`
                 width: 230px;
                 display: flex;
                 align-items: center;
-                background: ${ props => {
-                    return props.customHeader ? 'linear-gradient(180deg, #CDB99F 0%, #776040 100%)' : 'transparent'}
-                };
-
-                & div.login { border-right: solid 1px rgba(255, 255, 255, .35) };
 
                 & div.login, div.register {
-                    height: 50%;
+                    height: 100%;
                     width: 50%;
                     color: white;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+                    background: ${ props => {
+                        return props.customHeader ? 'linear-gradient(180deg, #254B6E 0%, #183D60 100%);' : 'transparent'}
+                    };
 
                     & p { font-size: 1.125rem; transition: font-size .15s };
 
                     &:hover > p { font-size: 1.25rem };
+                }
+
+                & hr {
+                    border: ${ props => {
+                         return props.customHeader ? 
+                            'solid .05px #254B6E;' : 
+                            'solid .05px rgba(255, 255, 255, .4);'}
+                    };
+                    height: ${ props => {
+                         return props.customHeader ? '100%' : '50%'}
+                    };
+                    transition: .2s;
                 }
             }
         }

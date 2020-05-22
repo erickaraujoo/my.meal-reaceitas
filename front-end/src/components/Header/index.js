@@ -30,6 +30,7 @@ export default function Header({ customHeader }) {
                     <div className="login">
                         <p>LOG IN</p>
                     </div>
+                    <hr/>
                     <div className="register">
                         <p>REGISTER</p>
                     </div>
