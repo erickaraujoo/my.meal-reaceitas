@@ -36,6 +36,9 @@ function Recipes() {
         const title = cardCategory.querySelector('div');
         const ol = cardCategory.querySelector('ol');
 
+        const bestRecipe = document.getElementsByClassName('best-recipe')[0];
+        bestRecipe.parentNode.style.border = "solid 2px #254B6E";
+
         setHeightCategory(title.offsetHeight + ol.offsetHeight); 
     }, []);
 

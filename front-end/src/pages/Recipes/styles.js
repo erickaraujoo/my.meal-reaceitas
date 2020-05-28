@@ -14,7 +14,7 @@ export const Main = styled.div`
         display: grid;
         grid-template-columns: 1fr repeat(1, minmax(auto, 300px)) repeat(1,minmax(auto, 420px)) repeat(1,minmax(auto, 340px)) 1fr;
         column-gap: 2em;
-        padding-top:  calc(100px + 5em);
+        padding-top:  calc(50px + 5em);
 
         & h1{ grid-column: 2/5 };
 
@@ -102,12 +102,14 @@ export const ContainerCards = styled.section`
             & li {
                 margin-top: 1.5em;
                 list-style: none;
-                border: solid 2px #254B6E;
+                /* border: solid 2px #254B6E; */
                 border-radius: 10px;
                 box-shadow: 0 0 5px rgba(0, 0, 0, .5);
                 transition: box-shadow 0.2s;
                 cursor: pointer;
             }
+
+            /* & li + li { border: solid 2px rgba(0, 0, 0, .3) }; */
 
             & li:hover { box-shadow: 0 0 12.5px rgba(0, 0, 0, .5) };
 
@@ -185,6 +187,8 @@ export const ContainerCards = styled.section`
                         & p{ color: #fff; margin-left: 0.5em; font-size: 1.0625em };
                     }
 
+                    & div.best-recipe:
+
                     & div.image-recipe { width: 100%; height: 100%; grid-column: 1 };
                     & div.data-recipe { grid-column: 2 };
 
@@ -236,7 +240,7 @@ export const ImageRecipe = styled.img`
     @media(min-width: 1000px) {
         background-position: center;
         height: 100%; 
-        border-radius: 8px 0 0 8px;
+        border-radius: 8.5px 0 0 8.5px;
     } 
 `;
 

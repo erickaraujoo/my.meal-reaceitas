@@ -30,9 +30,9 @@ export const Container = styled.header`
             display: flex;
             align-items: center;
             justify-content: space-between;
-            grid-column: 2/24;
+            grid-column: 1/25;
             padding-left: 50px;
-            margin-top: 20px;
+            /* margin-top: 20px; */
             background-color: ${props => props.customHeader ? '#1A1A1A' : 'transparent'};
             box-shadow: ${props => props.customHeader ? '0 0 3px black' : 'none'};
             transform: ${props => props.customHeader ? 'translateY(0px)' : 'translateY(-10px)'};
