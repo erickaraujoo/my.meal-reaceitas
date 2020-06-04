@@ -3,7 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.header`
     width: 100%;
     height: auto;
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 999;
     
     & section.header_mobile {
@@ -30,20 +33,30 @@ export const Container = styled.header`
             display: flex;
             align-items: center;
             justify-content: space-between;
-            grid-column: 1/25;
+            grid-column: 2/24;
             padding-left: 50px;
-            /* margin-top: 20px; */
-            background-color: ${props => props.customHeader ? '#1A1A1A' : 'transparent'};
+            margin-top: 20px;
+            /* background-color: ${props => props.customHeader ? '#1A1A1A' : 'transparent'};
             box-shadow: ${props => props.customHeader ? '0 0 3px black' : 'none'};
-            transform: ${props => props.customHeader ? 'translateY(0px)' : 'translateY(-10px)'};
+            transform: ${props => props.customHeader ? 'translateY(0px)' : 'translateY(-10px)'}; */
+            background-color: 'transparent';
+            box-shadow: none;
+            transform: translateY(-10px);
             transition: .4s;
 
             & h1 { color: white; font-size: 1.25rem };
 
-            & nav ul { display: flex;
+            & nav ul { 
+                display: flex;
 
-                & li { list-style: none; color: white; cursor: pointer; font-size: 1rem;
-                    &:hover {  color: #468DCE };
+                & li { 
+                    list-style: none; 
+                    color: white; 
+                    cursor: pointer; 
+                    font-size: 1rem; 
+                    transition: font-size .1s;
+
+                    &:hover { font-size: 1.0625rem };
                 }
 
                 & li + li { margin-left: 40px };

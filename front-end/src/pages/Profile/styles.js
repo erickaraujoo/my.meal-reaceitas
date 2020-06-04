@@ -108,7 +108,7 @@ export const Main = styled.main`
                         letter-spacing: .35px;
                     };
 
-                    & img { width: 18.75px; height: 18.75px };
+                    & img { width: 22.5px; height: 22.5px };
                 }
 
                 & ol {
