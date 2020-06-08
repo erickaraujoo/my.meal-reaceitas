@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { Main } from './styles';
 
@@ -15,6 +15,10 @@ import ImageAddRecipe from './../../assets/profile/add.png';
 import ImageClose from './../../assets/profile/close.png';
 
 export default function Profile() {
+
+    const history = useHistory();
+
+    // const handlePageNewRecipe = history.push();
 
     return (
         <Main>
@@ -95,7 +99,9 @@ export default function Profile() {
             <section className="section_recipes">
                 <div className="title">
                     <h3>Suas Receitas</h3>
-                    <img src={ImageAddRecipe} alt="add"/>
+                    <Link to={`15918228030309494/recipe/create`}>
+                        <img src={ImageAddRecipe} alt="add"/>   
+                    </Link>
                 </div>
 
                 <ul>

@@ -86,7 +86,7 @@ export const SectionCategory = styled.section`
     grid-column: 4/22;
     padding-top: 100px;
 
-    & h2 { font-size: 2.5rem; color: #C9A872; text-align: center; font-family: Poppins };
+    & h2 { font-size: 2.5rem; color: #254B6E; text-align: center; font-family: Poppins };
 
     & p.subtitle {
         font-size: 1.25rem;
@@ -218,7 +218,7 @@ export const SectionIngredients = styled.section`
     
         & div.content_ingredients { margin-top: 220px; width: 100%; padding-right: 50px;
 
-            & h2 { font-size: 3rem; color: #C9A872; font-family: Poppins; letter-spacing: 1px };
+            & h2 { font-size: 3rem; color: #254B6E; font-family: Poppins; letter-spacing: 1px };
             
             & p.subtitle {
                 font-size: 1.35rem;
@@ -233,8 +233,8 @@ export const SectionIngredients = styled.section`
                 height: 75px;
                 max-height: 100%;
                 border-radius: 50px;
-                border: solid 2px #C9A872;
-                color: #C9A872;
+                border: solid 2px #254B6E;
+                color: #254B6E;
                 font-size: 1.5rem;
                 font-family: PoppinsSemiBold;
                 display: flex;

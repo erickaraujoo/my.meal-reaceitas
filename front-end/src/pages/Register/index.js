@@ -1,55 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { Main, GlobalStyle } from './styles';
 
 import ImageArrowLeft from './../../assets/login/arrow_right.png';
 
-export default function Login() {
+export default function Register() {
 
     const history = useHistory();
 
-    const handlePageRegister = () => history.push(`/register`);
-    const handlePageHome = () => history.push(`/`);
+    const handlePageLogin = () => history.push(`/login`);
 
-    return(
+    return (
         <>
             <GlobalStyle />
             <Main>
-                <section className="section_backToHome" onClick={() => handlePageHome()}>
-                    <img src={ImageArrowLeft} alt="Voltar"/>
-                    <p>Voltar à Página Inicial</p>
-                </section>
-
                 <section className="section_login">
-                    <div className="title_company">
-                        <div></div>
-                        <h3>MEAL RECEITAS</h3>
+                    <div className="title">
+                        <h3>Faça seu cadastro abaixo</h3>
                     </div>
 
-                    <p className="subtitle" >Faça login com sua conta</p>
-
                     <form action="">
+                        <div className="form_name">
+                            <input type="text" name="" id="" placeholder="Nome" />
+                        </div>
                         <div className="form_email">
                             <input type="text" name="" id="" placeholder="Email" />
                         </div>
                         <div className="form_password">
                             <input type="password" name="" id="" placeholder="Senha" />
                         </div>
-                        <button type="submit">Login</button>
+                        <div className="form_password">
+                            <input type="password" name="" id="" placeholder="Confirmar Senha" />
+                        </div>
+                        <button type="submit">Cadastrar</button>
                     </form>
 
-                    <div className="register" onClick={() => handlePageRegister()}>
-                        <p>Se cadastrar</p>
+                    <div className="back" onClick={() => handlePageLogin()}>
                         <img src={ImageArrowLeft} alt=""/>
+                        <p>Voltar</p>
                     </div>
                 </section>
 
                 <section className="section_help">
-                    <p className="help">Não consegue fazer o Login?</p>
                     <p className="privacy_policy">Política de Privacidade</p>   
                 </section>
             </Main>
         </>
-    );
+    );  
 };
+
+

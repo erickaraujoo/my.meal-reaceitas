@@ -1,345 +1,233 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
-import Header from './../../components/Header'
+import api from "./../../services/api";
 
-import ImageCategory from './../../assets/category.png';
-import ImageForKnife from './../../assets/fork_knife.png';
-import ImageFast from './../../assets/fast.png';
-import ImagePhotograph from './../../assets/photograph.png';
-import ImageVideo from './../../assets/video.png';
-import ImageNovelty from './../../assets/novidade2.png';
-import ImageSearch from './../../assets/search.png';
-import ImageHeart from './../../assets/heart_blue.png';
-import ImageReport from './../../assets/recipe_icon.png';
-  
-import { InputSearch } from './../../styles';
-import { Main, FilterByIngredient, OrderBy, ContainerCards, Category, ImageRecipe } from './styles';
+import { fetchRecipes } from './../../store/modules/recipes/actions';
+
+// import Header from "./../../components/Header";
+import Footer from "./../../components/Footer";
+
+import ImageCategory from "./../../assets/category.png";
+import ImageForKnife from "./../../assets/fork_knife.png";
+import ImageFast from "./../../assets/fast.png";
+import ImagePhotograph from "./../../assets/photograph.png";
+import ImageVideo from "./../../assets/video.png";
+import ImageNovelty from "./../../assets/novidade2.png";
+import ImageSearch from "./../../assets/search.png";
+import ImageHeart from "./../../assets/heart_blue.png";
+import ImageReport from "./../../assets/recipe_icon.png";
+
+import { InputSearch } from "./../../styles";
+import {
+  Main,
+  FilterByIngredient,
+  OrderBy,
+  ContainerCards,
+  Category,
+  ImageRecipe,
+} from "./styles";
 
 function Recipes() {
+  const dispatch = useDispatch();
 
-    const [ heightCategory, setHeightCategory ] = useState(0);
-    let [ textSearch, setTextSearch ] = useState('');
+  const listRecipes = useSelector(state => state);
 
-    // Consumindo os parâmetros da URL
-    let query = new URLSearchParams(useLocation().search);
+  console.log(listRecipes);
 
-    const history = useHistory();
+  const [heightCategory, setHeightCategory] = useState(0);
+  const [textSearch, setTextSearch] = useState("");
+  const [recipes, setRecipes] = useState([]);
+  const [totalRecipes, setTotalRecipes] = useState(0);
 
-    function handleSearchRecipes() {
-        history.push(`?search=${textSearch}`);
-        setTextSearch('');
-    }
+  // Consumindo os parâmetros da URL
+  let query = new URLSearchParams(useLocation().search);
+  let search = query.get("search");
 
-    useEffect(() => {
-        const cardCategory = document.getElementById('card-category');
-        const title = cardCategory.querySelector('div');
-        const ol = cardCategory.querySelector('ol');
+  const history = useHistory();
 
-        const bestRecipe = document.getElementsByClassName('best-recipe')[0];
-        bestRecipe.parentNode.style.border = "solid 2px #254B6E";
+  function handleSearchRecipes() {
+    history.push(`?search=${textSearch}`);
+    setTextSearch("");
+  }
 
-        setHeightCategory(title.offsetHeight + ol.offsetHeight); 
-    }, []);
+  useEffect(() => {
+    const cardCategory = document.getElementById("card-category");
+    const title = cardCategory.querySelector("div");
+    const ol = cardCategory.querySelector("ol");
 
-    return(
-        <>
-            <Header customHeader={true} />
-            <Main>
-                {/* Pegando da URL apenas a QUERY 'search' */}
-                <h1>Você pesquisou por: {query.get('search')} </h1>
-                <p className="pTotal-recipes">Foram encontrados 1.152 receitas</p>
+    setHeightCategory(title.offsetHeight + ol.offsetHeight);
+  }, []);
 
-                    <section className="section-data-classification">
-                        <div className="content-wrap">
-                            <FilterByIngredient className="filter-ingredients">
-                                <img src="https://cdn.dogsplanet.com/wp-content/plugins/dogsplanet/public/img/filter-icon.png" alt="Filtro" />
-                                <p>Filtrar por ingrediente</p>
-                            </FilterByIngredient>
+  useEffect(() => {
+    dispatch(fetchRecipes())
+  }, []);
 
-                            <OrderBy className="order-by">
-                                <p>Ordenar por:</p>
-                                <select>
-                                    <option>Selecionar</option>
-                                </select>
-                            </OrderBy>
+  // useEffect(() => {
+  //   const handleRecipes = async () => {
+  //     try {
+  //       const { data } = await api.get("receitas?page=0");
 
-                            <InputSearch width={100} className="input-search" style={ { height: '45px' } }>
-                                <input 
-                                    placeholder="Search..." 
-                                    value={textSearch} 
-                                    onChange={ e => setTextSearch(e.target.value) }
-                                    // O mesmo serve para a tecla 'enter'
-                                    onKeyPress={e => e.which === 13 ? handleSearchRecipes() : ''} 
-                                />
-                                <button onClick={handleSearchRecipes}>
-                                    <img src={ImageSearch} alt="Pesquisar"/>
-                                </button>
-                            </InputSearch>
-                        </div>
-                    </section>
-                        
-                    <ContainerCards className="section-category-cards">
-                        <div className="content-wrap">
-                            <Category id="card-category" height={heightCategory}>
-                                <div id="titleCategory">
-                                    <img src={ ImageCategory } alt="Categoria" />
-                                    <p>Categorias</p>
-                                </div>
+  //       setTotalRecipes(data.totalElements);
 
-                                <ol className="list-category">
-                                    <li>
-                                        <img src={ ImageForKnife } alt="All" />
-                                        Todas as Receitas
-                                    </li>
-                                    <li>
-                                        <img src={ ImageFast } alt="Fast" />
-                                        Rápidas
-                                    </li>
-                                    <li>
-                                        <img src={ ImagePhotograph } alt="Photograpy" />
-                                        Com Foto
-                                    </li>
-                                    <li>
-                                        <img src={ ImageVideo } alt="Video"/>
-                                        Com Vídeo
-                                    </li>
-                                    <li>
-                                        <img src={ImageNovelty} alt="Novelty" />
-                                        Novidades
-                                    </li>
-                                </ol>
-                            </Category>
+  //       data.content.forEach((recipe) => {
+  //         setRecipes((arrayRecipes) => [
+  //           ...arrayRecipes,
+  //           {
+  //             id_recipe: recipe.id_receita,
+  //             title: recipe.nome,
+  //             image: recipe.imagem,
+  //             description: recipe.descricao,
+  //             method_preparation: recipe.modo_preparo,
+  //             yield: recipe.rendimento,
+  //             preparation_time: recipe.tempo_preparo,
+  //             obs: recipe.observacao,
+  //             ingredients: recipe.ingredientes,
+  //             user: recipe.usuario,
+  //           },
+  //         ]);
+  //       });
+  //     } catch (err) { console.log(err) };
+  //   };
 
-                            <div className="card-container">
-                                <ol className="list-recipes">
-                                    <li>
-                                        <div className="best-recipe">
-                                            <img src={ImageReport} alt="Best"/>
-                                            <p>Esta é a receita que você esta procurando!</p>
-                                        </div>
-                                        <div className="image-recipe">
-                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
-                                        </div>
+  //   handleRecipes();
+  // }, []);
 
-                                        <div className="data-recipe">
-                                            <strong>Bolo de fubá</strong>
-                                            <p className="author">Por: Erick Araujo</p>
+  return (
+    <>
+      <Main>
+        <div className="blue_background"></div>
 
-                                            <p className="description">
-                                                Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                            </p>
-                                        </div>
+        { search && <h1>Você pesquisou por: { search } </h1> } 
+        <p className="pTotal-recipes">Foram encontrados { totalRecipes } receitas</p>
 
-                                        <div className="info-recipe">
+        <section className="section-data-classification">
+          <div className="content-wrap">
+            <FilterByIngredient className="filter-ingredients">
+              <img
+                src="https://cdn.dogsplanet.com/wp-content/plugins/dogsplanet/public/img/filter-icon.png"
+                alt="Filtro"
+              />
+              <p>Filtrar por ingrediente</p>
+            </FilterByIngredient>
 
-                                            <div className="favorite-info">
-                                                <img src={ImageHeart} alt="Favoritos"/>
-                                                <p><span> 213 </span> pessoas</p>
-                                            </div>
+            <OrderBy className="order-by">
+              <p>Ordenar por:</p>
+              <select>
+                <option>Selecionar</option>
+              </select>
+            </OrderBy>
 
-                                            <div className="access-info">
-                                                <strong>1.152</strong> acessos
-                                            </div>
+            <InputSearch
+              width={100}
+              className="input-search"
+              style={{ height: "45px" }}
+            >
+              <input
+                placeholder="Search..."
+                value={textSearch}
+                onChange={(e) => setTextSearch(e.target.value)}
+                // O mesmo serve para a tecla 'enter'
+                onKeyPress={(e) =>
+                  e.which === 13 ? handleSearchRecipes() : ""
+                }
+              />
+              <button onClick={handleSearchRecipes}>
+                <img src={ImageSearch} alt="Pesquisar" />
+              </button>
+            </InputSearch>
+          </div>
+        </section>
 
-                                            <div className="date-info">
-                                                <p>Data de Publicação:</p>
-                                                <p> 25/03/2020 </p>
-                                            </div>
+        <ContainerCards className="section-category-cards">
+          <div className="content-wrap">
+            <Category id="card-category" height={heightCategory}>
+              <div id="titleCategory">
+                <img src={ImageCategory} alt="Categoria" />
+                <p>Categorias</p>
+              </div>
 
-                                            <div className="avaliation-info">
-                                                Avaliação: 
-                                                <p className="note-avaliation"> 8,9 </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="image-recipe">
-                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
-                                        </div>
+              <ol className="list-category">
+                <li>
+                  <img src={ImageForKnife} alt="All" />
+                  Todas as Receitas
+                </li>
+                <li>
+                  <img src={ImageFast} alt="Fast" />
+                  Rápidas
+                </li>
+                <li>
+                  <img src={ImagePhotograph} alt="Photograpy" />
+                  Com Foto
+                </li>
+                <li>
+                  <img src={ImageVideo} alt="Video" />
+                  Com Vídeo
+                </li>
+                <li>
+                  <img src={ImageNovelty} alt="Novelty" />
+                  Novidades
+                </li>
+              </ol>
+            </Category>
 
-                                        <div className="data-recipe">
-                                            <strong>Bolo de fubá</strong>
-                                            <p className="author">Por: Erick Araujo</p>
+            <div className="card-container">
+              <ol className="list-recipes">
+                {recipes.map((recipe, index) => (
+                  <li key={index}>
+                    { index === 0 ? (
+                      <div className="best-recipe">
+                        <img src={ImageReport} alt="Best" />
+                        <p>Esta é a receita que você esta procurando!</p>
+                      </div>
+                    ) : ('')}
+                    <div className="image-recipe">
+                      <ImageRecipe background={ recipe.image }
+                      />
+                    </div>
 
-                                            <p className="description">
-                                                Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                            </p>
-                                        </div>
+                    <div className="data-recipe">
+                      <strong> { recipe.title } </strong>
+                      <p className="author">Por: { recipe.user.nome } </p>
 
-                                        <div className="info-recipe">
+                      <p className="description"> 
+                        { recipe.description ? recipe.description : 'Sem descrição' } 
+                      </p>
+                    </div>
 
-                                            <div className="favorite-info">
-                                                <img src={ImageHeart} alt="Favoritos"/>
-                                                <p><span> 213 </span> pessoas</p>
-                                            </div>
+                    <div className="info-recipe">
+                      <div className="favorite-info">
+                        <img src={ImageHeart} alt="Favoritos" />
+                        <p>
+                          <span> 213 </span> pessoas
+                        </p>
+                      </div>
 
-                                            <div className="access-info">
-                                                <strong>1.152</strong> acessos
-                                            </div>
+                      <div className="access-info">
+                        <strong>1.152</strong> acessos
+                      </div>
 
-                                            <div className="date-info">
-                                                <p>Data de Publicação:</p>
-                                                <p> 25/03/2020 </p>
-                                            </div>
+                      <div className="date-info">
+                        <p>Data de Publicação:</p>
+                        <p> 25/03/2020 </p>
+                      </div>
 
-                                            <div className="avaliation-info">
-                                                <p>Avaliação:</p>
-                                                <p className="note-avaliation"> 8,9 </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="image-recipe">
-                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
-                                        </div>
-
-                                        <div className="data-recipe">
-                                            <strong>Bolo de fubá</strong>
-                                            <p className="author">Por: Erick Araujo</p>
-
-                                            <p className="description">
-                                                Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                            </p>
-                                        </div>
-
-                                        <div className="info-recipe">
-
-                                            <div className="favorite-info">
-                                                <img src={ImageHeart} alt="Favoritos"/>
-                                                <p><span> 213 </span> pessoas</p>
-                                            </div>
-
-                                            <div className="access-info">
-                                                <strong>1.152</strong> acessos
-                                            </div>
-
-                                            <div className="date-info">
-                                                <p>Data de Publicação:</p>
-                                                <p> 25/03/2020 </p>
-                                            </div>
-
-                                            <div className="avaliation-info">
-                                                <p>Avaliação:</p>
-                                                <p className="note-avaliation"> 8,9 </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="image-recipe">
-                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
-                                        </div>
-
-                                        <div className="data-recipe">
-                                            <strong>Bolo de fubá</strong>
-                                            <p className="author">Por: Erick Araujo</p>
-
-                                            <p className="description">
-                                                Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                            </p>
-                                        </div>
-
-                                        <div className="info-recipe">
-
-                                            <div className="favorite-info">
-                                                <img src={ImageHeart} alt="Favoritos"/>
-                                                <p><span> 213 </span> pessoas</p>
-                                            </div>
-
-                                            <div className="access-info">
-                                                <strong>1.152</strong> acessos
-                                            </div>
-
-                                            <div className="date-info">
-                                                <p>Data de Publicação:</p>
-                                                <p> 25/03/2020 </p>
-                                            </div>
-
-                                            <div className="avaliation-info">
-                                                <p>Avaliação:</p>
-                                                <p className="note-avaliation"> 8,9 </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="image-recipe">
-                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
-                                        </div>
-
-                                        <div className="data-recipe">
-                                            <strong>Bolo de fubá</strong>
-                                            <p className="author">Por: Erick Araujo</p>
-
-                                            <p className="description">
-                                                Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                            </p>
-                                        </div>
-
-                                        <div className="info-recipe">
-
-                                            <div className="favorite-info">
-                                                <img src={ImageHeart} alt="Favoritos"/>
-                                                <p><span> 213 </span> pessoas</p>
-                                            </div>
-
-                                            <div className="access-info">
-                                                <strong>1.152</strong> acessos
-                                            </div>
-
-                                            <div className="date-info">
-                                                <p>Data de Publicação:</p>
-                                                <p> 25/03/2020 </p>
-                                            </div>
-
-                                            <div className="avaliation-info">
-                                                <p>Avaliação:</p>
-                                                <p className="note-avaliation"> 8,9 </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="image-recipe">
-                                            <ImageRecipe background={'https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg'} />
-                                        </div>
-
-                                        <div className="data-recipe">
-                                            <strong>Bolo de fubá</strong>
-                                            <p className="author">Por: Erick Araujo</p>
-
-                                            <p className="description">
-                                                Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                            </p>
-                                        </div>
-
-                                        <div className="info-recipe">
-
-                                            <div className="favorite-info">
-                                                <img src={ImageHeart} alt="Favoritos"/>
-                                                <p><span> 213 </span> pessoas</p>
-                                            </div>
-
-                                            <div className="access-info">
-                                                <strong>1.152</strong> acessos
-                                            </div>
-
-                                            <div className="date-info">
-                                                <p>Data de Publicação:</p>
-                                                <p> 25/03/2020 </p>
-                                            </div>
-
-                                            <div className="avaliation-info">
-                                                <p>Avaliação:</p>
-                                                <p className="note-avaliation"> 8,9 </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </ContainerCards>
-            </Main>
-        </>
-    )
+                      <div className="avaliation-info">
+                        Avaliação:
+                        <p className="note-avaliation"> 8,9 </p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </ContainerCards>
+      </Main>
+      <Footer />
+    </>
+  );
 }
 
 export default Recipes;

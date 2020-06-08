@@ -77,6 +77,8 @@ export const InputSearch = styled.div`
         border-radius: 0 .28571429rem .28571429rem 0;
         -webkit-user-select: none;
         user-select: none;
+        align-items: center;
+        justify-content: center;
         
         &:hover{ background-color: #d2d2d2 };
     }

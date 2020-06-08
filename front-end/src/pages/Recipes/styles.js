@@ -4,6 +4,7 @@ export const Main = styled.div`
     width: 100%;
     height: auto;
     padding: 0 1.5em;
+    margin-bottom: 100px;
 
     & h1 { color: #254B6E };
 
@@ -14,9 +15,15 @@ export const Main = styled.div`
         display: grid;
         grid-template-columns: 1fr repeat(1, minmax(auto, 300px)) repeat(1,minmax(auto, 420px)) repeat(1,minmax(auto, 340px)) 1fr;
         column-gap: 2em;
-        padding-top:  calc(50px + 5em);
 
-        & h1{ grid-column: 2/5 };
+        & div.blue_background { 
+            grid-column: 1/6;
+            width: 100%;
+            height: 100px;
+            background-color: #254B6E;
+        };
+
+        & h1{ grid-column: 2/5; margin-top: 100px };
 
         & p.pTotal-recipes{ grid-column: 2/5 };
 

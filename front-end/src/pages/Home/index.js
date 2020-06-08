@@ -55,7 +55,7 @@ export default function Home() {
                             onChange={ e => setInputValue(e.target.value) }
                         />
 
-                        <button onClick={() => handlePageRecipe }>Buscar agora!</button>
+                        <button onClick={() => handlePageRecipe() }>Buscar agora!</button>
                     </div>
                 </SectionSearch>
 

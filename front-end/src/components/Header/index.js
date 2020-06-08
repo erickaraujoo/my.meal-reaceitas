@@ -1,10 +1,15 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { Container } from './styles'
 
 import ImageMenu from './../../assets/burger_menu.png';
 
 export default function Header({ customHeader }) {
+
+    const history = useHistory();
+
+    const handlePageLogin = () => history.push(`/login`);
 
     return(
         <Container customHeader={customHeader}>
@@ -27,7 +32,7 @@ export default function Header({ customHeader }) {
                 </nav>
 
                 <div className="register_header">
-                    <div className="login">
+                    <div className="login" onClick={() => handlePageLogin()}>
                         <p>LOG IN</p>
                     </div>
                     <hr/>

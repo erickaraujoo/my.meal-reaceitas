@@ -7,6 +7,7 @@ import Profile from './../pages/Profile'
 import NewRecipe from './../pages/NewRecipe'
 
 import Login from './../pages/Login'
+import Register from './../pages/Register'
 
 const Routes = () => (
     <BrowserRouter>
@@ -17,6 +18,7 @@ const Routes = () => (
             <Route exact path="/profile/:id/recipe/create" component={ () =>  <NewRecipe /> } />
 
             <Route exact path="/login" component={ () => <Login /> } />
+            <Route exact path="/register" component={ () => <Register /> } />
         </Switch>
     </BrowserRouter>
 );
