@@ -1,25 +1,28 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Home from './../pages/Home'
-import Recipes from './../pages/Recipes'
-import Profile from './../pages/Profile'
-import NewRecipe from './../pages/NewRecipe'
+import LoadingPage from './../components/LoadingPage';
 
-import Login from './../pages/Login'
-import Register from './../pages/Register'
+const Home = lazy(() => import('./../pages/Home'));
+const Recipes = lazy(() => import('./../pages/Recipes'));
+const Profile = lazy(() => import('./../pages/Profile'));
+const NewRecipe = lazy(() => import('./../pages/NewRecipe'));
+const Login = lazy(() => import('./../pages/Login'));
+const Register = lazy(() => import('./../pages/Register'));
 
 const Routes = () => (
     <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={ () => <Home /> } />
-            <Route exact path="/recipes" component={ () => <Recipes /> } />
-            <Route exact path="/profile/:id" component={ () =>  <Profile /> } />
-            <Route exact path="/profile/:id/recipe/create" component={ () =>  <NewRecipe /> } />
+        <Suspense fallback={<LoadingPage />}>
+            <Switch>
+                <Route exact path="/" component={ () => <Home /> } />
+                <Route exact path="/recipes" component={ () => <Recipes /> } />
+                <Route exact path="/profile/:id" component={ () =>  <Profile /> } />
+                <Route exact path="/profile/:id/recipe/create" component={ () =>  <NewRecipe /> } />
 
-            <Route exact path="/login" component={ () => <Login /> } />
-            <Route exact path="/register" component={ () => <Register /> } />
-        </Switch>
+                <Route exact path="/login" component={ () => <Login /> } />
+                <Route exact path="/register" component={ () => <Register /> } />
+            </Switch>
+        </Suspense>
     </BrowserRouter>
 );
 

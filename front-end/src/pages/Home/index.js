@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'; 
 
 import Header from './../../components/Header'
 import Footer from './../../components/Footer'
@@ -31,6 +32,10 @@ export default function Home() {
     const [customHeader, setCustomHeader] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const history = useHistory();
+
+    const a = useSelector(state => state);
+
+    console.log(a);
 
     window.onscroll = function() {
         if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) setCustomHeader(true);

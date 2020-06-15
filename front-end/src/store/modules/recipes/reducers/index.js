@@ -1,7 +1,9 @@
 import types from '../types';
 
 const INITIAL_STATE = {
-  data: [],
+  data: {
+    content: [],
+  },
   loading: false,
   error: false
 };

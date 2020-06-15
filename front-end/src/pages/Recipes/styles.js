@@ -124,13 +124,13 @@ export const ContainerCards = styled.section`
 
             & div.data-recipe, & div.access-info { padding: 1em };
 
+            & div.data-recipe { border-bottom: solid 1px rgba(0, 0, 0, .15) };
+
             & li div img.imgRecipe{ width: 100%; height: 150px; border-radius: 8px 8px 0 0 };
 
             & div.best-recipe{ display: none };
 
             & li div.data-recipe {
-                border-bottom: solid 1px rgba(0, 0, 0, .15);
-
                 & strong { font-size: 1.375rem; letter-spacing: 0.75px; font-family: PoppinsRegular };
 
                 & p.description { font-size: .875rem; margin-top: 2em; text-align: justify; font-family: PoppinsRegular };
@@ -193,11 +193,9 @@ export const ContainerCards = styled.section`
 
                         & p{ color: #fff; margin-left: 0.5em; font-size: 1.0625em };
                     }
-
-                    & div.best-recipe:
-
+                    
                     & div.image-recipe { width: 100%; height: 100%; grid-column: 1 };
-                    & div.data-recipe { grid-column: 2 };
+                    & div.data-recipe { grid-column: 2; border: none };
 
                     & div.info-recipe {
                         grid-column: 3;
