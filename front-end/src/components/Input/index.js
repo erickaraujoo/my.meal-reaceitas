@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { debounce } from 'lodash';
 
 import { InputSearch } from './styles';
@@ -31,7 +31,7 @@ export const InputSearchRecipe = ({ ...props }) => {
         onChange={(e) => handleTextSearch(e.target.value)}
         onKeyPress={(e) => (e.which === 13 ? handleSearchRecipes() : "")}
       />
-      <button onClick={handleSearchRecipes}>
+      <button onClick={() => handleSearchRecipes()}>
         <img src={ImageSearch} alt="Pesquisar" />
       </button>
     </InputSearch>

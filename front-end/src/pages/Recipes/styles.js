@@ -54,22 +54,6 @@ export const Main = styled.div`
         & div.card-container{ grid-column: 2/5 };
     }
 `
-export const FilterByIngredient = styled.div`
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 300px;
-    border-radius: .4571429rem;
-    margin-top: 3.5rem;
-    background: white;
-    border: 1px solid rgba(34,36,38,.15);
-    height: 45px;
-    transition: filter 0.1s;
-
-    &:hover { filter: brightness(95%); cursor: pointer };
-
-    & img { width: 35px; height: auto; margin: 0 1rem 0 1.25rem };
-`
 
 export const OrderBy = styled.div`
     position: relative;
@@ -248,39 +232,3 @@ export const ImageRecipe = styled.img`
         border-radius: 8.5px 0 0 8.5px;
     } 
 `;
-
-export const Category = styled.div`
-    width: 100%;
-    max-height: ${props => props.height + 2}px;
-    background: #254B6E;
-    border: 1px solid rgba(34,36,38,.15);
-    border-radius: .28571429rem;
-
-    @media(min-width: 700px) { grid-column: 1 };
-
-    & div#titleCategory{ display: flex; align-items: center; padding: .5rem 1em };
-
-    & img { width: 25px; height: auto; margin-right: 1rem };
-
-    & p { color: #fff; font-size: 1.25rem };
-
-    & ol.list-category{
-        display: block;
-
-        & li {
-            list-style: none;
-            background: #fff;
-            padding: 1em;
-            font-size: 1rem;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            border-bottom: solid 1px rgba(0, 0, 0, .15);
-            transition: filter 0.1s;
-        }
-
-        & li:last-child { border-radius: 0 0 .28571429rem .28571429rem }; 
-
-        & li:hover { filter: brightness(95%); cursor: pointer };
-    }
-`

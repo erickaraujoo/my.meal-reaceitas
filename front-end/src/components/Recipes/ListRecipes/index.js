@@ -1,9 +1,11 @@
 import React from "react";
 
-import ImageReport from "./../../assets/recipe_icon.png";
-import ImageHeart from "./../../assets/heart_blue.png";
+import ImageReport from "./../../../assets/recipe_icon.png";
+import ImageHeart from "./../../../assets/heart_blue.png";
 
-export default function ListRecipes({ recipes, loading, error,  ImageRecipe }) {
+import { ImageRecipe } from './styles';
+
+export default function ListRecipes({ recipes, loading, error }) {
   if (error) {
     alert("Erro ao conectar com o banco de dados, tente novamente mais tarde!");
     return <p>Não foi possível se conectar com o banco de dados</p>;
