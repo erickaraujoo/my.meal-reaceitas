@@ -27,26 +27,16 @@ function Recipes() {
   );
   const Footer = lazy(() => import("./../../components/Footer"));
 
-  const [totalRecipes, setTotalRecipes] = useState(0);
   const recipes = useSelector((state) => state.recipes);
-
-  useEffect(() => {
-    recipes.data.totalElements
-      ? setTotalRecipes(recipes.data.totalElements)
-      : setTotalRecipes(0);
-  }, [recipes.data.totalElements]);
 
   return (
     <>
       <Main>
         <div className="blue_background"></div>
 
-        <FetchRecipes />
-        <p className="pTotal-recipes">
-          Foram encontrados {totalRecipes} receitas
-        </p>
-
         <FiltersProvider>
+          <FetchRecipes totalElements={recipes.data.totalElemets} />
+
           <section className="section-data-classification">
             <div className="content-wrap">
               <FilterByIngredients />

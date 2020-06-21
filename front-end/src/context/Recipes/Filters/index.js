@@ -14,6 +14,7 @@ export default function FiltersProvider({ children }) {
   const [page] = useState(0);
 
   useEffect(() => {
+    console.log({ category, ordenation, search, ingredient })
     dispatch(fetchRecipes(category, ordenation, search, ingredient, page));
   }, [category, ordenation, search, ingredient, page, dispatch]);
 
