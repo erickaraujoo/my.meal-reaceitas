@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Main } from './styles';
 
@@ -16,7 +16,7 @@ import ImageClose from './../../assets/profile/close.png';
 
 export default function Profile() {
 
-    const history = useHistory();
+    // const history = useHistory();
 
     // const handlePageNewRecipe = history.push();
 

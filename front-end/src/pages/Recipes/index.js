@@ -1,10 +1,13 @@
 import React, { useState, useEffect, lazy } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { InputSearchRecipe } from "./../../components/Input";
-import { fetchRecipes } from "./../../store/modules/recipes/actions";
+import InputSearchRecipe from "../../components/Recipes/SearchRecipes";
 
-import { Main, ContainerCards } from "./styles";
+import FiltersProvider from "./../../context/Recipes/Filters";
+
+// import { InputSearchRecipe } from "./../../components/Recipes/Filters/SearchRecipes";
+
+import { Main, ContainerCategory } from "./styles";
 
 function Recipes() {
   const ListCategory = lazy(() =>
@@ -14,21 +17,18 @@ function Recipes() {
     import("./../../components/Recipes/ListRecipes")
   );
   const FilterByIngredients = lazy(() =>
-    import("../../components/Recipes/Filters/FilterByIngredients")
+    import("../../components/Recipes/FilterByIngredients")
   );
   const OrderRecipesBy = lazy(() =>
-    import("../../components/Recipes/Filters/OrderRecipesBy")
+    import("../../components/Recipes/OrderRecipesBy")
   );
-  const FetchRecipes = lazy(() => import("./../../components/Recipes/FetchRecipes"));
+  const FetchRecipes = lazy(() =>
+    import("./../../components/Recipes/FetchRecipes")
+  );
   const Footer = lazy(() => import("./../../components/Footer"));
 
-  const dispatch = useDispatch();
   const [totalRecipes, setTotalRecipes] = useState(0);
   const recipes = useSelector((state) => state.recipes);
-
-  useEffect(() => {
-    dispatch(fetchRecipes());
-  }, [dispatch]);
 
   useEffect(() => {
     recipes.data.totalElements
@@ -46,34 +46,34 @@ function Recipes() {
           Foram encontrados {totalRecipes} receitas
         </p>
 
-        <section className="section-data-classification">
-          <div className="content-wrap">
-            <FilterByIngredients />
-            <OrderRecipesBy />
-            <InputSearchRecipe
-              width={100}
-              height={45}
-              type={"text"}
-              placeholder={"Pesquisar..."}
-            />
-          </div>
-        </section>
+        <FiltersProvider>
+          <section className="section-data-classification">
+            <div className="content-wrap">
+              <FilterByIngredients />
+              <OrderRecipesBy />
+              <InputSearchRecipe
+                width={100}
+                height={45}
+                type={"text"}
+                placeholder={"Pesquisar..."}
+              />
+            </div>
+          </section>
 
-        <ContainerCards className="section-category-cards">
-          <div className="content-wrap">
+          <ContainerCategory className="section-category">
             <div className="category-container">
               <ListCategory />
             </div>
+          </ContainerCategory>
+        </FiltersProvider>
 
-            <div className="card-container">
-              <ListRecipes
-                recipes={recipes.data.content}
-                loading={recipes.loading}
-                error={recipes.error}
-              />
-            </div>
-          </div>
-        </ContainerCards>
+        <section className="section_recipes">
+          <ListRecipes
+            recipes={recipes.data.content}
+            loading={recipes.loading}
+            error={recipes.error}
+          />
+        </section>
       </Main>
       <Footer />
     </>

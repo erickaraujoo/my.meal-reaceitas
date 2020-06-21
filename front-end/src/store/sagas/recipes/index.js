@@ -1,28 +1,34 @@
-import { takeLatest, put, all, call } from 'redux-saga/effects';
-import api, { recipes } from './../../../services/api';
+import { takeLatest, put, all, call } from "redux-saga/effects";
+import { recipes } from "./../../../services/api";
 
-import types from './../../modules/recipes/types';
+import types from "./../../modules/recipes/types";
 
-function apiGet() {
+function apiGet({ category, ordenation, search, ingredient, page }) {
+  const params = {
+    category,
+    ordenation,
+    search,
+    ingredient,
+    page,
+  };
+
   try {
-    return recipes.selectAll( { page: 0 } );
-  } catch(err) {
+    return recipes.selectAll({ params });
+  } catch (err) {
     return err;
   }
-};
+}
 
-function* getRecipes() {
+function* getRecipes(action) {
   try {
-    const { data } = yield call(apiGet);
+    const { data } = yield call(apiGet, action.params);
 
     yield put({ type: types.SUCCESS_FECTH_RECIPES, payload: { data } });
-  } catch(err) {
-    yield put({ type: types.FAILURE_RECIPES })
+  } catch (err) {
+    yield put({ type: types.FAILURE_RECIPES });
   }
 }
 
 export function* fetchRecipesSaga() {
-  yield all([
-    takeLatest('recipes/FETCHING_RECIPES', getRecipes),
-  ]);
+  yield all([takeLatest(types.FETCHING_RECIPES, getRecipes)]);
 }

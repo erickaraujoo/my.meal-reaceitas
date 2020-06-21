@@ -3,20 +3,15 @@ import React from "react";
 import ImageReport from "./../../../assets/recipe_icon.png";
 import ImageHeart from "./../../../assets/heart_blue.png";
 
-import { ImageRecipe } from './styles';
+import { Recipe, ImageRecipe } from './styles';
 
 export default function ListRecipes({ recipes, loading, error }) {
   if (error) {
-    alert("Erro ao conectar com o banco de dados, tente novamente mais tarde!");
-    return <p>Não foi possível se conectar com o banco de dados</p>;
+    return <><p>Não foi possível se conectar com o banco de dados</p></>;
   }
 
-  recipes.map((recipe, index) => {
-    return console.log(recipe.imagem)
-  })
-
   return (
-    <>
+    <Recipe>
       <ol className="list-recipes">
         {recipes.map((recipe, index) => (
           <li key={index}>
@@ -67,6 +62,6 @@ export default function ListRecipes({ recipes, loading, error }) {
         ))}
       </ol>
       {loading && <p>Carregando...</p>}
-    </>
+    </Recipe>
   );
 }

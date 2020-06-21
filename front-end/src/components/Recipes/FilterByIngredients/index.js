@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { FilterByIngredient } from './styles';
 
-import ImageFilter from './../../../../assets/recipes/filter.png';
+// import { useIngredients } from '../../../context/Recipes/Filters';
+
+import ImageFilter from './../../../assets/recipes/filter.png';
 
 export default function FilterByIngredients() {
+
+  // const { ingredients, setIngredients } = useIngredients();
+
   return (
     <FilterByIngredient className="filter-ingredients">
       <img src={ImageFilter} alt={'Filtro'}/>

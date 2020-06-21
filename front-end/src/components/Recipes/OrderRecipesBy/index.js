@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
+import { useOrdenation } from '../../../context/Recipes/Filters';
 
 import { OrderBy } from "./styles";
 
 export default function OrderRecipesBy() {
-  const [options, setOptions] = useState([
+
+  const { ordenation, setOrdenation } = useOrdenation();
+
+  const [options] = useState([
     { title: "Selecionar", value: "default" },
     { title: "Nome da receita", value: "name_recipe" },
     { title: "Data de criação", value: "creation_date" },
@@ -12,17 +17,14 @@ export default function OrderRecipesBy() {
     { title: "Mais favoritados", value: "most_favorite" },
     { title: "Mais comentados", value: "most_commented" },
   ]);
-  const [ordenation, setOrdenation] = useState("");
 
-  const handleOrdenation = (value) => {
-    setOrdenation(value);
-  };
+  const handleOrdenation = value => setOrdenation(value);
 
   return (
     <OrderBy className="order-by">
       <p>Ordenar por:</p>
       <select
-        defaultValue={"default"}
+        defaultValue={ordenation}
         onChange={(e) => handleOrdenation(e.target.value)}
       >
         {options.map(({ title, value }, index) => (
