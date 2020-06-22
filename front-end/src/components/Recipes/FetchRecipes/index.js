@@ -13,11 +13,6 @@ export default function FetchRecipes({ totalElements }) {
       : setTotalRecipes(0);
   }, [totalElements]);
   
-  // const query = new URLSearchParams(useLocation().search);
-  // const search = query.get("search");
-
-  // return <>{search && <h1>Você pesquisou por: {search} </h1>}</>;
-
   return (
     <>
       {search && <h1>Você pesquisou por: { search }</h1>}

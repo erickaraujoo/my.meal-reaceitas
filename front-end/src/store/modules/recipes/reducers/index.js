@@ -15,7 +15,7 @@ export default function recipes(state = INITIAL_STATE, action) {
     case types.SUCCESS_FECTH_RECIPES:
       return { data: action.payload.data, loading: false, error: false }; 
     case types.FAILURE_RECIPES:
-      return { ...state, loading: false, error: true };
+      return { data: { content: [] }, loading: false, error: true };
     default: 
       return state;
   }

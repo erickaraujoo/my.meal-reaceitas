@@ -7,16 +7,16 @@ const FiltersContext = createContext();
 
 export default function FiltersProvider({ children }) {
   const dispatch = useDispatch();
-  const [category, setCategory] = useState("");
-  const [ordenation, setOrdenation] = useState("default");
+  const [category, setCategory] = useState(1);
+  const [sort, setSort] = useState("default");
   const [search, setSearch] = useState("");
   const [ingredient, setIngredient] = useState([]);
   const [page] = useState(0);
+  const [size] = useState(10);
 
   useEffect(() => {
-    console.log({ category, ordenation, search, ingredient })
-    dispatch(fetchRecipes(category, ordenation, search, ingredient, page));
-  }, [category, ordenation, search, ingredient, page, dispatch]);
+    dispatch(fetchRecipes(category, search, ingredient, page, size, sort));
+  }, [category, sort, search, ingredient, page, size, dispatch]);
 
   return (
     <FiltersContext.Provider
@@ -25,8 +25,8 @@ export default function FiltersProvider({ children }) {
         setCategory,
         ingredient,
         setIngredient,
-        ordenation,
-        setOrdenation,
+        sort,
+        setSort,
         search,
         setSearch,
       }}
@@ -50,8 +50,8 @@ export function useIngredients() {
 
 export function useOrdenation() {
   const context = useContext(FiltersContext);
-  const { ordenation, setOrdenation } = context;
-  return { ordenation, setOrdenation };
+  const { sort, setSort } = context;
+  return { sort, setSort };
 }
 
 export function useSearch() {
@@ -67,8 +67,8 @@ export function useStates() {
     setCategory,
     ingredient,
     setIngredient,
-    ordenation,
-    setOrdenation,
+    sort,
+    setSort,
     search,
     setSearch,
   } = context;
@@ -78,8 +78,8 @@ export function useStates() {
     setCategory,
     ingredient,
     setIngredient,
-    ordenation,
-    setOrdenation,
+    sort,
+    setSort,
     search,
     setSearch,
   };

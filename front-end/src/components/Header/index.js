@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import { Container } from './styles'
 
@@ -24,7 +24,7 @@ export default function Header({ customHeader }) {
                 <nav>
                     <ul>
                         <li>CHEFS</li>
-                        <li>RECEITAS</li>
+                        <Link to={'/recipes'}> <li>RECEITAS</li> </Link>
                         <li>CATEGORIAS</li>
                         <li>PUBLICAR</li>
                         <li>FEEDBACK</li>

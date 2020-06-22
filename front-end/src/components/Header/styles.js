@@ -59,7 +59,7 @@ export const Container = styled.header`
                     &:hover { font-size: 1.0625rem };
                 }
 
-                & li + li { margin-left: 40px };
+                & li + li, li + a, a + li { margin-left: 40px; text-decoration: none };
             }
 
             & div.register_header {

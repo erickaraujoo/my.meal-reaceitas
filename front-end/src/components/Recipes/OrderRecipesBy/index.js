@@ -6,26 +6,26 @@ import { OrderBy } from "./styles";
 
 export default function OrderRecipesBy() {
 
-  const { ordenation, setOrdenation } = useOrdenation();
+  const { sort, setSort } = useOrdenation();
 
   const [options] = useState([
     { title: "Selecionar", value: "default" },
-    { title: "Nome da receita", value: "name_recipe" },
-    { title: "Data de criação", value: "creation_date" },
-    { title: "Mais avaliado", value: "most_rated" },
-    { title: "Mais acessado", value: "most_acessed" },
-    { title: "Mais favoritados", value: "most_favorite" },
-    { title: "Mais comentados", value: "most_commented" },
+    { title: "Nome da receita", value: "nome" },
+    { title: "Data de criação", value: "data_criacao" },
+    { title: "Mais avaliado", value: "avaliacoes" },
+    { title: "Mais acessado", value: "acessos" },
+    { title: "Mais favoritados", value: "favoritos" },
+    { title: "Mais comentados", value: "comentarios" },
   ]);
 
-  const handleOrdenation = value => setOrdenation(value);
+  const handlesort = value => setSort(value);
 
   return (
     <OrderBy className="order-by">
       <p>Ordenar por:</p>
       <select
-        defaultValue={ordenation}
-        onChange={(e) => handleOrdenation(e.target.value)}
+        defaultValue={sort}
+        onChange={(e) => handlesort(e.target.value)}
       >
         {options.map(({ title, value }, index) => (
           <option key={index} value={value}>

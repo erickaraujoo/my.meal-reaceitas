@@ -5,11 +5,13 @@ const api = axios.create({
 });
 
 export const recipes = {
-  selectAll: ({ category, ordenation, search, ingredient, page }) => {
-    return api.get(
-      `/receitas/${category}/${search}/${ingredient}/${ordenation}`,
-      { page }
-    );
+  selectAll: ({ params }) => {
+    return api.get('/receitas', { params })
+    // const { category, search, ingredient, ordenation, page } = params;
+    // return api.get(
+    //   `/receitas/${ordenation}`,
+    //   { page }
+    // );
   },
 };
 

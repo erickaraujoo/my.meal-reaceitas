@@ -3,14 +3,7 @@ import { recipes } from "./../../../services/api";
 
 import types from "./../../modules/recipes/types";
 
-function apiGet({ category, ordenation, search, ingredient, page }) {
-  const params = {
-    category,
-    ordenation,
-    search,
-    ingredient,
-    page,
-  };
+function apiGet(params) {
 
   try {
     return recipes.selectAll({ params });

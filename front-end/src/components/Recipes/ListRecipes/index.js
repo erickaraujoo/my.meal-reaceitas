@@ -3,12 +3,21 @@ import React from "react";
 import ImageReport from "./../../../assets/recipe_icon.png";
 import ImageHeart from "./../../../assets/heart_blue.png";
 
-import { Recipe, ImageRecipe } from './styles';
+import { Recipe, ImageRecipe } from "./styles";
 
 export default function ListRecipes({ recipes, loading, error }) {
   if (error) {
-    return <><p>Não foi possível se conectar com o banco de dados</p></>;
+    return (
+      <>
+        <p>Não foi possível se conectar com o banco de dados</p>
+      </>
+    );
   }
+
+  const returnDate = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString();
+  };
 
   return (
     <Recipe>
@@ -45,12 +54,12 @@ export default function ListRecipes({ recipes, loading, error }) {
               </div>
 
               <div className="access-info">
-                <strong>1.152</strong> acessos
+                <strong> {recipe.acessos} </strong> acessos
               </div>
 
               <div className="date-info">
                 <p>Data de Publicação:</p>
-                <p> 25/03/2020 </p>
+                <p> {returnDate(recipe.data_criacao)} </p>
               </div>
 
               <div className="avaliation-info">

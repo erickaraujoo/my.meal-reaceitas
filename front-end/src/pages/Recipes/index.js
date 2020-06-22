@@ -5,13 +5,11 @@ import InputSearchRecipe from "../../components/Recipes/SearchRecipes";
 
 import FiltersProvider from "./../../context/Recipes/Filters";
 
-// import { InputSearchRecipe } from "./../../components/Recipes/Filters/SearchRecipes";
-
 import { Main, ContainerCategory } from "./styles";
 
 function Recipes() {
   const ListCategory = lazy(() =>
-    import("./../../components/Recipes/ListCategory")
+    import("../../components/Recipes/FilterByCategory")
   );
   const ListRecipes = lazy(() =>
     import("./../../components/Recipes/ListRecipes")
@@ -25,6 +23,7 @@ function Recipes() {
   const FetchRecipes = lazy(() =>
     import("./../../components/Recipes/FetchRecipes")
   );
+  const UltimatePaginationMaterialUi = lazy(() => import('./../../components/Recipes/Pagination'));
   const Footer = lazy(() => import("./../../components/Footer"));
 
   const recipes = useSelector((state) => state.recipes);
@@ -35,7 +34,7 @@ function Recipes() {
         <div className="blue_background"></div>
 
         <FiltersProvider>
-          <FetchRecipes totalElements={recipes.data.totalElemets} />
+          <FetchRecipes totalElements={recipes.data.totalElements} />
 
           <section className="section-data-classification">
             <div className="content-wrap">
@@ -63,6 +62,7 @@ function Recipes() {
             loading={recipes.loading}
             error={recipes.error}
           />
+          <UltimatePaginationMaterialUi totalPages={20} currentPage={1} />
         </section>
       </Main>
       <Footer />
