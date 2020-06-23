@@ -18,14 +18,14 @@ export default function OrderRecipesBy() {
     { title: "Mais comentados", value: "comentarios" },
   ]);
 
-  const handlesort = value => setSort(value);
+  const handleSort = value => setSort(value);
 
   return (
     <OrderBy className="order-by">
       <p>Ordenar por:</p>
       <select
         defaultValue={sort}
-        onChange={(e) => handlesort(e.target.value)}
+        onChange={(e) => handleSort(e.target.value)}
       >
         {options.map(({ title, value }, index) => (
           <option key={index} value={value}>

@@ -5,10 +5,7 @@ import {
   ITEM_TYPES,
 } from "react-ultimate-pagination";
 
-import {
-  useCurrentPage,
-  useTotalPage,
-} from "./../../../context/Recipes/Filters";
+import { useCurrentPage } from "./../../../context/Recipes/Filters";
 
 import { Container } from "./styles";
 
@@ -17,96 +14,94 @@ import ImageFirstPage from "./../../../assets/recipes/arrow_firstPage.png";
 import ImageArrowLeft from "./../../../assets/recipes/arrow_left.png";
 import ImageArrowRight from "./../../../assets/recipes/arrow_right.png";
 
-const Button = ({ value, isActive, disabled, onClick }) => (
-  <button
-    className={isActive ? "button_current" : null}
-    style={isActive ? { fontWeight: "bold" } : null}
-    onClick={onClick}
-    disabled={disabled}
-  >
-    {value}
-  </button>
-);
-
-const EllipsisButton = ({ value }) => (
-  <button className="button_ellipsis"> {value} </button>
-);
-
-const FirstPageButton = ({ value }) => {
-  const { setCurrentPage } = useCurrentPage();
-
-  return (
-    <button className="button_firstPage" onClick={() => setCurrentPage(1)}>
-      <img src={ImageFirstPage} alt="" />
-    </button>
-  );
-};
-
-const PrevButton = ({ value }) => {
+export default function Pagination({ totalPages, loading, error }) {
   const { currentPage, setCurrentPage } = useCurrentPage();
 
-  return (
+  const Button = ({ value, isActive, disabled, onClick }) => (
+    <button className={isActive ? "button_current" : null}>{value}</button>
+  );
+
+  const EllipsisButton = ({ value }) => (
+    <button className="button_ellipsis"> {value} </button>
+  );
+
+  const FirstPageButton = ({ setCurrentPage }) => (
+    <button className="button_firstPage" onClick={() => setCurrentPage(1)}>
+      <img src={ImageFirstPage} alt="first" />
+    </button>
+  );
+
+  const PrevButton = ({ currentPage, setCurrentPage }) => (
     <button
       className="button_prev"
       onClick={() =>
         currentPage !== 1 ? setCurrentPage(currentPage - 1) : null
       }
     >
-      <img src={ImageArrowLeft} alt="" />
+      <img className="arrow_image" src={ImageArrowLeft} alt="" />
     </button>
   );
-};
 
-const NextButton = () => {
-  const { currentPage, setCurrentPage } = useCurrentPage();
-  const { totalPage } = useTotalPage();
-  return (
+  const NextButton = ({ currentPage, setCurrentPage, totalPages }) => (
     <button
       className="button_next"
       onClick={() =>
-        currentPage !== totalPage ? setCurrentPage(currentPage + 1) : null
+        currentPage !== totalPages ? setCurrentPage(currentPage + 1) : null
       }
     >
-      <img src={ImageArrowRight} alt="" />
+      <img className="arrow_image" src={ImageArrowRight} alt="" />
     </button>
   );
-};
-
-const LastButton = () => {
-  const { setCurrentPage } = useCurrentPage();
-  const { totalPage } = useTotalPage();
-  return (
+  const LastButton = ({ setCurrentPage, totalPages }) => (
     <button
       className="button_firstPage"
-      onClick={() => setCurrentPage(totalPage)}
+      onClick={() => setCurrentPage(totalPages)}
     >
-      <img src={ImageLastPage} alt="" />
+      <img src={ImageLastPage} alt="last" />
     </button>
   );
-};
 
-const PaginatedPage = createUltimatePagination({
-  itemTypeToComponent: {
-    PAGE: Button,
-    ELLIPSIS: () => <EllipsisButton value="..." />,
-    FIRST_PAGE_LINK: () => <FirstPageButton value="First" />,
-    [ITEM_TYPES.PREVIOUS_PAGE_LINK]: () => <PrevButton value="Prev" />,
-    [ITEM_TYPES.NEXT_PAGE_LINK]: () => <NextButton value="Next" />,
-    LAST_PAGE_LINK: () => <LastButton value="Last" />,
-  },
-});
+  const PaginatedPage = createUltimatePagination({
+    itemTypeToComponent: {
+      [ITEM_TYPES.PAGE]: Button,
+      [ITEM_TYPES.ELLIPSIS]: () => (
+        <EllipsisButton setCurrentPage={setCurrentPage} value="..." />
+      ),
+      [ITEM_TYPES.FIRST_PAGE_LINK]: () => (
+        <FirstPageButton setCurrentPage={setCurrentPage} value="First" />
+      ),
+      [ITEM_TYPES.PREVIOUS_PAGE_LINK]: () => (
+        <PrevButton
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          value="Prev"
+        />
+      ),
+      [ITEM_TYPES.NEXT_PAGE_LINK]: () => (
+        <NextButton
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+          value="Next"
+        />
+      ),
+      [ITEM_TYPES.LAST_PAGE_LINK]: () => (
+        <LastButton
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+          value="Last"
+        />
+      ),
+    },
+  });
 
-export default function Pagination({ totalPages, loading, error }) {
-  const { currentPage, setCurrentPage } = useCurrentPage();
-  const { totalPage } = useTotalPage();
-
-  if (error || loading) return <></>;
+  if (error || loading || totalPages === 0) return <></>;
 
   return (
     <Container className="container_pagination">
       <PaginatedPage
         className="pagination"
-        totalPages={totalPage}
+        totalPages={totalPages}
         currentPage={currentPage}
         onChange={(page) => setCurrentPage(page)}
       />

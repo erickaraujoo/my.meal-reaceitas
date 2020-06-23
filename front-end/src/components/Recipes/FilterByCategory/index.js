@@ -13,7 +13,7 @@ import { Category } from './styles';
 
 export default function ListCategory() {
   const [categories] = useState([
-    { title: "Todas as Receitas", image: ImageForKnife, alt: "All", value: 'all_recipes', id: 1 },
+    { title: "Todas as Receitas", image: ImageForKnife, alt: "All", value: 'all_recipes', id: '' },
     { title: "Rápidas", image: ImageFast, alt: "Fast", value: 'fast', id: 2 },
     { title: "Com Foto", image: ImagePhotograph, alt: "Photograpy", value: 'with_photo', id: 3 },
     { title: "Com Vídeo", image: ImageVideo, alt: "Video", value: 'with_video', id: 4},

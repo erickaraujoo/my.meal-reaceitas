@@ -6,7 +6,7 @@ export const Loading = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   p {
     font-size: 1.75rem;
     font-family: Poppins;

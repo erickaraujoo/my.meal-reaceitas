@@ -23,7 +23,9 @@ function Recipes() {
   const FetchRecipes = lazy(() =>
     import("./../../components/Recipes/FetchRecipes")
   );
-  const PaginationRecipes = lazy(() => import('./../../components/Recipes/Pagination'));
+  const PaginationRecipes = lazy(() =>
+    import("./../../components/Recipes/Pagination")
+  );
   const Footer = lazy(() => import("./../../components/Footer"));
 
   const recipes = useSelector((state) => state.recipes);
@@ -35,39 +37,49 @@ function Recipes() {
 
         <FiltersProvider>
           <FetchRecipes totalElements={recipes.data.totalElements} />
+        </FiltersProvider>
 
-          <section className="section-data-classification">
-            <div className="content-wrap">
+        <section className="section-data-classification">
+          <div className="content-wrap">
+            <FiltersProvider>
               <FilterByIngredients />
+            </FiltersProvider>
+            <FiltersProvider>
               <OrderRecipesBy />
+            </FiltersProvider>
+            <FiltersProvider>
               <InputSearchRecipe
                 width={100}
                 height={45}
                 type={"text"}
                 placeholder={"Pesquisar..."}
               />
-            </div>
-          </section>
+            </FiltersProvider>
+          </div>
+        </section>
 
-          <ContainerCategory className="section-category">
-            <div className="category-container">
+        <ContainerCategory className="section-category">
+          <div className="category-container">
+            <FiltersProvider>
               <ListCategory />
-            </div>
-          </ContainerCategory>
+            </FiltersProvider>
+          </div>
+        </ContainerCategory>
 
-          <section className="section_recipes">
-            <ListRecipes
-              recipes={recipes.data.content}
+        <section className="section_recipes">
+          <ListRecipes
+            recipes={recipes.data}
+            loading={recipes.loading}
+            error={recipes.error}
+          />
+          <FiltersProvider>
+            <PaginationRecipes
+              totalPages={recipes.data.totalPages}
               loading={recipes.loading}
               error={recipes.error}
             />
-            <PaginationRecipes 
-              totalPages={ recipes.data.totalPages } 
-              loading={recipes.loading}
-              error={recipes.error}
-            />
-          </section>
-        </FiltersProvider>
+          </FiltersProvider>
+        </section>
       </Main>
       <Footer />
     </>

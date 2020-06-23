@@ -44,6 +44,10 @@ export const Container = styled.div`
         height: 12.5px;
       }
 
+      img.arrow_image {
+        opacity: 0.75;
+      }
+
       &:hover { 
         background: rgba(153, 153, 153, 0.2);
       }

@@ -1,8 +1,8 @@
 import types from "./../types";
 
-export function fetchRecipes(category, search, ingredient, page, size, sort) {
+export function fetchRecipes({ category, search, ingredient, currentPage, size, sort }) {
   return {
     type: types.FETCHING_RECIPES,
-    params: { category, search, ingredient, page, size, sort },
+    params: { category, search, ingredient, currentPage, size, sort },
   };
 }

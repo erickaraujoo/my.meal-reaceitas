@@ -14,6 +14,14 @@ export default function ListRecipes({ recipes, loading, error }) {
     );
   }
 
+  if (recipes.length > 0 && !recipes.content.length > 0) {
+    return (
+      <>
+        <p>Não foi encontrado nenhuma receita</p>
+      </>
+    );
+  }
+
   const returnDate = (timestamp) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString();
@@ -22,7 +30,7 @@ export default function ListRecipes({ recipes, loading, error }) {
   return (
     <Recipe>
       <ol className="list-recipes">
-        {recipes.map((recipe, index) => (
+        {recipes.content.map((recipe, index) => (
           <li key={index}>
             {index === 0 ? (
               <div className="best-recipe">
