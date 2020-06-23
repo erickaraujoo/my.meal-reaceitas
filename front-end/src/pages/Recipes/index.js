@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy } from "react";
+import React, { lazy } from "react";
 import { useSelector } from "react-redux";
 
 import InputSearchRecipe from "../../components/Recipes/SearchRecipes";
@@ -23,7 +23,7 @@ function Recipes() {
   const FetchRecipes = lazy(() =>
     import("./../../components/Recipes/FetchRecipes")
   );
-  const UltimatePaginationMaterialUi = lazy(() => import('./../../components/Recipes/Pagination'));
+  const PaginationRecipes = lazy(() => import('./../../components/Recipes/Pagination'));
   const Footer = lazy(() => import("./../../components/Footer"));
 
   const recipes = useSelector((state) => state.recipes);
@@ -54,16 +54,20 @@ function Recipes() {
               <ListCategory />
             </div>
           </ContainerCategory>
-        </FiltersProvider>
 
-        <section className="section_recipes">
-          <ListRecipes
-            recipes={recipes.data.content}
-            loading={recipes.loading}
-            error={recipes.error}
-          />
-          <UltimatePaginationMaterialUi totalPages={20} currentPage={1} />
-        </section>
+          <section className="section_recipes">
+            <ListRecipes
+              recipes={recipes.data.content}
+              loading={recipes.loading}
+              error={recipes.error}
+            />
+            <PaginationRecipes 
+              totalPages={ recipes.data.totalPages } 
+              loading={recipes.loading}
+              error={recipes.error}
+            />
+          </section>
+        </FiltersProvider>
       </Main>
       <Footer />
     </>

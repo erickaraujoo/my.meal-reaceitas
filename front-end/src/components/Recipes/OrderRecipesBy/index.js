@@ -9,7 +9,7 @@ export default function OrderRecipesBy() {
   const { sort, setSort } = useOrdenation();
 
   const [options] = useState([
-    { title: "Selecionar", value: "default" },
+    { title: "Selecionar", value: "" },
     { title: "Nome da receita", value: "nome" },
     { title: "Data de criação", value: "data_criacao" },
     { title: "Mais avaliado", value: "avaliacoes" },

@@ -5,6 +5,7 @@ export const Container = styled.div`
   height: auto;
   display: flex;
   justify-content: center;
+  margin-top: 80px;
 
   div.pagination {
     width: 100%;

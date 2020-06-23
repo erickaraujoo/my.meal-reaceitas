@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { fetchRecipes } from "./../../../store/modules/recipes/actions";
 
@@ -7,16 +7,22 @@ const FiltersContext = createContext();
 
 export default function FiltersProvider({ children }) {
   const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState(1);
-  const [sort, setSort] = useState("default");
+  const [sort, setSort] = useState('');
   const [search, setSearch] = useState("");
   const [ingredient, setIngredient] = useState([]);
-  const [page] = useState(0);
   const [size] = useState(10);
+  const [totalPage, setTotalPage] = useState(0);
+  
+  const pages = useSelector((state) => state.recipes.data.totalPages);
 
   useEffect(() => {
-    dispatch(fetchRecipes(category, search, ingredient, page, size, sort));
-  }, [category, sort, search, ingredient, page, size, dispatch]);
+    setTotalPage(pages);
+    dispatch(
+      fetchRecipes(category, search, ingredient, currentPage - 1, size, sort)
+    );
+  }, [category, sort, search, ingredient, currentPage, size, pages, dispatch]);
 
   return (
     <FiltersContext.Provider
@@ -29,6 +35,10 @@ export default function FiltersProvider({ children }) {
         setSort,
         search,
         setSearch,
+        currentPage,
+        setCurrentPage,
+        totalPage,
+        setTotalPage,
       }}
     >
       {children}
@@ -58,6 +68,18 @@ export function useSearch() {
   const context = useContext(FiltersContext);
   const { search, setSearch } = context;
   return { search, setSearch };
+}
+
+export function useCurrentPage() {
+  const context = useContext(FiltersContext);
+  const { currentPage, setCurrentPage } = context;
+  return { currentPage, setCurrentPage };
+}
+
+export function useTotalPage() {
+  const context = useContext(FiltersContext);
+  const { totalPage, setTotalPage } = context;
+  return { totalPage, setTotalPage };
 }
 
 export function useStates() {
