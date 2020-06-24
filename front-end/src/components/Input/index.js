@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { debounce } from 'lodash';
+import { debounce } from "lodash";
 
-import { InputSearch } from './styles';
+import { InputSearch } from "./styles";
 
 import ImageSearch from "./../../assets/search.png";
 
@@ -16,14 +16,14 @@ export const InputSearchRecipe = ({ ...props }) => {
   const handleSearchRecipes = () => {
     history.push(`?search=${textSearch}`);
     setTextSearch("");
-  }
+  };
 
   const handleTextSearch = (value) => {
     setTextSearch(value);
   };
 
   return (
-    <InputSearch width={width} height={height} >
+    <InputSearch width={width} height={height}>
       <input
         type={type}
         placeholder={placeholder}

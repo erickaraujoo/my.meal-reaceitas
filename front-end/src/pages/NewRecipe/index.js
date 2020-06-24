@@ -170,7 +170,11 @@ export default function NewRecipe() {
               value={ingredient}
               onChange={({ target }) => handleIngredient(target.value)}
             />
-            <button onClick={() => ingredient ? handleTotalIngredient(ingredient) : ''}>
+            <button
+              onClick={() =>
+                ingredient ? handleTotalIngredient(ingredient) : ""
+              }
+            >
               Adicionar
             </button>
           </div>
@@ -190,7 +194,7 @@ export default function NewRecipe() {
           ))}
         </div>
       </section>
-      
+
       <section className="send_recipe">
         <button>Criar nova receita</button>
       </section>

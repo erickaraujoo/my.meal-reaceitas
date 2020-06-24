@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export default function RecipeInfo() {
-  return (
-    <h1>Olá mundo!</h1>
-  );
-};
+  return <h1>Olá mundo!</h1>;
+}

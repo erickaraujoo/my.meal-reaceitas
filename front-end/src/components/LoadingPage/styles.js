@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Loading = styled.div`
   width: 100vw;
@@ -6,11 +6,11 @@ export const Loading = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   p {
     font-size: 1.75rem;
     font-family: Poppins;
-    color: #254B6E;
+    color: #254b6e;
     margin-right: 15px;
   }
 `;

@@ -1,13 +1,13 @@
-import styled, { createGlobalStyle  } from 'styled-components';
+import styled, { createGlobalStyle } from "styled-components";
 
-import Roboto from './../assets/fonts/Roboto/Roboto-Light.ttf';
+import Roboto from "./../assets/fonts/Roboto/Roboto-Light.ttf";
 
-import Poppins from './../assets/fonts/Poppins/Poppins-Medium.ttf';
-import PoppinsLight from './../assets/fonts/Poppins/Poppins-Light.ttf';
-import PoppinsSemiBold from './../assets/fonts/Poppins/Poppins-SemiBold.ttf';
-import PoppinsRegular from './../assets/fonts/Poppins/Poppins-Regular.ttf';
-import PoppinsItalic from './../assets/fonts/Poppins/Poppins-Italic.ttf';
-import PoppinsLightItalic from './../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf';
+import Poppins from "./../assets/fonts/Poppins/Poppins-Medium.ttf";
+import PoppinsLight from "./../assets/fonts/Poppins/Poppins-Light.ttf";
+import PoppinsSemiBold from "./../assets/fonts/Poppins/Poppins-SemiBold.ttf";
+import PoppinsRegular from "./../assets/fonts/Poppins/Poppins-Regular.ttf";
+import PoppinsItalic from "./../assets/fonts/Poppins/Poppins-Italic.ttf";
+import PoppinsLightItalic from "./../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf";
 
 export default createGlobalStyle`
 
@@ -40,7 +40,7 @@ export default createGlobalStyle`
     p { font-size: 1rem };
 
     button{
-        cursor: pointer;
+    		cursor: pointer;
         max-height: 50px;
         height: auto;
         transition: background-color 0.2s;
@@ -53,35 +53,40 @@ export default createGlobalStyle`
         border: 1px solid rgba(34,36,38,.15);
         box-shadow: none;
     }
-`
+`;
 
 export const InputSearch = styled.div`
-    position: relative;
-    display: inline-flex;
-    width: ${props => props.width}%;
-    height: 50px;
-    margin-top: ${props => props.margin ? props.margin.top : '1.5em'};
+  position: relative;
+  display: inline-flex;
+  width: ${(props) => props.width}%;
+  height: 50px;
+  margin-top: ${(props) => (props.margin ? props.margin.top : "1.5em")};
 
-    & input{
-        flex: 1 0 auto;
-        -webkit-tap-highlight-color: rgba(255,255,255,0);
-        border-radius: .28571429rem 0 0 .28571429rem;
+  & input {
+    flex: 1 0 auto;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    border-radius: 0.28571429rem 0 0 0.28571429rem;
+  }
+
+  & button {
+    display: flex;
+    padding: 0 1.08571429em;
+    border: none;
+    background: #e0e1e2 none;
+    color: rgba(0, 0, 0, 0.6);
+    border-radius: 0 0.28571429rem 0.28571429rem 0;
+    -webkit-user-select: none;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #d2d2d2;
     }
+  }
 
-    & button{
-        display: flex;
-        padding: 0 1.08571429em;
-        border: none;
-        background: #e0e1e2 none;
-        color: rgba(0, 0, 0, .6);
-        border-radius: 0 .28571429rem .28571429rem 0;
-        -webkit-user-select: none;
-        user-select: none;
-        align-items: center;
-        justify-content: center;
-        
-        &:hover{ background-color: #d2d2d2 };
-    }
-
-    & button img { opacity: 0.7; height: 17.5px };
-`
+  & button img {
+    opacity: 0.7;
+    height: 17.5px;
+  }
+`;

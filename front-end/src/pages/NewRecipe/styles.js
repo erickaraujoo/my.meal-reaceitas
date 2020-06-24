@@ -364,14 +364,14 @@ export const Main = styled.main`
           width: 260px;
           height: 45px;
           font-size: 1.125rem;
-          color: #254B6E;
+          color: #254b6e;
           font-family: Poppins;
-          border: 1px solid #254B6E;
+          border: 1px solid #254b6e;
           border-radius: 5px;
-          transition: background .2s;
+          transition: background 0.2s;
 
           &:hover {
-            background: #254B6E;
+            background: #254b6e;
             color: #fff;
           }
         }
@@ -407,7 +407,6 @@ export const Main = styled.main`
           margin-left: 10px;
           width: 20px;
           height: 20px;
-
         }
       }
     }
@@ -424,16 +423,16 @@ export const Main = styled.main`
     button {
       width: 450px;
       height: 60px;
-      color: #254B6E;
+      color: #254b6e;
       font-size: 1.25rem;
       font-family: Poppins;
-      border: 1px solid #254B6E;
+      border: 1px solid #254b6e;
       border-radius: 5px;
       background: #fff;
-      transition: background .2s;
+      transition: background 0.2s;
 
       &:hover {
-        background: #254B6E;
+        background: #254b6e;
         color: #fff;
       }
     }

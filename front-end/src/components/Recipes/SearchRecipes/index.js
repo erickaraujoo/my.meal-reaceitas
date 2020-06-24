@@ -29,7 +29,9 @@ export default function InputSearchRecipe({ ...props }) {
         placeholder={placeholder}
         value={value}
         onChange={(e) => handleTextValue(e.target.value)}
-        onKeyPress={e => e.which === 13 ? handleTextSearch(e.target.value) : null}
+        onKeyPress={(e) =>
+          e.which === 13 ? handleTextSearch(e.target.value) : null
+        }
       />
       <button onClick={() => handleTextSearch(value)}>
         <img src={ImageSearch} alt="Pesquisar" />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import { useDispatch } from "react-redux";
 
 import { fetchRecipes } from "./../../../store/modules/recipes/actions";
@@ -9,15 +9,13 @@ export default function FiltersProvider({ children }) {
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [category, setCategory] = useState('');
-  const [sort, setSort] = useState('');
-  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState("");
+  const [sort, setSort] = useState("");
+  const [search, setSearch] = useState("");
   const [ingredient, setIngredient] = useState([]);
   const [size] = useState(10);
 
   useEffect(() => {
-    // console.log({ category, search, ingredient, currentPage, size, sort })
-
     dispatch(
       fetchRecipes({ category, search, ingredient, currentPage, size, sort })
     );

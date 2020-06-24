@@ -37,49 +37,42 @@ function Recipes() {
 
         <FiltersProvider>
           <FetchRecipes totalElements={recipes.data.totalElements} />
-        </FiltersProvider>
 
-        <section className="section-data-classification">
-          <div className="content-wrap">
-            <FiltersProvider>
+          <section className="section-data-classification">
+            <div className="content-wrap">
               <FilterByIngredients />
-            </FiltersProvider>
-            <FiltersProvider>
+
               <OrderRecipesBy />
-            </FiltersProvider>
-            <FiltersProvider>
+
               <InputSearchRecipe
                 width={100}
                 height={45}
                 type={"text"}
                 placeholder={"Pesquisar..."}
               />
-            </FiltersProvider>
-          </div>
-        </section>
+            </div>
+          </section>
 
-        <ContainerCategory className="section-category">
-          <div className="category-container">
-            <FiltersProvider>
+          <ContainerCategory className="section-category">
+            <div className="category-container">
               <ListCategory />
-            </FiltersProvider>
-          </div>
-        </ContainerCategory>
+            </div>
+          </ContainerCategory>
 
-        <section className="section_recipes">
-          <ListRecipes
-            recipes={recipes.data}
-            loading={recipes.loading}
-            error={recipes.error}
-          />
-          <FiltersProvider>
+          <section className="section_recipes">
+            <ListRecipes
+              recipes={recipes.data}
+              loading={recipes.loading}
+              error={recipes.error}
+            />
+
             <PaginationRecipes
               totalPages={recipes.data.totalPages}
               loading={recipes.loading}
               error={recipes.error}
             />
-          </FiltersProvider>
-        </section>
+          </section>
+        </FiltersProvider>
       </Main>
       <Footer />
     </>

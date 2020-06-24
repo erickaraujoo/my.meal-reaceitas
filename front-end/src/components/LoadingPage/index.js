@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { RotateSpinner } from 'react-spinners-kit';
+import { RotateSpinner } from "react-spinners-kit";
 
-import { Loading } from './styles';
+import { Loading } from "./styles";
 
 export default function LoadingPage() {
-  return(
+  return (
     <Loading>
       <p>Carregando...</p>
-      <RotateSpinner size={30} color={'#254B6E'} loading={true} />
+      <RotateSpinner size={30} color={"#254B6E"} loading={true} />
     </Loading>
-  )
+  );
 }

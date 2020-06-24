@@ -36,7 +36,7 @@ export const Container = styled.div`
       overflow: hidden;
       background-color: rgba(0, 0, 0, 0);
       text-align: center;
-      transition: background .2s;
+      transition: background 0.2s;
       letter-spacing: 1px;
 
       img {
@@ -48,7 +48,7 @@ export const Container = styled.div`
         opacity: 0.75;
       }
 
-      &:hover { 
+      &:hover {
         background: rgba(153, 153, 153, 0.2);
       }
     }

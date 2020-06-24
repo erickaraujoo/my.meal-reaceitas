@@ -1,10 +1,9 @@
 import { takeLatest, put, all, call } from "redux-saga/effects";
 import { recipes } from "./../../../services/api";
 
-import types from "./../../modules/recipes/types";
+import types from "../../modules/types";
 
 function apiGet(params) {
-
   try {
     return recipes.selectAll({ params });
   } catch (err) {
