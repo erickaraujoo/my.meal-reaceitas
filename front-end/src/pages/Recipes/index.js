@@ -23,12 +23,11 @@ function Recipes() {
   const FetchRecipes = lazy(() =>
     import("./../../components/Recipes/FetchRecipes")
   );
-  const PaginationRecipes = lazy(() =>
+  const Pagination = lazy(() =>
     import("./../../components/Recipes/Pagination")
   );
   const Footer = lazy(() => import("./../../components/Footer"));
-
-  const recipes = useSelector((state) => state.recipes);
+  
 
   return (
     <>
@@ -36,7 +35,7 @@ function Recipes() {
         <div className="blue_background"></div>
 
         <FiltersProvider>
-          <FetchRecipes totalElements={recipes.data.totalElements} />
+          <FetchRecipes />
 
           <section className="section-data-classification">
             <div className="content-wrap">
@@ -60,17 +59,9 @@ function Recipes() {
           </ContainerCategory>
 
           <section className="section_recipes">
-            <ListRecipes
-              recipes={recipes.data}
-              loading={recipes.loading}
-              error={recipes.error}
-            />
+              <ListRecipes />
 
-            <PaginationRecipes
-              totalPages={recipes.data.totalPages}
-              loading={recipes.loading}
-              error={recipes.error}
-            />
+            <Pagination />
           </section>
         </FiltersProvider>
       </Main>

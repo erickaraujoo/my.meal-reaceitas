@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { theme }  from './../../../styles';
+
 export const Container = styled.div`
   width: 100%;
   height: auto;
@@ -16,15 +18,15 @@ export const Container = styled.div`
       border: 10px;
       box-sizing: border-box;
       display: inline-block;
-      font-family: Poppins;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: Roboto;
+      font-weight: bold;
+      -webkit-tap-highlight-color: ${theme.colors.white};
       cursor: pointer;
       text-decoration: none;
       margin: 0px;
       padding: 0px;
       outline: none;
-      font-size: 1rem;
-      font-weight: inherit;
+      font-size: 0.875rem;
       position: relative;
       height: 36px;
       line-height: 36px;
@@ -34,9 +36,9 @@ export const Container = styled.div`
       border-radius: 2px;
       user-select: none;
       overflow: hidden;
-      background-color: rgba(0, 0, 0, 0);
+      background: ${theme.colors.white};
       text-align: center;
-      transition: background 0.2s;
+      transition: background 0.3s;
       letter-spacing: 1px;
 
       img {
@@ -49,12 +51,13 @@ export const Container = styled.div`
       }
 
       &:hover {
-        background: rgba(153, 153, 153, 0.2);
+        background: ${theme.colors.lightRavenWithGreatOpacity};
       }
     }
 
     button.button_current {
-      color: #254b6e;
+      color: ${theme.colors.red};
+      font-family: Roboto;
     }
   }
 `;

@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
+import { theme } from "./../../../styles";
+
 export const Recipe = styled.div`
   ol {
     li {
       margin-top: 1.5em;
       list-style: none;
-      /* border: solid 2px #254B6E; */
+      /* border: solid 2px ${theme.colors.darkRed}; */
       border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 5px ${theme.colors.blackWithMediumOpacity};
       transition: box-shadow 0.2s;
       cursor: pointer;
     }
@@ -15,7 +17,7 @@ export const Recipe = styled.div`
     /* li + li { border: solid 2px rgba(0, 0, 0, .3) }; */
 
     li:hover {
-      box-shadow: 0 0 12.5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 12.5px ${theme.colors.blackWithMediumOpacity};
     }
 
     /* li div + div + div { padding: 1em }; */
@@ -26,7 +28,7 @@ export const Recipe = styled.div`
     }
 
     div.data-recipe {
-      border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+      border-bottom: solid 1px ${theme.colors.blackWithGreatOpacity};
     }
 
     li div img.imgRecipe {
@@ -94,9 +96,9 @@ export const Recipe = styled.div`
         p.note-avaliation {
           font-size: 0.875rem;
           padding: 0.2em 0.45em;
-          background-color: #254b6e;
+          background-color: ${theme.colors.darkRed};
           border-radius: 5px;
-          color: white;
+          color: ${theme.colors.white};
           font-weight: bold;
           margin-left: 0.45em;
         }
@@ -124,7 +126,7 @@ export const Recipe = styled.div`
         div.best-recipe {
           grid-column: 1/5;
           border-radius: 5px 5px 0 0;
-          background-color: #254b6e;
+          background-color: ${theme.colors.darkRed};
           display: flex;
           align-items: center;
           padding: 0.5em 0.4em;
@@ -136,7 +138,7 @@ export const Recipe = styled.div`
           }
 
           p {
-            color: #fff;
+            color: ${theme.colors.white};
             margin-left: 0.5em;
             font-size: 1.0625em;
           }
@@ -156,7 +158,7 @@ export const Recipe = styled.div`
           grid-column: 3;
           display: block;
           padding: 1em;
-          border-left: solid 1px rgba(0, 0, 0, 0.1);
+          border-left: solid 1px ${theme.colors.blackWithMediumOpacity};
 
           div {
             width: 100%;
@@ -171,9 +173,9 @@ export const Recipe = styled.div`
             justify-content: flex-end;
 
             img {
-              width: 18px;
-              height: 18px;
-              margin-right: 7px;
+              width: auto;
+              height: 20px;
+              margin-right: 10px;
             }
 
             p {
@@ -196,7 +198,7 @@ export const Recipe = styled.div`
               font-size: 0.75rem;
             }
             p + p {
-              color: #254b6e;
+              color: ${theme.colors.darkRed};
               font-weight: bold;
               font-size: 0.875rem;
               margin-top: 0.25em;

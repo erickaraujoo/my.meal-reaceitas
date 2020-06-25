@@ -6,7 +6,7 @@ import ImagePremium from "./../../assets/profile/premium.png";
 import ImageAddImgRecipe from "./../../assets/profile/imageRecipe.png";
 import ImageDescription from "./../../assets/profile/descriptionRecipe.png";
 import ImageLoadingFile from "./../../assets/profile/loading_file.png";
-import ImageDelete from "./../../assets/profile/close.png";
+import ImageDelete from "./../../assets/profile/close_red.png";
 import ImageAddTopic from "./../../assets/profile/add.png";
 import ImageDeleteBlue from "./../../assets/profile/delete_blue.png";
 
@@ -185,7 +185,7 @@ export default function NewRecipe() {
             <div key={index}>
               <p>{ingredient}</p>
               <img
-                src={ImageDeleteBlue}
+                src={ImageDelete}
                 alt="Del"
                 title="Deletar ingrediente"
                 onClick={() => filterIngredients(ingredient)}

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 
 import {
   createUltimatePagination,
@@ -14,12 +15,27 @@ import ImageFirstPage from "./../../../assets/recipes/arrow_firstPage.png";
 import ImageArrowLeft from "./../../../assets/recipes/arrow_left.png";
 import ImageArrowRight from "./../../../assets/recipes/arrow_right.png";
 
-export default function Pagination({ totalPages, loading, error }) {
+export default function Pagination() {
   const { currentPage, setCurrentPage } = useCurrentPage();
 
-  const Button = ({ value, isActive, disabled, onClick }) => (
-    <button className={isActive ? "button_current" : null}>{value}</button>
-  );
+  const { loading, error } = useSelector((state) => state.recipes);
+  const { totalPages = 0 } = useSelector((state) => state.recipes.data);
+  
+  const handlePage = (value) => setCurrentPage(value);
+
+  const Button = ({ value }) => {
+    return (
+      <button
+        className={currentPage === value ? "button_current" : null}
+        value={value}
+        onClick={(e) =>
+          e.target.value === value.toString() ? handlePage(value) : null
+        }
+      >
+        {value}
+      </button>
+    );
+  };
 
   const EllipsisButton = ({ value }) => (
     <button className="button_ellipsis"> {value} </button>

@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import imgWallpaper from "./../../assets/home/wallpapers/wallpaper_home.jpg";
 
+import { theme } from './../../styles';
+
 export const Container = styled.main`
   width: 100%;
   height: auto;
@@ -18,10 +20,10 @@ export const Container = styled.main`
       grid-template-columns: repeat(24, 1fr);
       padding-top: 100px;
       align-items: center;
-      background-color: #1a1a1a;
+      background-color: ${theme.colors.nero};
 
       hr {
-        border: solid 1px white;
+        border: solid 1px ${theme.colors.white};
         height: 1px;
         opacity: 0.4;
       }
@@ -33,7 +35,7 @@ export const Container = styled.main`
       }
 
       h2 {
-        color: #fff;
+        color: ${theme.colors.white};
         font-size: 2rem;
         grid-column: 3/18;
       }
@@ -78,7 +80,7 @@ export const SectionSearch = styled.section`
   }
 
   h2 {
-    color: white;
+    color: ${theme.colors.white};
     font-size: 2rem;
     letter-spacing: 1.5px;
     font-family: PoppinsLight;
@@ -103,10 +105,10 @@ export const SectionSearch = styled.section`
       min-height: 60px;
       margin-left: 30px;
       border: 0;
-      background-color: #fff;
+      background-color: ${theme.colors.white};
       font-size: 1.25rem;
       font-family: PoppinsSemiBold;
-      color: #282828;
+      color: ${theme.colors.nero};
     }
   }
 `;
@@ -117,7 +119,7 @@ export const SectionCategory = styled.section`
 
   h2 {
     font-size: 2.5rem;
-    color: #254b6e;
+    color: ${theme.colors.darkRed};
     text-align: center;
     font-family: Poppins;
   }
@@ -195,7 +197,7 @@ export const SectionCategory = styled.section`
 export const SectionModalRecipes = styled.section`
   width: 100%;
   height: auto;
-  background-color: #1a1a1a;
+  background-color: ${theme.colors.nero};
   grid-column: 1/25;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
@@ -211,7 +213,7 @@ export const SectionModalRecipes = styled.section`
     justify-content: space-between;
     h2 {
       font-family: PoppinsLightItalic;
-      color: #fff;
+      color: ${theme.colors.white};
       letter-spacing: 1px;
     }
   }
@@ -256,7 +258,7 @@ export const SectionModalRecipes = styled.section`
       height: auto;
       text-align: center;
       padding: 0 10px;
-      color: white;
+      color: ${theme.colors.white};
       font-family: PoppinsSemiBold;
       font-size: 1.25rem;
     }
@@ -277,7 +279,7 @@ export const SectionModalRecipes = styled.section`
       p {
         font-family: PoppinsRegular;
         font-size: 1rem;
-        color: white;
+        color: ${theme.colors.white};
         text-align: right;
         width: auto;
         letter-spacing: 0.5px;
@@ -314,7 +316,7 @@ export const SectionIngredients = styled.section`
 
       h2 {
         font-size: 3rem;
-        color: #254b6e;
+        color: ${theme.colors.darkRed};
         font-family: Poppins;
         letter-spacing: 1px;
       }
@@ -332,14 +334,14 @@ export const SectionIngredients = styled.section`
         height: 75px;
         max-height: 100%;
         border-radius: 50px;
-        border: solid 2px #254b6e;
-        color: #254b6e;
+        border: solid 2px ${theme.colors.darkRed};
+        color: ${theme.colors.darkRed};
         font-size: 1.5rem;
         font-family: PoppinsSemiBold;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: white;
+        background-color: ${theme.colors.white};
         margin-top: 140px;
 
         img {
@@ -369,7 +371,7 @@ export const SectionIngredients = styled.section`
 
 export const SectionFeedback = styled.section`
   grid-column: 1/25;
-  background-color: #1a1a1a;
+  background-color: ${theme.colors.nero};
   padding-top: 100px;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
@@ -378,7 +380,7 @@ export const SectionFeedback = styled.section`
 
   h2 {
     font-size: 2.6rem;
-    color: #fff;
+    color: ${theme.colors.white};
     text-align: center;
     font-family: Poppins;
     grid-column: 1/25;
@@ -390,7 +392,7 @@ export const SectionFeedback = styled.section`
     letter-spacing: 0.5px;
     font-family: Poppins;
     text-align: center;
-    color: #6c757d;
+    color: ${theme.colors.raven};
     grid-column: 1/25;
     margin-top: 10px;
   }
@@ -418,7 +420,7 @@ export const SectionFeedback = styled.section`
           border-radius: 5px;
           font-family: PoppinsSemiBold;
           font-size: 1rem;
-          color: #1a1a1a;
+          color: ${theme.colors.nero};
           letter-spacing: 0.5px;
         }
 
@@ -437,7 +439,7 @@ export const SectionFeedback = styled.section`
           border-radius: 5px;
           font-family: PoppinsSemiBold;
           font-size: 1rem;
-          color: #1a1a1a;
+          color: ${theme.colors.nero};
           letter-spacing: 0.5px;
           padding: 0.67857143em 1em;
         }
@@ -449,10 +451,10 @@ export const SectionFeedback = styled.section`
       height: 70px;
       max-height: 100%;
       background-color: transparent;
-      border: solid 1px #fff;
+      border: solid 1px ${theme.colors.white};
       font-family: PoppinsSemiBold;
       font-size: 1.15rem;
-      color: #fff;
+      color: ${theme.colors.white};
       display: flex;
       justify-content: center;
       align-items: center;

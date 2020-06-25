@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-import Roboto from "./../assets/fonts/Roboto/Roboto-Light.ttf";
+import Roboto from "./../assets/fonts/Roboto/Roboto-Regular.ttf";
 
 import Poppins from "./../assets/fonts/Poppins/Poppins-Medium.ttf";
 import PoppinsLight from "./../assets/fonts/Poppins/Poppins-Light.ttf";
@@ -15,7 +15,6 @@ export default createGlobalStyle`
     @font-face { font-family: PoppinsItalic; src: url(${PoppinsItalic}) };
     @font-face { font-family: PoppinsSemiBold; src: url(${PoppinsSemiBold}) };
     @font-face { font-family: PoppinsRegular; src: url(${PoppinsRegular}) };
-    @font-face { font-family: Roboto; src: url(${Roboto}) };
     @font-face { font-family: Roboto; src: url(${Roboto}) };
     @font-face { font-family: Poppins; src: url(${Poppins}) };
     @font-face { font-family: PoppinsLight; src: url(${PoppinsLight}) };
@@ -90,3 +89,30 @@ export const InputSearch = styled.div`
     height: 17.5px;
   }
 `;
+
+export const theme = {
+  colors: {
+    blue: "#254b6e",
+    pattensBlue: "#e0e1e2",
+    darkOrange: "#F35E07",
+    orange: "#F7834A",
+    lightOrange: "#ff9901",
+    darkRed: "#AB0310",
+    red: "#D91900",
+    green: "#B9BF07",
+    white: "#ffffff",
+    black: "#000000",
+    blackCharcoal: "#222426",
+    nero: "#1a1a1a",
+    gray: "#999999",
+    lightGray: "#d2d2d2",
+    raven: "#6c757d",
+
+    blackWithMediumOpacity: "rgba(0, 0, 0, 0.5)",
+    blackWithGreatOpacity: "rgba(0, 0, 0, 0.15)",
+
+    blackCharcoalWithMediumOpacity: "rgba(34, 36, 38, 0.15)",
+
+    lightRavenWithGreatOpacity: "rgba(153, 153, 153, 0.2)",
+  },
+};

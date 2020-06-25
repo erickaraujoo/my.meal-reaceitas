@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { theme } from "./../../styles";
+
 export const Container = styled.header`
     width: 100%;
     height: auto;
@@ -15,9 +17,9 @@ export const Container = styled.header`
         justify-content: space-between;
         padding: 10px 20px;
         max-height: 60px;
-        background: #000;
+        background: ${theme.colors.black};
 
-        h1 { color: white; font-size: 1.5rem };
+        h1 { color: ${theme.colors.white}; font-size: 1.5rem };
         img { width: auto; height: 1.5em; cursor: pointer };
     }
 
@@ -47,14 +49,14 @@ export const Container = styled.header`
             transform: translateY(-10px);
             transition: .4s;
 
-            h1 { color: white; font-size: 1.25rem };
+            h1 { color: ${theme.colors.white}; font-size: 1.25rem };
 
             nav ul { 
                 display: flex;
 
                 li { 
                     list-style: none; 
-                    color: white; 
+                    color: ${theme.colors.white}; 
                     cursor: pointer; 
                     font-size: 1rem; 
                     transition: font-size .1s;
@@ -74,7 +76,7 @@ export const Container = styled.header`
                 div.login, div.register {
                     height: 100%;
                     width: 50%;
-                    color: white;
+                    color: ${theme.colors.white};
                     display: flex;
                     align-items: center;
                     justify-content: center;

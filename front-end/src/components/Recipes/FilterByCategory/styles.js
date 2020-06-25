@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+import { theme }  from './../../../styles';
+
 export const Category = styled.div`
   width: 100%;
   height: auto;
-  background: #254b6e;
+  background: ${theme.colors.darkRed};
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.28571429rem;
 
@@ -24,7 +26,7 @@ export const Category = styled.div`
   }
 
   p {
-    color: #fff;
+    color: ${theme.colors.white};
     font-size: 1.25rem;
   }
 
@@ -33,7 +35,7 @@ export const Category = styled.div`
 
     li {
       list-style: none;
-      background: #fff;
+      background: ${theme.colors.white};
       padding: 1em;
       font-size: 1rem;
       height: 50px;

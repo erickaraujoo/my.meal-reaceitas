@@ -1,11 +1,15 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 
 import ImageReport from "./../../../assets/recipe_icon.png";
-import ImageHeart from "./../../../assets/heart_blue.png";
+import ImageHeart from "./../../../assets/recipes/heart.png";
 
 import { Recipe, ImageRecipe } from "./styles";
 
-export default function ListRecipes({ recipes, loading, error }) {
+export default function ListRecipes() {
+
+  const { data, error, loading } = useSelector((state) => state.recipes);
+
   if (error) {
     return (
       <>
@@ -14,7 +18,7 @@ export default function ListRecipes({ recipes, loading, error }) {
     );
   }
 
-  if (recipes.length > 0 && !recipes.content.length > 0) {
+  if (data.length > 0 && !data.content.length > 0) {
     return (
       <>
         <p>Não foi encontrado nenhuma receita</p>
@@ -30,7 +34,7 @@ export default function ListRecipes({ recipes, loading, error }) {
   return (
     <Recipe>
       <ol className="list-recipes">
-        {recipes.content.map((recipe, index) => (
+        {data.content.map((recipe, index) => (
           <li key={index}>
             {index === 0 ? (
               <div className="best-recipe">

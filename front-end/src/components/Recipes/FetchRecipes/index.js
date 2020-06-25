@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
 
 import { useSearch } from "./../../../context/Recipes/Filters";
 
-export default function FetchRecipes({ totalElements }) {
+export default function FetchRecipes() {
   const [totalRecipes, setTotalRecipes] = useState(0);
   const { search } = useSearch();
+  const { totalElements } = useSelector((state) => state.recipes.data);
 
   useEffect(() => {
     totalElements ? setTotalRecipes(totalElements) : setTotalRecipes(0);

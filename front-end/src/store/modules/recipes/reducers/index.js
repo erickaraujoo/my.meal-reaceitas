@@ -14,6 +14,7 @@ const recipes = (state = INITIAL_STATE, action) =>
   produce(state, (draft) => {
     switch (action.type) {
       case types.FETCHING_RECIPES:
+        draft.data.content = [];
         draft.loading = true;
         break;
       case types.SUCCESS_FECTH_RECIPES:

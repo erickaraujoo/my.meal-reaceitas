@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { theme } from './../../styles';
+
 export const Main = styled.div`
   width: 100%;
   height: auto;
@@ -7,7 +9,7 @@ export const Main = styled.div`
   margin-bottom: 100px;
 
   h1 {
-    color: #254b6e;
+    color: ${theme.colors.darkRed};
   }
 
   p.pTotal-recipes {
@@ -28,7 +30,7 @@ export const Main = styled.div`
       grid-column: 1/6;
       width: 100%;
       height: 100px;
-      background-color: #254b6e;
+      background-color: ${theme.colors.darkRed};
     }
 
     h1 {

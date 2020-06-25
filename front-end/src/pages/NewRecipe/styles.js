@@ -1,4 +1,7 @@
 import styled from "styled-components";
+
+import { theme } from './../../styles';
+
 import BackgroundImageRecipe from "./../../assets/profile/recipeBackground.png";
 
 export const Main = styled.main`
@@ -19,14 +22,14 @@ export const Main = styled.main`
     left: 0;
     width: 100%;
     height: 295px;
-    background-color: #254b6e;
+    background-color: ${theme.colors.darkRed};
     z-index: -10;
   }
 
   section.section_header {
     grid-column: 4/22;
     height: auto;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 3px ${theme.colors.blackWithMediumOpacity};
     border-radius: 0px 0px 5px 5px;
 
     div.background {
@@ -44,7 +47,7 @@ export const Main = styled.main`
         margin-top: 50px;
         font-size: 1.625rem;
         font-family: PoppinsLight;
-        color: #000;
+        color: ${theme.colors.black};
         line-height: 40px;
         letter-spacing: 0.5px;
       }
@@ -65,7 +68,7 @@ export const Main = styled.main`
         p {
           font-family: Poppins;
           font-size: 1.125rem;
-          color: #000;
+          color: ${theme.colors.black};
         }
       }
     }
@@ -77,8 +80,8 @@ export const Main = styled.main`
     height: auto;
     margin-top: 20px;
     padding: 50px 80px;
-    background: #ffffff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    background: ${theme.colors.white};
+    box-shadow: 0px 1px 3px ${theme.colors.blackWithMediumOpacity};
     border-radius: 5px;
 
     div.title {
@@ -129,8 +132,8 @@ export const Main = styled.main`
           max-width: 300px;
           max-height: 300px;
           margin-top: 15px;
-          background: #ffffff;
-          border: 1px dashed rgba(0, 0, 0, 0.2);
+          background: ${theme.colors.white};
+          border: 1px dashed ${theme.colors.blackWithGreatOpacity};
           text-align: center;
 
           img {
@@ -170,15 +173,15 @@ export const Main = styled.main`
             width: 100%;
             height: 45px;
             margin-top: 15px;
-            background: #ffffff;
-            border: 0.5px solid rgba(0, 0, 0, 0.2);
+            background: ${theme.colors.white};
+            border: 0.5px solid ${theme.colors.blackWithGreatOpacity};
             box-sizing: border-box;
             border-radius: 5px;
             font-family: PoppinsLight;
             font-style: normal;
             font-size: 1rem;
             line-height: 40px;
-            color: #000;
+            color: ${theme.colors.black};
           }
         }
 
@@ -215,9 +218,9 @@ export const Main = styled.main`
             font-style: normal;
             font-size: 1rem;
             line-height: 40px;
-            color: #000;
-            background: #ffffff;
-            border: 0.5px solid rgba(0, 0, 0, 0.2);
+            color: ${theme.colors.black};
+            background: ${theme.colors.white};
+            border: 0.5px solid ${theme.colors.blackWithGreatOpacity};
             box-sizing: border-box;
             border-radius: 5px;
             padding: 5px 20px;
@@ -233,8 +236,8 @@ export const Main = styled.main`
     height: auto;
     margin-top: 20px;
     padding: 50px 80px;
-    background: #ffffff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    background: ${theme.colors.white};
+    box-shadow: 0px 1px 3px ${theme.colors.blackWithMediumOpacity};
     border-radius: 5px;
 
     div.title {
@@ -252,7 +255,7 @@ export const Main = styled.main`
     ul {
       li {
         padding: 15px 20px;
-        background: #ffffff;
+        background: ${theme.colors.white};
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
         list-style: none;
         display: flex;
@@ -319,8 +322,8 @@ export const Main = styled.main`
     height: auto;
     margin-top: 20px;
     padding: 50px 0px;
-    background: #ffffff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    background: ${theme.colors.white};
+    box-shadow: 0px 1px 3px ${theme.colors.blackWithMediumOpacity};
     border-radius: 5px;
 
     div.title {
@@ -349,7 +352,7 @@ export const Main = styled.main`
           width: 67.5%;
           margin-right: 5%;
           height: 45px;
-          background: #ffffff;
+          background: ${theme.colors.white};
           border: 0.5px solid rgba(0, 0, 0, 0.1);
           box-sizing: border-box;
           border-radius: 5px;
@@ -359,20 +362,20 @@ export const Main = styled.main`
 
         button {
           width: 27.5%;
-          background: #fff;
+          background: ${theme.colors.white};
           border-radius: 5px;
           width: 260px;
           height: 45px;
           font-size: 1.125rem;
-          color: #254b6e;
+          color: ${theme.colors.darkRed};
           font-family: Poppins;
-          border: 1px solid #254b6e;
+          border: 1px solid ${theme.colors.darkRed};
           border-radius: 5px;
           transition: background 0.2s;
 
           &:hover {
-            background: #254b6e;
-            color: #fff;
+            background: ${theme.colors.darkRed};
+            color: ${theme.colors.white};
           }
         }
       }
@@ -390,15 +393,15 @@ export const Main = styled.main`
         align-items: center;
         justify-content: space-between;
         padding: 5px 15px;
-        background: #fff;
-        border: 0.5px dashed #254b6e;
+        background: ${theme.colors.white};
+        border: 0.5px dashed ${theme.colors.darkRed};
         border-radius: 50px;
         margin-top: 20px;
         margin-left: 15px;
 
         p {
           font-size: 0.875rem;
-          color: #254b6e;
+          color: ${theme.colors.darkRed};
           font-family: Poppins;
         }
 
@@ -416,24 +419,24 @@ export const Main = styled.main`
     grid-column: 4/22;
     height: auto;
     margin-top: 80px;
-    background: #ffffff;
+    background: ${theme.colors.white};
     display: flex;
     justify-content: center;
 
     button {
       width: 450px;
       height: 60px;
-      color: #254b6e;
+      color: ${theme.colors.darkRed};
       font-size: 1.25rem;
       font-family: Poppins;
-      border: 1px solid #254b6e;
+      border: 1px solid ${theme.colors.darkRed};
       border-radius: 5px;
-      background: #fff;
+      background: ${theme.colors.white};
       transition: background 0.2s;
 
       &:hover {
-        background: #254b6e;
-        color: #fff;
+        background: ${theme.colors.darkRed};
+        color: ${theme.colors.white};
       }
     }
   }

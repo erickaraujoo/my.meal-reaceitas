@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { theme } from "./../../styles";
+
 import BackgroundImageProfile from "./../../assets/profile/fundo.png";
 
 export const Main = styled.main`
@@ -21,15 +23,15 @@ export const Main = styled.main`
       left: 0;
       width: 100%;
       height: 295px;
-      background-color: #254b6e;
+      background-color: ${theme.colors.darkRed};
       z-index: -10;
     }
 
     section.section_header {
       grid-column: 4/22;
       height: 450px;
-      background: #ffffff;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+      background: ${theme.colors.white};
+      box-shadow: 0px 1px 3px ${theme.colors.blackWithMediumOpacity};
       border-radius: 0px 0px 5px 5px;
 
       div.background {
@@ -48,7 +50,7 @@ export const Main = styled.main`
           height: 150px;
           margin: 0 auto;
           padding: 3px;
-          background-color: white;
+          background-color: ${theme.colors.white};
           border-radius: 50%;
 
           img {
@@ -62,7 +64,7 @@ export const Main = styled.main`
           margin-top: 30px;
           font-size: 1.625rem;
           font-family: PoppinsLight;
-          color: #000;
+          color: ${theme.colors.black};
           line-height: 40px;
           letter-spacing: 0.5px;
         }
@@ -83,7 +85,7 @@ export const Main = styled.main`
           p {
             font-family: Poppins;
             font-size: 1.125rem;
-            color: #000;
+            color: ${theme.colors.black};
           }
         }
       }
@@ -97,8 +99,8 @@ export const Main = styled.main`
 
       div.section_personal_information,
       div.section_perfil {
-        background: #ffffff;
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+        background: ${theme.colors.white};
+        box-shadow: 0px 1px 3px ${theme.colors.blackWithMediumOpacity};
         border-radius: 5px;
         min-height: 350px;
         height: auto;
@@ -198,11 +200,11 @@ export const Main = styled.main`
     section.section_recipes {
       grid-column: 4/22;
       margin-top: 20px;
-      background: #ffffff;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+      background: ${theme.colors.white};
+      box-shadow: 0px 1px 3px ${theme.colors.blackWithMediumOpacity};
       border-radius: 5px;
       height: auto;
-      padding: 35px 45px;
+      padding: 35px 45px 50px;
 
       div.title {
         display: flex;
@@ -224,8 +226,8 @@ export const Main = styled.main`
           list-style: none;
           min-height: 70px;
           height: auto;
-          background: #ffffff;
-          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+          background: ${theme.colors.white};
+          box-shadow: 0px 1px 2px ${theme.colors.blackWithMediumOpacity};
           display: flex;
           align-items: center;
           padding: 0 30px;

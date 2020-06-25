@@ -19,7 +19,6 @@ export default function InputSearchRecipe({ ...props }) {
 
   const handleTextSearch = (value) => {
     setSearch(value);
-    setValue("");
   };
 
   return (

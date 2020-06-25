@@ -23,6 +23,7 @@ import ImagePasta from "./../../assets/home/icons/pasta.png";
 import ImageSalad from "./../../assets/home/icons/salad.png";
 import ImageArrowRight from "./../../assets/home/icons/arrow_right.png";
 import ImageArrowRightBrown from "./../../assets/home/icons/arrow_right2.png";
+import ImageArrowRightRed from "./../../assets/home/arrow_right_red.png";
 import ImageCooking from "./../../assets/home/cooking.png";
 import ImageSave from "./../../assets/home/icons/save.png";
 import Cake from "./../../assets/home/cake.png";
@@ -360,7 +361,7 @@ export default function Home() {
               <button>
                 {" "}
                 Buscar agora mesmo! <img
-                  src={ImageArrowRightBrown}
+                  src={ImageArrowRightRed}
                   alt=""
                 />{" "}
               </button>

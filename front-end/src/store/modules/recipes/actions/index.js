@@ -8,10 +8,10 @@ export function fetchRecipes({
   size,
   sort,
 }) {
+  const page = currentPage - 1;
 
-  console.log({ category, search, ingredient, currentPage, size, sort })
   return {
     type: types.FETCHING_RECIPES,
-    params: { category, search, ingredient, currentPage, size, sort },
+    params: { category, search, ingredient, page, size, sort },
   };
 }

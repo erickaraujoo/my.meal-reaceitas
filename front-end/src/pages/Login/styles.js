@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+import { theme } from './../../styles';
+
 import BackgroundImage from "./../../assets/login/wallpaper.jpg";
 
 export const GlobalStyle = createGlobalStyle`
@@ -37,7 +39,7 @@ export const Main = styled.main`
     & p {
       margin-left: 15px;
       font-size: 1.375rem;
-      color: #fff;
+      color: ${theme.colors.white};
     }
   }
 
@@ -74,7 +76,7 @@ export const Main = styled.main`
       h3 {
         margin-left: 15px;
         font-size: 1.75rem;
-        color: white;
+        color: ${theme.colors.white};
         font-family: PoppinsSemiBold;
         letter-spacing: 0.75px;
       }
@@ -82,14 +84,14 @@ export const Main = styled.main`
       div {
         width: 40px;
         height: 40px;
-        background: #ffffff;
+        background: ${theme.colors.white};
         border-radius: 5px;
       }
     }
 
     p.subtitle {
       width: 100%;
-      color: white;
+      color: ${theme.colors.white};
       font-size: 1.125rem;
       font-family: PoppinsLight;
       margin-top: 20px;
@@ -105,14 +107,14 @@ export const Main = styled.main`
         height: auto;
         font-size: 1.125rem;
         font-family: PoppinsLight;
-        color: white !important;
+        color: ${theme.colors.white} !important;
         background: transparent;
         border: none;
-        border-bottom: solid 1px white;
+        border-bottom: solid 1px ${theme.colors.white};
         padding: 0 0 5px 0;
 
         &::placeholder {
-          color: #fff;
+          color: ${theme.colors.white};
           opacity: 1;
         }
       }
@@ -123,11 +125,11 @@ export const Main = styled.main`
         margin-top: 50px;
         border: none;
         background: linear-gradient(90deg, #80b6dd 0%, #044e8e 85.4%);
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 5px ${theme.colors.blackWithMediumOpacity};
         border-radius: 5px;
         font-family: PoppinsSemibold;
         font-size: 1.25rem;
-        color: #fff;
+        color: ${theme.colors.white};
       }
 
       div.form_email input {
@@ -153,7 +155,7 @@ export const Main = styled.main`
         font-size: 1.125rem;
         font-family: PoppinsRegular;
         margin-right: 15px;
-        color: white;
+        color: ${theme.colors.white};
       }
     }
   }
@@ -166,7 +168,7 @@ export const Main = styled.main`
     margin: 25px 0;
 
     p.help {
-      color: #fff;
+      color: ${theme.colors.white};
       font-size: 1.125rem;
       font-family: PoppinsRegular;
       width: 100%;
@@ -175,7 +177,7 @@ export const Main = styled.main`
 
     p.privacy_policy {
       margin-top: 115px;
-      color: #fff;
+      color: ${theme.colors.white};
       font-size: 1.125rem;
       font-family: PoppinsRegular;
       width: 100%;

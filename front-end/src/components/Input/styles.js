@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { theme } from './../../styles';
+
 export const InputSearch = styled.div`
   position: relative;
   display: inline-flex;
@@ -9,7 +11,7 @@ export const InputSearch = styled.div`
 
   input {
     flex: 1 0 auto;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: ${theme.colors.white};
     border-radius: 0.28571429rem 0 0 0.28571429rem;
   }
 
@@ -17,7 +19,7 @@ export const InputSearch = styled.div`
     display: flex;
     padding: 0 1.08571429em;
     border: none;
-    background: #e0e1e2 none;
+    background: ${theme.colors.pattensBlue} none;
     color: rgba(0, 0, 0, 0.6);
     border-radius: 0 0.28571429rem 0.28571429rem 0;
     -webkit-user-select: none;
@@ -26,7 +28,7 @@ export const InputSearch = styled.div`
     justify-content: center;
 
     &:hover {
-      background-color: #d2d2d2;
+      background-color: ${theme.colors.lightGray};
     }
   }
 

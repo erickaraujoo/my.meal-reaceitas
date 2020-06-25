@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { theme }  from './../../../styles';
+
 export const FilterByIngredient = styled.div`
   position: relative;
   display: flex;
@@ -7,8 +9,8 @@ export const FilterByIngredient = styled.div`
   width: 300px;
   border-radius: 0.4571429rem;
   margin-top: 3.5rem;
-  background: white;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  background: ${theme.colors.white};
+  border: 1px solid ${theme.colors.blackCharcoalWithMediumOpacity};
   height: 45px;
   transition: filter 0.1s;
 
