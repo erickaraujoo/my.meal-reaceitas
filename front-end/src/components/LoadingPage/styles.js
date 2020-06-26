@@ -9,10 +9,10 @@ export const Loading = styled.div`
   justify-content: center;
   align-items: center;
 
-  p {
+  h2 {
     font-size: 1.75rem;
     font-family: Poppins;
-    color: ${theme.colors.darkRed};
+    color: ${theme.colors.blue};
     margin-right: 15px;
   }
 `;

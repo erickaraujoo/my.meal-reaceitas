@@ -115,7 +115,7 @@ export default function ListCategory() {
     },
   ]);
 
-  const { setCategory } = useCategory();
+  const { category, setCategory } = useCategory();
 
   const handleCategory = (id) => setCategory(id);
 
@@ -128,7 +128,11 @@ export default function ListCategory() {
 
       <ol className="list-category">
         {categories.map(({ image, title, alt, value, id }, index) => (
-          <li key={index} onClick={() => handleCategory(id)}>
+          <li
+            key={index}
+            className={category === id ? "current_category" : null}
+            onClick={() => handleCategory(id)}
+          >
             <img src={image} alt={alt} />
             {title}
           </li>

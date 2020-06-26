@@ -6,7 +6,7 @@ export const Main = styled.div`
   width: 100%;
   height: auto;
   padding: 0 1.5em;
-  margin-bottom: 100px;
+  padding-bottom: 100px !important;
 
   h1 {
     color: ${theme.colors.darkRed};
@@ -30,7 +30,7 @@ export const Main = styled.div`
       grid-column: 1/6;
       width: 100%;
       height: 100px;
-      background-color: ${theme.colors.darkRed};
+      background-color: ${theme.colors.marsala};
     }
 
     h1 {

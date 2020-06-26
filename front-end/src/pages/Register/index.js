@@ -8,7 +8,7 @@ import ImageArrowLeft from "./../../assets/login/arrow_right.png";
 export default function Register() {
   const history = useHistory();
 
-  const handlePageLogin = () => history.push(`/login`);
+  const handlePageLogin = () => history.push(`/entrar`);
 
   return (
     <>
@@ -42,7 +42,7 @@ export default function Register() {
 
           <div className="back" onClick={() => handlePageLogin()}>
             <img src={ImageArrowLeft} alt="" />
-            <p>Voltar</p>
+            <p>Fazer Login</p>
           </div>
         </section>
 

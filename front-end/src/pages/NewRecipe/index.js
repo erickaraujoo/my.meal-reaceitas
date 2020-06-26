@@ -8,7 +8,6 @@ import ImageDescription from "./../../assets/profile/descriptionRecipe.png";
 import ImageLoadingFile from "./../../assets/profile/loading_file.png";
 import ImageDelete from "./../../assets/profile/close_red.png";
 import ImageAddTopic from "./../../assets/profile/add.png";
-import ImageDeleteBlue from "./../../assets/profile/delete_blue.png";
 
 export default function NewRecipe() {
   const [ingredient, setIngredient] = useState("");

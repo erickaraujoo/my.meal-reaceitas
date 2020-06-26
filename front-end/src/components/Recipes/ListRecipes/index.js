@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 import ImageReport from "./../../../assets/recipe_icon.png";
 import ImageHeart from "./../../../assets/recipes/heart.png";
@@ -7,29 +7,12 @@ import ImageHeart from "./../../../assets/recipes/heart.png";
 import { Recipe, ImageRecipe } from "./styles";
 
 export default function ListRecipes() {
-
   const { data, error, loading } = useSelector((state) => state.recipes);
 
-  if (error) {
-    return (
-      <>
-        <p>Não foi possível se conectar com o banco de dados</p>
-      </>
-    );
-  }
+  const returnDate = (date) => date.toLocaleDateString();
 
-  if (data.length > 0 && !data.content.length > 0) {
-    return (
-      <>
-        <p>Não foi encontrado nenhuma receita</p>
-      </>
-    );
-  }
-
-  const returnDate = (timestamp) => {
-    const date = new Date(timestamp);
-    return date.toLocaleDateString();
-  };
+  if (error) return ( <> <p>Não foi possível se conectar com o banco de dados</p> </> );
+  if (!data.content.length > 0) return ( <> <p>Não foi encontrado nenhuma receita</p> </> );
 
   return (
     <Recipe>
@@ -41,9 +24,7 @@ export default function ListRecipes() {
                 <img src={ImageReport} loading="auto" alt="Best" />
                 <p>Esta é a receita que você esta procurando!</p>
               </div>
-            ) : (
-              ""
-            )}
+            ) : null}
             <div className="image-recipe">
               <ImageRecipe background={recipe.imagem} />
             </div>
@@ -71,7 +52,7 @@ export default function ListRecipes() {
 
               <div className="date-info">
                 <p>Data de Publicação:</p>
-                <p> {returnDate(recipe.data_criacao)} </p>
+                <p> {returnDate(new Date(recipe.data_criacao))} </p>
               </div>
 
               <div className="avaliation-info">

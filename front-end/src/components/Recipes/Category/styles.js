@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import { theme }  from './../../../styles';
+import { theme } from "../../../styles";
 
 export const Category = styled.div`
   width: 100%;
   height: auto;
-  background: ${theme.colors.darkRed};
+  background: ${theme.colors.marsala};
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.28571429rem;
 
@@ -42,7 +42,8 @@ export const Category = styled.div`
       display: flex;
       align-items: center;
       border-bottom: solid 1px rgba(0, 0, 0, 0.15);
-      transition: filter 0.1s;
+      transition: font-size 0.1s;
+      font-family: Poppins;
     }
 
     li:last-child {
@@ -50,8 +51,15 @@ export const Category = styled.div`
     }
 
     li:hover {
-      filter: brightness(95%);
+      filter: brightness(98%);
       cursor: pointer;
+      font-size: 1.0625rem;
+    }
+
+    li.current_category {
+      filter: brightness(95.5%);
+      color: ${theme.colors.marsala};
+      font-family: PoppinsSemibold;
     }
   }
 `;

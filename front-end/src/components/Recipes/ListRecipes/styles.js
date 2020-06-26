@@ -7,7 +7,7 @@ export const Recipe = styled.div`
     li {
       margin-top: 1.5em;
       list-style: none;
-      /* border: solid 2px ${theme.colors.darkRed}; */
+      /* border: solid 2px ${theme.colors.marsala}; */
       border-radius: 10px;
       box-shadow: 0 0 5px ${theme.colors.blackWithMediumOpacity};
       transition: box-shadow 0.2s;
@@ -96,7 +96,7 @@ export const Recipe = styled.div`
         p.note-avaliation {
           font-size: 0.875rem;
           padding: 0.2em 0.45em;
-          background-color: ${theme.colors.darkRed};
+          background-color: ${theme.colors.marsala};
           border-radius: 5px;
           color: ${theme.colors.white};
           font-weight: bold;
@@ -126,7 +126,7 @@ export const Recipe = styled.div`
         div.best-recipe {
           grid-column: 1/5;
           border-radius: 5px 5px 0 0;
-          background-color: ${theme.colors.darkRed};
+          background-color: ${theme.colors.marsala};
           display: flex;
           align-items: center;
           padding: 0.5em 0.4em;
@@ -158,7 +158,7 @@ export const Recipe = styled.div`
           grid-column: 3;
           display: block;
           padding: 1em;
-          border-left: solid 1px ${theme.colors.blackWithMediumOpacity};
+          border-left: solid 1px ${theme.colors.blackWithGreatOpacity};
 
           div {
             width: 100%;
@@ -198,7 +198,7 @@ export const Recipe = styled.div`
               font-size: 0.75rem;
             }
             p + p {
-              color: ${theme.colors.darkRed};
+              color: ${theme.colors.marsala};
               font-weight: bold;
               font-size: 0.875rem;
               margin-top: 0.25em;

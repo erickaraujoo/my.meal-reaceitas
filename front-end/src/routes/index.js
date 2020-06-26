@@ -16,15 +16,15 @@ const Routes = () => (
     <Suspense fallback={<LoadingPage />}>
       <Switch>
         <Route exact path="/" component={() => <Home />} />
-        <Route exact path="/recipes" component={() => <Recipes />} />
-        <Route exact path="/recipe/:id" component={() => <RecipeInfo />} />
-        <Route exact path="/profile/:id" component={() => <Profile />} />
+        <Route exact path="/receitas" component={() => <Recipes />} />
+        <Route exact path="/receitas/:id" component={() => <RecipeInfo />} />
+        <Route exact path="/perfil/:id" component={() => <Profile />} />
         <Route
-          exact path="/profile/:id/recipe/create"
+          exact path="/perfil/:id/receita/criar"
           component={() => <NewRecipe />}
         />
-        <Route path="/login" component={() => <Login />} />
-        <Route path="/register" component={() => <Register />} />
+        <Route path="/entrar" component={() => <Login />} />
+        <Route path="/cadastrar" component={() => <Register />} />
       </Switch>
     </Suspense>
   </BrowserRouter>

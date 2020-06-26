@@ -100,6 +100,7 @@ export const theme = {
     darkRed: "#AB0310",
     red: "#D91900",
     green: "#B9BF07",
+    oliveGreen: "#1b6b46",
     white: "#ffffff",
     black: "#000000",
     blackCharcoal: "#222426",
@@ -107,12 +108,13 @@ export const theme = {
     gray: "#999999",
     lightGray: "#d2d2d2",
     raven: "#6c757d",
+    beige: "#F1F0EB",
+    marsala: "#5e1b44",
 
     blackWithMediumOpacity: "rgba(0, 0, 0, 0.5)",
     blackWithGreatOpacity: "rgba(0, 0, 0, 0.15)",
-
     blackCharcoalWithMediumOpacity: "rgba(34, 36, 38, 0.15)",
-
     lightRavenWithGreatOpacity: "rgba(153, 153, 153, 0.2)",
+    marsalaWithMediumOpacity: "rgba(94, 27, 68, 0.5)",
   },
 };

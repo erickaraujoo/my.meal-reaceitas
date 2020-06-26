@@ -15,14 +15,13 @@ import {
   SectionFeedback,
 } from "./styles";
 
-import ImageBeef from "./../../assets/home/icons/beef.png";
-import ImageCake from "./../../assets/home/icons/cake.png";
-import ImageDrink from "./../../assets/home/icons/drink.png";
-import ImageFish from "./../../assets/home/icons/fish.png";
-import ImagePasta from "./../../assets/home/icons/pasta.png";
-import ImageSalad from "./../../assets/home/icons/salad.png";
+import ImageBeef from "./../../assets/recipes/beef.png";
+import ImageCake from "./../../assets/recipes/cake.png";
+import ImageCandy from "./../../assets/recipes/candy.png";
+import ImageFish from "./../../assets/recipes/fish.png";
+import ImagePasta from "./../../assets/recipes/pastas.png";
+import ImageSalad from "./../../assets/recipes/salads.png";
 import ImageArrowRight from "./../../assets/home/icons/arrow_right.png";
-import ImageArrowRightBrown from "./../../assets/home/icons/arrow_right2.png";
 import ImageArrowRightRed from "./../../assets/home/arrow_right_red.png";
 import ImageCooking from "./../../assets/home/cooking.png";
 import ImageSave from "./../../assets/home/icons/save.png";
@@ -106,11 +105,11 @@ export default function Home() {
             <li>
               <div className="image_category">
                 {" "}
-                <img src={ImageDrink} alt="Bebidas" />{" "}
+                <img src={ImageCandy} alt="Bebidas" />{" "}
               </div>
               <div className="text_category">
                 {" "}
-                <p>BEBIDAS</p>{" "}
+                <p>DOCES</p>{" "}
               </div>
             </li>
             <li>

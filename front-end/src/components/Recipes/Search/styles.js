@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { theme } from './../../../styles';
+import { theme } from '../../../styles';
 
 export const InputSearch = styled.div`
   position: relative;
@@ -8,11 +8,18 @@ export const InputSearch = styled.div`
   width: ${(props) => props.width}%;
   height: ${(props) => (props.height ? props.height : "50px")};
   margin-top: ${(props) => (props.margin ? props.margin.top : "1.5em")};
+  box-shadow: 0 0 2px ${theme.colors.marsala};
+  border-radius: 0.4571429rem;
 
   & input {
     flex: 1 0 auto;
-    -webkit-tap-highlight-color: ${theme.colors.white};
-    border-radius: 0.28571429rem 0 0 0.28571429rem;
+    /* -webkit-tap-highlight-color: ${theme.colors.white}; */
+    border-radius: 0.4571429rem 0 0 0.4571429rem;
+    border: none;
+    font-family: PoppinsRegular;
+    font-size: 1rem;
+    max-height: 45px;
+    letter-spacing: 0.25px;
   }
 
   & button {
@@ -20,7 +27,7 @@ export const InputSearch = styled.div`
     padding: 0 1.08571429em;
     border: none;
     background: ${theme.colors.pattensBlue} none;
-    border-radius: 0 0.28571429rem 0.28571429rem 0;
+    border-radius: 0 0.4571429rem 0.4571429rem 0;
     -webkit-user-select: none;
     user-select: none;
     align-items: center;

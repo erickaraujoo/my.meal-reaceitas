@@ -119,7 +119,7 @@ export const SectionCategory = styled.section`
 
   h2 {
     font-size: 2.5rem;
-    color: ${theme.colors.darkRed};
+    color: ${theme.colors.marsala};
     text-align: center;
     font-family: Poppins;
   }
@@ -316,7 +316,7 @@ export const SectionIngredients = styled.section`
 
       h2 {
         font-size: 3rem;
-        color: ${theme.colors.darkRed};
+        color: ${theme.colors.marsala};
         font-family: Poppins;
         letter-spacing: 1px;
       }
@@ -334,8 +334,8 @@ export const SectionIngredients = styled.section`
         height: 75px;
         max-height: 100%;
         border-radius: 50px;
-        border: solid 2px ${theme.colors.darkRed};
-        color: ${theme.colors.darkRed};
+        border: solid 2px ${theme.colors.marsala};
+        color: ${theme.colors.marsala};
         font-size: 1.5rem;
         font-family: PoppinsSemiBold;
         display: flex;

@@ -8,7 +8,7 @@ import ImageMenu from "./../../assets/burger_menu.png";
 export default function Header({ customHeader }) {
   const history = useHistory();
 
-  const handlePageLogin = () => history.push(`/login`);
+  const handlePageLogin = () => history.push(`/entrar`);
 
   return (
     <Container customHeader={customHeader}>
@@ -23,7 +23,7 @@ export default function Header({ customHeader }) {
         <nav>
           <ul>
             <li>CHEFS</li>
-            <Link to={"/recipes"}>
+            <Link to={"/receitas"}>
               {" "}
               <li>RECEITAS</li>{" "}
             </Link>

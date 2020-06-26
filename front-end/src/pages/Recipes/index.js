@@ -1,7 +1,6 @@
 import React, { lazy } from "react";
-import { useSelector } from "react-redux";
 
-import InputSearchRecipe from "../../components/Recipes/SearchRecipes";
+import InputSearchRecipe from "../../components/Recipes/Search";
 
 import FiltersProvider from "./../../context/Recipes/Filters";
 
@@ -9,19 +8,19 @@ import { Main, ContainerCategory } from "./styles";
 
 function Recipes() {
   const ListCategory = lazy(() =>
-    import("../../components/Recipes/FilterByCategory")
+    import("../../components/Recipes/Category")
   );
   const ListRecipes = lazy(() =>
     import("./../../components/Recipes/ListRecipes")
   );
   const FilterByIngredients = lazy(() =>
-    import("../../components/Recipes/FilterByIngredients")
+    import("../../components/Recipes/Ingredients")
   );
   const OrderRecipesBy = lazy(() =>
-    import("../../components/Recipes/OrderRecipesBy")
+    import("../../components/Recipes/Ordenation")
   );
   const FetchRecipes = lazy(() =>
-    import("./../../components/Recipes/FetchRecipes")
+    import("../../components/Recipes/TotalRecipes")
   );
   const Pagination = lazy(() =>
     import("./../../components/Recipes/Pagination")

@@ -8,7 +8,7 @@ import ImageArrowLeft from "./../../assets/login/arrow_right.png";
 export default function Login() {
   const history = useHistory();
 
-  const handlePageRegister = () => history.push(`/register`);
+  const handlePageRegister = () => history.push(`/cadastrar`);
   const handlePageHome = () => history.push(`/`);
 
   return (
