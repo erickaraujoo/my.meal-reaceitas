@@ -21,7 +21,10 @@ import ImageGrains from "./../../../assets/recipes/grains.png";
 
 import { Category } from "./styles";
 
-export default function ListCategory() {
+export default function ListCategory({ selectedCategory }) {
+
+  console.log(selectedCategory);
+
   const [categories] = useState([
     {
       title: "Todas as Receitas",

@@ -63,10 +63,8 @@ export const ImageBackgroundModal = styled.div`
 `;
 
 export const SectionSearch = styled.section`
-  height: 100%;
-  text-align: center;
-  min-height: 960px;
   height: auto;
+  text-align: center;
   grid-column: 1/25;
 
   div.bg_image {
@@ -76,7 +74,7 @@ export const SectionSearch = styled.section`
     background-size: cover;
     filter: brightness(50%);
     width: 100%;
-    height: 960px;
+    height: 680px;
   }
 
   h2 {
@@ -113,86 +111,6 @@ export const SectionSearch = styled.section`
   }
 `;
 
-export const SectionCategory = styled.section`
-  grid-column: 4/22;
-  padding-top: 100px;
-
-  h2 {
-    font-size: 2.5rem;
-    color: ${theme.colors.marsala};
-    text-align: center;
-    font-family: Poppins;
-  }
-
-  p.subtitle {
-    font-size: 1.25rem;
-    font-style: italic;
-    font-family: Poppins;
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  div.hr_default {
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    hr {
-      width: 40%;
-      opacity: 0.3;
-    }
-  }
-
-  ul.list_category {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(18, 1fr);
-
-    li {
-      list-style: none;
-      margin-top: 50px;
-    }
-    li:nth-child(3n - 2) {
-      grid-column: 1/5;
-    }
-    li:nth-child(3n - 1) {
-      grid-column: 8/12;
-    }
-    li:nth-child(3n) {
-      grid-column: 15/19;
-    }
-
-    li div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    li div.image_category {
-      width: 100%;
-      height: 140px;
-      border: solid 1px rgba(0, 0, 0, 0.35);
-      border-radius: 5px 5px 0 0;
-
-      img {
-        height: 80px;
-        width: auto;
-      }
-    }
-
-    li div.text_category {
-      width: 100%;
-      height: 50px;
-      border-left: solid 1px rgba(0, 0, 0, 0.35);
-      border-right: solid 1px rgba(0, 0, 0, 0.35);
-      border-bottom: solid 1px rgba(0, 0, 0, 0.35);
-      border-radius: 0 0 5px 5px;
-
-      p {
-        font-size: 1.25rem;
-      }
-    }
-  }
-`;
 
 export const SectionModalRecipes = styled.section`
   width: 100%;

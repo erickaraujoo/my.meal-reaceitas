@@ -8,6 +8,8 @@ import PoppinsSemiBold from "./../assets/fonts/Poppins/Poppins-SemiBold.ttf";
 import PoppinsRegular from "./../assets/fonts/Poppins/Poppins-Regular.ttf";
 import PoppinsItalic from "./../assets/fonts/Poppins/Poppins-Italic.ttf";
 import PoppinsLightItalic from "./../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf";
+import YellowtailRegular from "./../assets/fonts/Yellowtail/Yellowtail-Regular.ttf";
+import ParisienneRegular from "./../assets/fonts/Parisienne/Parisienne-Regular.ttf";
 
 export default createGlobalStyle`
 
@@ -18,6 +20,8 @@ export default createGlobalStyle`
     @font-face { font-family: Roboto; src: url(${Roboto}) };
     @font-face { font-family: Poppins; src: url(${Poppins}) };
     @font-face { font-family: PoppinsLight; src: url(${PoppinsLight}) };
+    @font-face { font-family: YellowtailRegular; src: url(${YellowtailRegular}) };
+    @font-face { font-family: ParisienneRegular; src: url(${ParisienneRegular}) };
 
     * { margin: 0; padding: 0; box-sizing: border-box; outline: 0 };
 
@@ -93,6 +97,7 @@ export const InputSearch = styled.div`
 export const theme = {
   colors: {
     blue: "#254b6e",
+    blueCharchoal: "#24292d",
     pattensBlue: "#e0e1e2",
     darkOrange: "#F35E07",
     orange: "#F7834A",

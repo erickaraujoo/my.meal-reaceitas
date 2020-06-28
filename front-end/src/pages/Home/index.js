@@ -1,40 +1,22 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useHistory } from "react-router-dom";
 
-import Header from "./../../components/Header";
-import Footer from "./../../components/Footer";
+import HeaderHome from "./../../components/HeaderHome";
+
+import Search from "./../../components/Home/Search";
+import Category from "./../../components/Home/Category";
+import Recipes from "./../../components/Home/Recipes";
+
+import FiltersProvider from "./../../context/Recipes/Filters";
 
 import {
   Container,
-  ImageBackgroundModal,
-  SectionSearch,
-  SectionCategory,
-  SectionModalRecipes,
-  SectionIngredients,
-  SectionFeedback,
 } from "./styles";
 
-import ImageBeef from "./../../assets/recipes/beef.png";
-import ImageCake from "./../../assets/recipes/cake.png";
-import ImageCandy from "./../../assets/recipes/candy.png";
-import ImageFish from "./../../assets/recipes/fish.png";
-import ImagePasta from "./../../assets/recipes/pastas.png";
-import ImageSalad from "./../../assets/recipes/salads.png";
-import ImageArrowRight from "./../../assets/home/icons/arrow_right.png";
-import ImageArrowRightRed from "./../../assets/home/arrow_right_red.png";
-import ImageCooking from "./../../assets/home/cooking.png";
-import ImageSave from "./../../assets/home/icons/save.png";
-import Cake from "./../../assets/home/cake.png";
-
 export default function Home() {
-  const [customHeader, setCustomHeader] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-  const history = useHistory();
-
-  const a = useSelector((state) => state);
-
-  console.log(a);
+  const [setCustomHeader] = useState(false);
+  // const [inputValue] = useState("");
+  // const history = useHistory();
 
   window.onscroll = function () {
     if (
@@ -45,116 +27,26 @@ export default function Home() {
     else setCustomHeader(false);
   };
 
-  const handlePageRecipe = () => history.push(`/recipes?search=${inputValue}`);
+  // const handlePageRecipe = () => history.push(`/recipes?search=${inputValue}`);
 
   return (
     <>
-      <Header customHeader={customHeader} />
+      <HeaderHome />
 
       <Container id="main">
-        <SectionSearch>
-          <div className="bg_image"></div>
+        <Search />
 
-          <h2> ENCONTRE A RECEITA PERFEITA PARA SUA REFEIÇÃO </h2>
+        <FiltersProvider>
+          <Category />
+        </FiltersProvider>
 
-          <div className="search_recipe">
-            <input
-              placeholder="Procure alguma receita..."
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
+        <Recipes />
 
-            <button onClick={() => handlePageRecipe()}>Buscar agora!</button>
-          </div>
-        </SectionSearch>
-
-        <SectionCategory>
-          <h2>CATEGORIAS</h2>
-
-          <p className="subtitle">
-            Você possui alguma categoria específica para suas receitas? Busque
-            agora mesmo!
-          </p>
-
-          <div className="hr_default">
-            {" "}
-            <hr /> <hr />{" "}
-          </div>
-
-          <ul className="list_category">
-            <li>
-              <div className="image_category">
-                {" "}
-                <img src={ImageBeef} alt="Carnes" />{" "}
-              </div>
-              <div className="text_category">
-                {" "}
-                <p>CARNES</p>{" "}
-              </div>
-            </li>
-            <li>
-              <div className="image_category">
-                {" "}
-                <img src={ImageFish} alt="Peixes" />{" "}
-              </div>
-              <div className="text_category">
-                {" "}
-                <p>PEIXES</p>{" "}
-              </div>
-            </li>
-            <li>
-              <div className="image_category">
-                {" "}
-                <img src={ImageCandy} alt="Bebidas" />{" "}
-              </div>
-              <div className="text_category">
-                {" "}
-                <p>DOCES</p>{" "}
-              </div>
-            </li>
-            <li>
-              <div className="image_category">
-                {" "}
-                <img src={ImagePasta} alt="Massas" />{" "}
-              </div>
-              <div className="text_category">
-                {" "}
-                <p>MASSAS</p>{" "}
-              </div>
-            </li>
-            <li>
-              <div className="image_category">
-                {" "}
-                <img src={ImageCake} alt="Sobremesas" />{" "}
-              </div>
-              <div className="text_category">
-                {" "}
-                <p>SOBREMESAS</p>{" "}
-              </div>
-            </li>
-            <li>
-              <div className="image_category">
-                {" "}
-                <img src={ImageSalad} alt="Saudáveis" />{" "}
-              </div>
-              <div className="text_category">
-                {" "}
-                <p>SAUDÁVEIS</p>{" "}
-              </div>
-            </li>
-          </ul>
-
-          <div className="hr_default">
-            {" "}
-            <hr /> <hr />{" "}
-          </div>
-        </SectionCategory>
-
-        <section className="section_title_recipes">
+        {/* <section className="section_title_recipes">
           <hr /> <h2>ALGUMAS RECEITAS QUE SELECIONAMOS PARA VOCÊ</h2> <hr />
-        </section>
+        </section> */}
 
-        <SectionModalRecipes>
+        {/* <SectionModalRecipes>
           <div className="title_recipes">
             <h2>Tendências</h2>
             <img src={ImageArrowRight} alt="" />
@@ -202,9 +94,9 @@ export default function Home() {
           </div>
         </SectionModalRecipes>
 
-        <hr className="hr_section" />
+        <hr className="hr_section" /> */}
 
-        <SectionModalRecipes>
+        {/* <SectionModalRecipes>
           <div className="title_recipes">
             <h2>Recentes</h2>
             <img src={ImageArrowRight} alt="" />
@@ -270,9 +162,9 @@ export default function Home() {
               </li>
             </ul>
           </div>
-        </SectionModalRecipes>
+        </SectionModalRecipes> */}
 
-        <hr className="hr_section" />
+        {/* <hr className="hr_section" />
 
         <SectionModalRecipes>
           <div className="title_recipes">
@@ -340,14 +232,9 @@ export default function Home() {
               </li>
             </ul>
           </div>
-        </SectionModalRecipes>
+        </SectionModalRecipes> */}
 
-        <SectionIngredients>
-          <div className="hr_decoration">
-            {" "}
-            <hr />{" "}
-          </div>
-
+        {/* <SectionIngredients>
           <div className="flex">
             <div className="content_ingredients">
               <h2>PARA FACILITAR SUA VIDA!</h2>
@@ -358,27 +245,22 @@ export default function Home() {
               </p>
 
               <button>
-                {" "}
                 Buscar agora mesmo! <img
                   src={ImageArrowRightRed}
                   alt=""
-                />{" "}
+                />
               </button>
-
-              <div className="hr_decoration_bottom">
-                {" "}
-                <hr />{" "}
+                <hr />
               </div>
             </div>
 
             <div className="image_ingredients">
-              {" "}
-              <img src={ImageCooking} alt="" />{" "}
+              <img src={ImageCooking} alt="" />
             </div>
           </div>
-        </SectionIngredients>
+        </SectionIngredients> */}
 
-        <SectionFeedback>
+        {/* <SectionFeedback>
           <h2>ENTRE EM CONTATO CONOSCO</h2>
 
           <p className="subtitle">Tire suas dúvidas mandando uma mensagem</p>
@@ -403,10 +285,10 @@ export default function Home() {
 
             <button type="submit">MANDAR MENSAGEM</button>
           </form>
-        </SectionFeedback>
+        </SectionFeedback> */}
       </Container>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

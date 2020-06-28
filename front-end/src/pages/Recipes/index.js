@@ -1,4 +1,5 @@
-import React, { lazy } from "react";
+import React, { lazy,  } from "react";
+import { useLocation } from 'react-router-dom';
 
 import InputSearchRecipe from "../../components/Recipes/Search";
 
@@ -7,6 +8,9 @@ import FiltersProvider from "./../../context/Recipes/Filters";
 import { Main, ContainerCategory } from "./styles";
 
 function Recipes() {
+  const location = useLocation();
+  console.log(location)
+
   const ListCategory = lazy(() =>
     import("../../components/Recipes/Category")
   );
@@ -53,7 +57,7 @@ function Recipes() {
 
           <ContainerCategory className="section-category">
             <div className="category-container">
-              <ListCategory />
+              <ListCategory selectedCategory={location.category} />
             </div>
           </ContainerCategory>
 
