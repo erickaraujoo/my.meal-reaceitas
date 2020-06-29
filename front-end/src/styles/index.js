@@ -5,6 +5,7 @@ import Roboto from "./../assets/fonts/Roboto/Roboto-Regular.ttf";
 import Poppins from "./../assets/fonts/Poppins/Poppins-Medium.ttf";
 import PoppinsLight from "./../assets/fonts/Poppins/Poppins-Light.ttf";
 import PoppinsSemiBold from "./../assets/fonts/Poppins/Poppins-SemiBold.ttf";
+import PoppinsExtraBold from "./../assets/fonts/Poppins/Poppins-ExtraBold.ttf";
 import PoppinsRegular from "./../assets/fonts/Poppins/Poppins-Regular.ttf";
 import PoppinsItalic from "./../assets/fonts/Poppins/Poppins-Italic.ttf";
 import PoppinsLightItalic from "./../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf";
@@ -16,6 +17,7 @@ export default createGlobalStyle`
     @font-face { font-family: PoppinsLightItalic; src: url(${PoppinsLightItalic}) };
     @font-face { font-family: PoppinsItalic; src: url(${PoppinsItalic}) };
     @font-face { font-family: PoppinsSemiBold; src: url(${PoppinsSemiBold}) };
+    @font-face { font-family: PoppinsExtraBold; src: url(${PoppinsExtraBold}) };
     @font-face { font-family: PoppinsRegular; src: url(${PoppinsRegular}) };
     @font-face { font-family: Roboto; src: url(${Roboto}) };
     @font-face { font-family: Poppins; src: url(${Poppins}) };
@@ -115,6 +117,7 @@ export const theme = {
     raven: "#6c757d",
     beige: "#F1F0EB",
     marsala: "#5e1b44",
+    magnolia: "#F6F5F8",
 
     blackWithMediumOpacity: "rgba(0, 0, 0, 0.5)",
     blackWithGreatOpacity: "rgba(0, 0, 0, 0.15)",

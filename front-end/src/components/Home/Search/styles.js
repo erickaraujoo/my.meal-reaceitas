@@ -5,7 +5,7 @@ import ImageRecipe from "./../../../assets/home/wallpapers/wallpaper_home.png";
 import { theme } from "./../../../styles";
 
 export const Opening = styled.section`
-  height: 720px;
+  height: 620px;
   text-align: center;
   grid-column: 1/25;
   display: flex;
@@ -13,9 +13,69 @@ export const Opening = styled.section`
   /* background-image: url(${ImageRecipe}); */
   background-size: cover;
   background-position: center;
-  padding: 0 80px;
+  /* padding: 0 60px; */
 
-  div {
+  div.container_slides {
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+    div.slide {
+      width: 20%;
+      display: flex;
+      align-items: flex-end;
+
+      div.text {
+        width: 100%;
+        background: ${theme.colors.blackWithMediumOpacity};
+        height: 100px;
+        padding: 10px 15px 0;
+
+        h3 {
+          font-size: 1.125rem;
+          font-family: Poppins;
+          color: ${theme.colors.white};
+          text-align: left;
+          letter-spacing: 0.25px;
+        }
+      }
+    }
+    
+    div.slide:nth-child(1) {
+      height: 100%;
+      border-right: solid 2px ${theme.colors.marsalaWithMediumOpacity};
+    }
+    div.slide:nth-child(2) {
+      height: 100%;
+      border-right: solid 2px ${theme.colors.marsalaWithMediumOpacity};
+    }
+    div.slide:nth-child(3) {
+      height: 100%;
+      border-right: solid 2px ${theme.colors.marsalaWithMediumOpacity};
+    }
+    div.slide:nth-child(4) {
+      height: 100%;
+      border-right: solid 2px ${theme.colors.marsalaWithMediumOpacity};
+    }
+    div.slide:nth-child(5) {
+      height: 100%;
+    }
+
+    div.slide { transition: 0.3s };
+    div.text { transition: padding 0.3s };
+
+    div.current:hover {
+      width: 50%;
+      filter: brightness(100%);
+
+      div.text {
+        padding: 10px 40px 0;
+      }
+    }
+  }
+
+
+  /* div {
     width: 50%;
     height: 100%;
   }
@@ -67,7 +127,7 @@ export const Opening = styled.section`
       height: auto;
       width: 610px;
     }
-  }
+  } */
 `;
 
 export const Search = styled.section`
@@ -131,4 +191,11 @@ export const Search = styled.section`
       }
     }
   }
+`;
+
+export const BackgroundRecipes = styled.div`
+  background-image: url(${props => props.background});
+  background-position: center;
+  background-size: cover;
+  filter: brightness(60%);
 `;

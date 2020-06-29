@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { useDispatch } from "react-redux";
 
-import { fetchRecipes } from "./../../../store/modules/recipes/actions";
+import { fetchRecipes } from "../../store/modules/recipes/actions";
 
 const FiltersContext = createContext();
 

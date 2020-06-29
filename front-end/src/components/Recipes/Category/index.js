@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useCategory } from "../../../context/Recipes/Filters";
+import { useCategory } from "../../../context/Recipes/Filters.js";
 
 import ImageCategory from "./../../../assets/recipes/category.png";
 import ImageForKnife from "./../../../assets/recipes/fork_knife.png";

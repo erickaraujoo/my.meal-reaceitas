@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 
-import { useSearch } from "../../../context/Recipes/Filters";
+import { useSearch } from "../../../context/Recipes/Filters.js";
 
 export default function FetchRecipes() {
   const [totalRecipes, setTotalRecipes] = useState(0);

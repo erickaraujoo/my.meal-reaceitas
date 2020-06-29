@@ -6,7 +6,7 @@ import {
   ITEM_TYPES,
 } from "react-ultimate-pagination";
 
-import { useCurrentPage } from "./../../../context/Recipes/Filters";
+import { useCurrentPage } from "./../../../context/Recipes/Filters.js";
 
 import { Container } from "./styles";
 

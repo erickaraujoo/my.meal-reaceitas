@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useOrdenation } from "../../../context/Recipes/Filters";
+import { useOrdenation } from "../../../context/Recipes/Filters.js";
 
 import { OrderBy } from "./styles";
 

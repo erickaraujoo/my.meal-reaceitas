@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import InputSearchRecipe from "../../components/Recipes/Search";
 
-import FiltersProvider from "./../../context/Recipes/Filters";
+import FiltersProvider from "./../../context/Recipes/Filters.js";
 
 import { Main, ContainerCategory } from "./styles";
 

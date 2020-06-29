@@ -16,7 +16,6 @@ export const Header = styled.header`
     align-items: center;
 
     p {
-      margin-left: 20px;
       color: ${theme.colors.white};
       font-size: 1.5rem;
       font-family: PoppinsSemiBold;
@@ -28,7 +27,6 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 20px;
 
     ul {
       display: flex;

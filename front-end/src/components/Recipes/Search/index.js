@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useSearch } from "../../../context/Recipes/Filters";
+import { useSearch } from "../../../context/Recipes/Filters.js";
 
 import { InputSearch } from "./styles";
 
