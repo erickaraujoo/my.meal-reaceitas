@@ -17,13 +17,13 @@ export const Main = styled.main`
     padding-top: calc(90px + 5em);
     padding-bottom: 3.5em;
 
-    div.blue_background {
+    div.background_profile {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 295px;
-      background-color: ${theme.colors.darkRed};
+      background-color: ${theme.colors.marsala};
       z-index: -10;
     }
 
@@ -205,6 +205,7 @@ export const Main = styled.main`
       border-radius: 5px;
       height: auto;
       padding: 35px 45px 50px;
+      margin-bottom: 100px;
 
       div.title {
         display: flex;

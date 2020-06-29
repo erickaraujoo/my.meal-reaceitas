@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import ImageReview from "./../../../assets/home/wallpapers/wallpaper_review.png";
+// import ImageReview from "./../../../assets/home/wallpapers/wallpaper_review.png";
 
 import { theme } from "./../../../styles";
 
@@ -29,9 +29,9 @@ export const Review = styled.section`
     margin-top: 80px;
     height: auto;
     padding: 150px 0;
-    background-image: url(${ImageReview});
-    background-repeat: repeat;
-    background-position: center;
+    /* background-repeat: repeat; */
+    /* background-position: center; */
+    background: ${theme.colors.marsala};
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     column-gap: 20px;
@@ -43,6 +43,7 @@ export const Review = styled.section`
       background: ${theme.colors.white};
       display: flex;
       flex-direction: column;
+      transition: transform 0.2s ease-in-out;
 
       img {
         width: 80px;
@@ -72,6 +73,10 @@ export const Review = styled.section`
         font-size: 1rem;
         font-family: PoppinsRegular;
         padding: 0 50px;
+      }
+
+      &:hover {
+        transform: translateY(-20px);
       }
     }
 

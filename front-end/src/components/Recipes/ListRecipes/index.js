@@ -11,8 +11,24 @@ export default function ListRecipes() {
 
   const returnDate = (date) => date.toLocaleDateString();
 
-  if (error) return ( <> <p>Não foi possível se conectar com o banco de dados</p> </> );
-  if (!data.content.length > 0) return ( <> <p>Não foi encontrado nenhuma receita</p> </> );
+  if (loading)
+    return (
+      <>
+        <p>Carregando...</p>
+      </>
+    );
+  if (error)
+    return (
+      <>
+        <p>Não foi possível se conectar com o banco de dados</p>
+      </>
+    );
+  if (!data.content.length > 0)
+    return (
+      <>
+        <p>Não foi encontrado nenhuma receita</p>
+      </>
+    );
 
   return (
     <Recipe>

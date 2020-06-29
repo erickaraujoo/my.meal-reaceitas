@@ -86,14 +86,6 @@ export default function SearchRecipes() {
             </div>
           </BackgroundRecipes>
         </div>
-        {/* <div className="text">
-          <p> As melhores Receitas com os melhores Ingredientes </p>
-          <h1> Meal Receitas </h1>
-          <button>Começar</button>
-        </div>
-        <div className="image_plateFood">
-          <img src={ImagePlateFood} alt="food" />
-        </div> */}
       </Opening>
       <Search>
         <div className="title">

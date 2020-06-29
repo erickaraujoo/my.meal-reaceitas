@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Link } from "react-router-dom";
 
 import { Main } from "./styles";
@@ -15,9 +15,12 @@ import ImageAddRecipe from "./../../assets/profile/add.png";
 import ImageClose from "./../../assets/profile/close.png";
 
 export default function Profile() {
+  const Footer = lazy(() => import("./../../components/Footer"));
+
+
   return (
     <Main>
-      <div className="blue_background"></div>
+      <div className="background_profile"></div>
 
       <section className="section_header">
         <div className="background"></div>
@@ -217,6 +220,8 @@ export default function Profile() {
           </li>
         </ul>
       </section>
+      
+      <Footer />
     </Main>
   );
 }

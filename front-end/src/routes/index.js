@@ -9,20 +9,19 @@ const Profile = lazy(() => import("./../pages/Profile"));
 const NewRecipe = lazy(() => import("./../pages/NewRecipe"));
 const Login = lazy(() => import("./../pages/Login"));
 const Register = lazy(() => import("./../pages/Register"));
-const RecipeInfo = lazy(() => import("./../pages/Recipes/RecipeInfo"));
+const InfoRecipe = lazy(() => import("./../pages/InfoRecipe"));
 
 const Routes = () => (
   <BrowserRouter>
     <Suspense fallback={<LoadingPage />}>
       <Switch>
         <Route exact path="/" component={() => <Home />} />
+
         <Route exact path="/receitas" component={() => <Recipes />} />
-        <Route exact path="/receitas/:id" component={() => <RecipeInfo />} />
+        <Route exact path="/receitas/:id" component={() => <InfoRecipe />} />
+        <Route exact path="/perfil/:id/receita/criar" component={() => <NewRecipe />} />
+
         <Route exact path="/perfil/:id" component={() => <Profile />} />
-        <Route
-          exact path="/perfil/:id/receita/criar"
-          component={() => <NewRecipe />}
-        />
         <Route path="/entrar" component={() => <Login />} />
         <Route path="/cadastrar" component={() => <Register />} />
       </Switch>

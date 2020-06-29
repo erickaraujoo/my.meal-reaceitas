@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import { Header } from "./styles";
 
-export default function HeaderHome() {
+export default function HeaderHome({ gridColumns }) {
   const [navigations] = useState([
     { value: "Início", current: false, id: 1 },
     { value: "Receitas", current: false, id: 2 },
@@ -15,7 +15,7 @@ export default function HeaderHome() {
   ]);
 
   return (
-    <Header>
+    <Header gridColumns={gridColumns}>
       <div className="logo">
         <p>MEAL RECEITAS</p>
       </div>

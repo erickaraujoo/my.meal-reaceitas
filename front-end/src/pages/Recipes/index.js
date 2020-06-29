@@ -1,5 +1,4 @@
 import React, { lazy,  } from "react";
-import { useLocation } from 'react-router-dom';
 
 import InputSearchRecipe from "../../components/Recipes/Search";
 
@@ -8,9 +7,6 @@ import FiltersProvider from "./../../context/Recipes/Filters.js";
 import { Main, ContainerCategory } from "./styles";
 
 function Recipes() {
-  const location = useLocation();
-  console.log(location)
-
   const ListCategory = lazy(() =>
     import("../../components/Recipes/Category")
   );
@@ -30,12 +26,12 @@ function Recipes() {
     import("./../../components/Recipes/Pagination")
   );
   const Footer = lazy(() => import("./../../components/Footer"));
-  
+  const HeaderHome = lazy(() => import("./../../components/HeaderHome"));
 
   return (
     <>
       <Main>
-        <div className="blue_background"></div>
+        <HeaderHome gridColumns={'1/6'} />
 
         <FiltersProvider>
           <FetchRecipes />
@@ -57,7 +53,7 @@ function Recipes() {
 
           <ContainerCategory className="section-category">
             <div className="category-container">
-              <ListCategory selectedCategory={location.category} />
+              <ListCategory />
             </div>
           </ContainerCategory>
 

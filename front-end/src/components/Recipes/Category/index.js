@@ -21,9 +21,7 @@ import ImageGrains from "./../../../assets/recipes/grains.png";
 
 import { Category } from "./styles";
 
-export default function ListCategory({ selectedCategory }) {
-
-  console.log(selectedCategory);
+export default function ListCategory() {
 
   const [categories] = useState([
     {

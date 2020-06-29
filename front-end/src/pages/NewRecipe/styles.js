@@ -7,22 +7,19 @@ import BackgroundImageRecipe from "./../../assets/profile/recipeBackground.png";
 export const Main = styled.main`
   width: 100%;
   height: auto;
-  padding: 0 1.5em;
-
-  padding: 0;
+  padding-top: 1.5em;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
   column-gap: 1.25em;
   padding-top: calc(90px + 5em);
-  padding-bottom: 3.5em;
 
-  div.blue_background {
+  div.background_recipe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 295px;
-    background-color: ${theme.colors.darkRed};
+    background-color: ${theme.colors.marsala};
     z-index: -10;
   }
 
@@ -422,6 +419,7 @@ export const Main = styled.main`
     background: ${theme.colors.white};
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
 
     button {
       width: 450px;

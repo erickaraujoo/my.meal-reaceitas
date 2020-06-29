@@ -43,7 +43,7 @@ export const Category = styled.section`
   }
 
   div.category {
-    background-color: #eb7268;
+    background-color: ${theme.colors.orange};
     width: 140px;
     padding: 25px 10px;
     height: auto;

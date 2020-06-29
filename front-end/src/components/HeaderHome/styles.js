@@ -9,6 +9,7 @@ export const Header = styled.header`
   background: ${theme.colors.marsala};
   display: grid;
   grid-template-columns: repeat(24, 1fr);
+  grid-column: ${props => props.gridColumns ? props.gridColumns : null};
 
   div.logo {
     grid-column: 2/10;

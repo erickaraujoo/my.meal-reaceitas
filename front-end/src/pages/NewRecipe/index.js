@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy } from "react";
 
 import { Main } from "./styles";
 
@@ -10,6 +10,8 @@ import ImageDelete from "./../../assets/profile/close_red.png";
 import ImageAddTopic from "./../../assets/profile/add.png";
 
 export default function NewRecipe() {
+  const Footer = lazy(() => import("./../../components/Footer"));
+
   const [ingredient, setIngredient] = useState("");
   const [totalIngredients, setTotalIngredients] = useState([]);
 
@@ -28,7 +30,7 @@ export default function NewRecipe() {
 
   return (
     <Main>
-      <div className="blue_background"></div>
+      <div className="background_recipe"></div>
 
       <section className="section_header">
         <div className="background"></div>
@@ -197,6 +199,8 @@ export default function NewRecipe() {
       <section className="send_recipe">
         <button>Criar nova receita</button>
       </section>
+
+      <Footer />
     </Main>
   );
 }
