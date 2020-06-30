@@ -1,13 +1,23 @@
 import React, { lazy } from "react";
 
 export default function InfoRecipe() {
-  const HeaderHome = lazy(() => 
-  import("./../../components/HeaderHome"));
+  const GeneralAuthorInfo = lazy(() =>
+    import("../../components/InfoRecipe/AuthorInfo")
+  );
   const GeneralInfo = lazy(() =>
     import("./../../components/InfoRecipe/GeneralInfo")
   );
-  const GeneralAuthorInfo = lazy(() =>
-    import("./../../components/InfoRecipe/GeneralAuthorInfo")
+  const GeneralData = lazy(() =>
+    import("../../components/InfoRecipe/MethodPreparationAndIngredients")
+  );
+  const Comments = lazy(() =>
+    import("./../../components/InfoRecipe/Comments")
+  );
+  const HeaderHome = lazy(() => 
+    import("./../../components/HeaderHome")
+  );
+  const Footer = lazy(() => 
+    import("./../../components/Footer")
   );
 
   return (
@@ -15,6 +25,9 @@ export default function InfoRecipe() {
       <HeaderHome />
       <GeneralInfo />
       <GeneralAuthorInfo />
+      <GeneralData />
+      <Comments />
+      <Footer />
     </>
   );
 }

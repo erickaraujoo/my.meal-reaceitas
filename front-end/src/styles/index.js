@@ -118,7 +118,9 @@ export const theme = {
     beige: "#F1F0EB",
     marsala: "#5e1b44",
     magnolia: "#F6F5F8",
+    whiteSomke: "#F1F1F1",
 
+    whiteWithMediumOpacity: "rgba(255, 255, 255, 0.5)",
     blackWithMediumOpacity: "rgba(0, 0, 0, 0.5)",
     blackWithGreatOpacity: "rgba(0, 0, 0, 0.15)",
     blackCharcoalWithMediumOpacity: "rgba(34, 36, 38, 0.15)",

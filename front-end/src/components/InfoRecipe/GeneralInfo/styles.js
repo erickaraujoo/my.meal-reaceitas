@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "./../../../styles";
 
 export const Section = styled.section`
-  margin-top: 80px;
+  margin-top: 120px;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
 
