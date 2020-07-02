@@ -30,7 +30,7 @@ export const Section = styled.section`
     display: flex;
     align-items: center;
     margin-top: 80px;
-    height: 700px;
+    height: auto;
 
     div.method_preparation,
     div.ingredients {
@@ -51,21 +51,11 @@ export const Section = styled.section`
           margin: 10px auto 0 auto;
         }
       }
-
-      div.pagination {
-        width: 100%;
-        height: 70px;
-        display: block;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        background: ${theme.colors.blackCharcoalWithMediumOpacity};
-      }
     }
 
     div.method_preparation {
-      min-height: calc(100% - 140px);
-      max-height: 660px;
+      min-height: 560px;
+      height: auto;
       position: relative;
       background: ${theme.colors.marsala};
 
@@ -85,8 +75,8 @@ export const Section = styled.section`
     }
 
     div.ingredients {
-      min-height: calc(100% - 100px);
-      max-height: 700px;
+      min-height: 600px;
+      height: auto;
       position: relative;
       z-index: 100;
       background: ${theme.colors.white};

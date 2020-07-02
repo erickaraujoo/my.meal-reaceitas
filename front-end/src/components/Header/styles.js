@@ -1,111 +1,60 @@
 import styled from "styled-components";
 
-import { theme } from "./../../styles";
+import { theme } from "../../styles";
 
-export const Container = styled.header`
-    width: 100%;
-    height: auto;
-    /* position: fixed; */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    
-    section.header_mobile {
+export const Header = styled.header`
+  width: 100%;
+  min-height: 70px;
+  height: auto;
+  background: ${theme.colors.marsala};
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-column: ${props => props.gridColumns ? props.gridColumns : null};
+
+  div.logo {
+    grid-column: 2/10;
+    display: flex;
+    align-items: center;
+
+    p {
+      color: ${theme.colors.white};
+      font-size: 1.5rem;
+      font-family: PoppinsSemiBold;
+    }
+  }
+
+  nav.navigations {
+    grid-column: 11/24;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    ul {
+      display: flex;
+      margin-top: 5px;
+
+      li {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        max-height: 60px;
-        background: ${theme.colors.black};
+        justify-content: center;
+        list-style: none;
+        height: 30px;
+        cursor: pointer;
 
-        h1 { color: ${theme.colors.white}; font-size: 1.5rem };
-        img { width: auto; height: 1.5em; cursor: pointer };
-    }
+        p {
+          padding: 0 20px;
+          font-family: Poppins;
+          font-size: 1rem;
+          color: ${theme.colors.white};
+          transition: font-size 0.1s;
 
-    section.header_web { display: none };
-
-    @media(min-width: 1100px) {
-        display: grid;
-        grid-template-columns: repeat(24, 1fr);
-
-        section.header_web {
-            width: 100%;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            grid-column: 2/24;
-            padding-left: 50px;
-            margin-top: 20px;
-            /* background-color: ${(props) =>
-              props.customHeader ? "#1A1A1A" : "transparent"};
-            box-shadow: ${(props) =>
-              props.customHeader ? "0 0 3px black" : "none"};
-            transform: ${(props) =>
-              props.customHeader ? "translateY(0px)" : "translateY(-10px)"}; */
-            background-color: 'transparent';
-            box-shadow: none;
-            transform: translateY(-10px);
-            transition: .4s;
-
-            h1 { color: ${theme.colors.white}; font-size: 1.25rem };
-
-            nav ul { 
-                display: flex;
-
-                li { 
-                    list-style: none; 
-                    color: ${theme.colors.white}; 
-                    cursor: pointer; 
-                    font-size: 1rem; 
-                    transition: font-size .1s;
-
-                    &:hover { font-size: 1.0625rem };
-                }
-
-                li + li, li + a, a + li { margin-left: 40px; text-decoration: none };
-            }
-
-            div.register_header {
-                height: 100%;
-                width: 230px;
-                display: flex;
-                align-items: center;
-
-                div.login, div.register {
-                    height: 100%;
-                    width: 50%;
-                    color: ${theme.colors.white};
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    background: ${(props) => {
-                      return props.customHeader
-                        ? "linear-gradient(180deg, #254B6E 0%, #183D60 100%);"
-                        : "transparent";
-                    }};
-
-                    p { font-size: 1.125rem; transition: font-size .15s };
-
-                    &:hover > p { font-size: 1.25rem };
-                }
-
-                hr {
-                    border: ${(props) => {
-                      return props.customHeader
-                        ? "solid .05px #254B6E;"
-                        : "solid .05px rgba(255, 255, 255, .4);";
-                    }};
-                    height: ${(props) => {
-                      return props.customHeader ? "100%" : "50%";
-                    }};
-                    transition: .2s;
-                }
-            }
+          &:hover {
+            font-size: 1.0625rem;
+            color: ${theme.colors.orange};
+          }
         }
 
-        section.header_mobile { display: none }; 
+      }
     }
+  }
 `;

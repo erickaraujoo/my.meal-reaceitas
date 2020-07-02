@@ -1,48 +1,36 @@
-import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import React, { useState } from "react";
 
-import { Container } from "./styles";
+// import { Container } from './styles';
 
-import ImageMenu from "./../../assets/burger_menu.png";
+import { Header } from "./styles";
 
-export default function Header({ customHeader }) {
-  const history = useHistory();
-
-  const handlePageLogin = () => history.push(`/entrar`);
+export default function HeaderHome({ gridColumns }) {
+  const [navigations] = useState([
+    { value: "Início", current: false, id: 1 },
+    { value: "Receitas", current: false, id: 2 },
+    { value: "Sobre Nós", current: false, id: 3 },
+    { value: "Envie sua Receita", current: false, id: 4 },
+    { value: "Cadastre-se", current: false, id: 5 },
+    { value: "Entrar", current: false, id: 6 },
+  ]);
 
   return (
-    <Container customHeader={customHeader}>
-      <section className="header_mobile">
-        <h1>MEAL RECEITAS</h1>
-        <img src={ImageMenu} alt="" />
-      </section>
-
-      <section className="header_web">
-        <h1>MEAL RECEITAS</h1>
-
-        <nav>
-          <ul>
-            <li>CHEFS</li>
-            <Link to={"/receitas"}>
-              {" "}
-              <li>RECEITAS</li>{" "}
-            </Link>
-            <li>CATEGORIAS</li>
-            <li>PUBLICAR</li>
-            <li>FEEDBACK</li>
-          </ul>
-        </nav>
-
-        <div className="register_header">
-          <div className="login" onClick={() => handlePageLogin()}>
-            <p>LOG IN</p>
-          </div>
-          <hr />
-          <div className="register">
-            <p>REGISTER</p>
-          </div>
-        </div>
-      </section>
-    </Container>
+    <Header gridColumns={gridColumns}>
+      <div className="logo">
+        <p>MEAL RECEITAS</p>
+      </div>
+      <nav className="navigations">
+        <ul>
+          {navigations.map(({ value, current, id }, index) => (
+            <li
+              className={current ? "current" : null}
+              key={index}
+            >
+              <p> {value} </p>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </Header>
   );
 }

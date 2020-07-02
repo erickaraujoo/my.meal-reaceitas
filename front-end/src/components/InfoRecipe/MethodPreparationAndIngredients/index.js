@@ -37,8 +37,6 @@ export default function GeneralData() {
               Leve para assar em forno médio 180 °C) preaquecido por 40 minutos.
             </p>
           </div>
-
-          <div className="pagination"></div>
         </div>
         <div className="ingredients">
           <h3>INGREDIENTES</h3>
@@ -71,8 +69,6 @@ export default function GeneralData() {
             <p>1/2</p>
             <p>Teaspoon worcestershire mustard</p>
           </div>
-
-          <div className="pagination"></div>
         </div>
       </div>
     </Section>

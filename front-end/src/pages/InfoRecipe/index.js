@@ -14,7 +14,7 @@ export default function InfoRecipe() {
     import("./../../components/InfoRecipe/Comments")
   );
   const HeaderHome = lazy(() => 
-    import("./../../components/HeaderHome")
+    import("../../components/Header")
   );
   const Footer = lazy(() => 
     import("./../../components/Footer")

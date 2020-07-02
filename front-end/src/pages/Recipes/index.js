@@ -1,10 +1,14 @@
-import React, { lazy,  } from "react";
+import React, { lazy, useState } from "react";
 
 import InputSearchRecipe from "../../components/Recipes/Search";
 
 import FiltersProvider from "./../../context/Recipes/Filters.js";
 
 import { Main, ContainerCategory } from "./styles";
+
+import { ModalIngredients } from "./../../components/Modal";
+
+import ModalRecipesProvider from "./../../context/Modal/ModalRecipes";
 
 function Recipes() {
   const ListCategory = lazy(() =>
@@ -26,7 +30,8 @@ function Recipes() {
     import("./../../components/Recipes/Pagination")
   );
   const Footer = lazy(() => import("./../../components/Footer"));
-  const HeaderHome = lazy(() => import("./../../components/HeaderHome"));
+  const HeaderHome = lazy(() => import("../../components/Header"));
+
 
   return (
     <>
@@ -38,7 +43,10 @@ function Recipes() {
 
           <section className="section-data-classification">
             <div className="content-wrap">
-              <FilterByIngredients />
+              <ModalRecipesProvider>
+                <ModalIngredients />
+                <FilterByIngredients />
+              </ModalRecipesProvider>
 
               <OrderRecipesBy />
 
