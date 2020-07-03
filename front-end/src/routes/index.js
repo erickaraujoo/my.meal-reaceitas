@@ -10,6 +10,7 @@ const NewRecipe = lazy(() => import("./../pages/NewRecipe"));
 const Login = lazy(() => import("./../pages/Login"));
 const Register = lazy(() => import("./../pages/Register"));
 const InfoRecipe = lazy(() => import("./../pages/InfoRecipe"));
+const Company = lazy(() => import("./../pages/Company"));
 
 const Routes = () => (
   <BrowserRouter>
@@ -24,6 +25,8 @@ const Routes = () => (
         <Route exact path="/perfil/:id" component={() => <Profile />} />
         <Route path="/entrar" component={() => <Login />} />
         <Route path="/cadastrar" component={() => <Register />} />
+
+        <Route path="/empresa" component={() => <Company />} />
       </Switch>
     </Suspense>
   </BrowserRouter>

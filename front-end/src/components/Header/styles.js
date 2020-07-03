@@ -9,7 +9,7 @@ export const Header = styled.header`
   background: ${theme.colors.marsala};
   display: grid;
   grid-template-columns: repeat(24, 1fr);
-  grid-column: ${props => props.gridColumns ? props.gridColumns : null};
+  grid-column: ${(props) => (props.gridColumns ? props.gridColumns : null)};
 
   div.logo {
     grid-column: 2/10;
@@ -33,6 +33,10 @@ export const Header = styled.header`
       display: flex;
       margin-top: 5px;
 
+      a {
+        text-decoration: none;
+      }
+
       li {
         display: flex;
         align-items: center;
@@ -53,7 +57,11 @@ export const Header = styled.header`
             color: ${theme.colors.orange};
           }
         }
+      }
 
+      li.current p {
+        font-size: 1.0625rem;
+        color: ${theme.colors.orange};
       }
     }
   }

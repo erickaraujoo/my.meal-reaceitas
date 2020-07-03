@@ -2,6 +2,8 @@ import React, { useState, useCallback, useMemo } from "react";
 
 import { SectionModalIngredients } from "./styles";
 
+import { useIngredients } from "./../../context/Recipes/Filters";
+
 import ImageClose from "../../assets/recipes/close.png";
 
 import { useDisplay } from "../../context/Modal/ModalRecipes";
@@ -10,20 +12,26 @@ export function ModalIngredients() {
   const { onScreen, setOnScreen } = useDisplay();
   const [totalIngredients, setTotalIngredients] = useState([]);
   const [ingredient, setIngredient] = useState("");
+  const { setIngredients } = useIngredients();
 
-  const handleIngredients = (value) => {
+  const handleIngredients = (name) => {
+    setTotalIngredients((prevIngredient) => [...prevIngredient, { name }]);
     setIngredient("");
-    setTotalIngredients((prevIngredient) => [...prevIngredient, value]);
   };
 
   const handleIngredient = (value) => setIngredient(value);
 
   const handleScreen = (value) => setOnScreen(value);
 
-  const filterIngredients = (value) => {
+  const filterIngredients = (value, id) => {
     return setTotalIngredients(
-      totalIngredients.filter((ingredient) => ingredient !== value)
+      totalIngredients.filter(({ name }, index) => index !== id)
     );
+  };
+
+  const handleContextIngredients = (ingredients) => {
+    setIngredients(ingredients);
+    handleScreen(false);
   };
 
   if (onScreen)
@@ -42,27 +50,38 @@ export function ModalIngredients() {
                 placeholder="Exemplo: 200g de farinha de trigo"
                 value={ingredient}
                 onChange={(e) => handleIngredient(e.target.value)}
+                onKeyPress={(e) =>
+                  e.which === 13 && ingredient
+                    ? handleIngredients(e.target.value)
+                    : null
+                }
               />
-              <button onClick={() => handleIngredients(ingredient)}>
+              <button
+                onClick={() =>
+                  ingredient ? handleIngredients(ingredient) : null
+                }
+              >
                 Adicionar
               </button>
             </div>
           </div>
           <div className="ingredients">
-            {totalIngredients.map((ingredient, index) => (
+            {totalIngredients.map(({ name }, index) => (
               <div key={index}>
-                <p>{ingredient}</p>
+                <p>{name}</p>
                 <img
                   src={ImageClose}
                   alt="Del"
                   title="Deletar ingrediente"
-                  onClick={() => filterIngredients(ingredient)}
+                  onClick={() => filterIngredients(name, index)}
                 />
               </div>
             ))}
           </div>
           <div className="send_recipes">
-            <button>Procurar</button>
+            <button onClick={() => handleContextIngredients(totalIngredients)}>
+              Procurar
+            </button>
           </div>
         </div>
       </SectionModalIngredients>

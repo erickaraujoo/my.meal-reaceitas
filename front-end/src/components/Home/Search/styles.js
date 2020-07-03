@@ -5,7 +5,7 @@ import ImageRecipe from "./../../../assets/home/wallpapers/wallpaper_home.png";
 import { theme } from "./../../../styles";
 
 export const Opening = styled.section`
-  height: 500px;
+  height: 620px;
   text-align: center;
   grid-column: 1/25;
   display: flex;

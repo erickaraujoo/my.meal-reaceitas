@@ -3,15 +3,16 @@ import types from "../../types";
 export function fetchRecipes({
   category,
   search,
-  ingredient,
+  arrayIngredients,
   currentPage,
   size,
   sort,
 }) {
   const page = currentPage - 1;
+  const ingredients = arrayIngredients;
 
   return {
     type: types.FETCHING_RECIPES,
-    params: { category, search, ingredient, page, size, sort },
+    params: { category, search, ingredients, page, size, sort },
   };
 }

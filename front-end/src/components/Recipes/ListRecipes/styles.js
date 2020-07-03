@@ -3,6 +3,37 @@ import styled from "styled-components";
 import { theme } from "./../../../styles";
 
 export const Recipe = styled.div`
+
+  div.list_ingredients {
+    display: flex;
+    flex-wrap: wrap;
+
+    div.ingredients {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 15px;
+      background: ${theme.colors.white};
+      border: 0.5px dashed ${theme.colors.black};
+      border-radius: 50px;
+      margin-bottom: 15px;
+      margin-right: 10px;
+
+      p {
+        font-size: 0.875rem;
+        color: ${theme.colors.black};
+        font-family: Poppins;
+      }
+
+      img {
+        cursor: pointer;
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  
   ol {
     li {
       margin-top: 1.5em;

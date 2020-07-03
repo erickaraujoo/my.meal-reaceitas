@@ -50,7 +50,9 @@ export const SectionModalIngredients = styled.section`
 
     div.insert_ingredient {
       margin-top: 60px; 
-      padding: 0 80px;
+      padding: 0 80px 50px;
+      margin-top: 80px;
+      border-bottom: solid 0.25px ${theme.colors.blackCharcoalWithMediumOpacity}; 
 
       div.form {
         margin-top: 15px;
@@ -92,11 +94,9 @@ export const SectionModalIngredients = styled.section`
 
     div.ingredients {
       padding: 30px 80px 50px 60px;
-      margin-top: 80px;
-      border-top: solid 1px ${theme.colors.blackCharcoalWithMediumOpacity}; 
       display: flex;
       flex-wrap: wrap;
-      max-height: 350px;
+      max-height: 300px;
       overflow: auto;
       
       div {
@@ -126,7 +126,7 @@ export const SectionModalIngredients = styled.section`
     }
 
     div.send_recipes {
-      padding: 20px 80px 50px;
+      padding: 30px 80px 50px;
       display: flex;
       align-items: center;
       justify-content: center;

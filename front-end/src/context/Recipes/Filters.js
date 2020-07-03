@@ -12,22 +12,34 @@ export default function FiltersProvider({ children }) {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
-  const [ingredient, setIngredient] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [size] = useState(10);
 
   useEffect(() => {
+    let arrayIngredients = Object.values(ingredients).map(({ name }) => {
+      return name;
+    });
+    arrayIngredients = arrayIngredients.join(',');
+
     dispatch(
-      fetchRecipes({ category, search, ingredient, currentPage, size, sort })
+      fetchRecipes({
+        category,
+        search,
+        arrayIngredients,
+        currentPage,
+        size,
+        sort,
+      })
     );
-  }, [category, currentPage, dispatch, ingredient, search, size, sort]);
+  }, [category, currentPage, dispatch, ingredients, search, size, sort]);
 
   return (
     <FiltersContext.Provider
       value={{
         category,
         setCategory,
-        ingredient,
-        setIngredient,
+        ingredients,
+        setIngredients,
         sort,
         setSort,
         search,
@@ -49,8 +61,8 @@ export function useCategory() {
 
 export function useIngredients() {
   const context = useContext(FiltersContext);
-  const { ingredient, setIngredient } = context;
-  return { ingredient, setIngredient };
+  const { ingredients, setIngredients } = context;
+  return { ingredients, setIngredients };
 }
 
 export function useOrdenation() {
