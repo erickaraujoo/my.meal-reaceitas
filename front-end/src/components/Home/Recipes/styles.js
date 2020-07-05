@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "./../../../styles";
 
 export const Recipes = styled.section`
-  margin-top: 100px;
+  margin-top: 120px;
   column-gap: 1em;
 
   h2 {

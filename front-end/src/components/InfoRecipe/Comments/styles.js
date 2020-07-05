@@ -25,12 +25,54 @@ export const Section = styled.section`
     }
   }
 
-  div.send_comment {
+  div.send_feedback {
     grid-column: 4/22;
-    margin-top: 80px;
+    margin-top: 50px;
     padding: 0 75px;
 
-    textarea {
+    p.avaliate {
+      width: 100%;
+      text-align: center;
+    }
+
+    div.rating_wrapper {
+      display: flex;
+      justify-content: center;
+      direction: rtl;
+      height: 50px;
+      margin-bottom: 20px;
+
+      input {
+        display: none;
+      }
+
+      label {
+        display: inline-block;
+        width: 50px;
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+          content: "\\2605";
+          display: inline-block;
+          position: absolute;
+          font-size: 45px;
+          top: -13px;
+          left: 0;
+          color: ${theme.colors.blackWithMediumOpacity};
+          opacity: 0.25;
+        }
+      }
+
+      label:hover:before,
+      label:hover ~ label:before,
+      input:checked ~ label:before {
+        color: ${theme.colors.orange};
+        opacity: 1;
+      }
+    }
+
+    textarea.comment {
       width: 100%;
       min-height: 180px;
       resize: vertical;
@@ -44,7 +86,7 @@ export const Section = styled.section`
 
     button {
       width: 200px;
-      height: 45px;
+      height: 40px;
       margin-top: 30px;
       border-radius: 5px;
       background: ${theme.colors.orange};
@@ -93,8 +135,8 @@ export const Section = styled.section`
           height: 0;
           width: 0;
           border-top: 15px solid transparent;
-          border-bottom: 15px solid transparent; 
-          border-right: 15px solid ${theme.colors.whiteSomke}; 
+          border-bottom: 15px solid transparent;
+          border-right: 15px solid ${theme.colors.whiteSomke};
           position: relative;
           top: 18px;
           left: 7.5px;

@@ -5,7 +5,7 @@ import RecipesProvider from "./../../context/Home/Recipes.js";
 
 export default function Home() {
   const HeaderHome = lazy(() => import("../../components/Header"));
-  const Search = lazy(() => import("./../../components/Home/Search"));
+  const Search = lazy(() => import("../../components/Home/Opening"));
   const Category = lazy(() => import("./../../components/Home/Category"));
   const Recipes = lazy(() => import("./../../components/Home/Recipes"));
   const Reviews = lazy(() => import("./../../components/Home/Reviews"));
@@ -17,9 +17,9 @@ export default function Home() {
       <HeaderHome />
       <Search />
 
-      <FiltersProvider>
+      {/* <FiltersProvider>
         <Category />
-      </FiltersProvider>
+      </FiltersProvider> */}
 
       <RecipesProvider>
         <Recipes />

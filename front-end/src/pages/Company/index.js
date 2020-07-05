@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react'
+import React, { lazy } from 'react'
 
 export default function Company() { 
 

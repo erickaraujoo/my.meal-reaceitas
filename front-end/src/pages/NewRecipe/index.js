@@ -10,7 +10,6 @@ import ImageDelete from "./../../assets/profile/close_red.png";
 import ImageAddTopic from "./../../assets/profile/add.png";
 
 export default function NewRecipe() {
-  const Home = lazy(() => import("./../../components/Header"));
   const Footer = lazy(() => import("./../../components/Footer"));
 
   const [ingredient, setIngredient] = useState("");

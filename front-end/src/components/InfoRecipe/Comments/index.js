@@ -9,8 +9,15 @@ export default function Comments() {
     <Section>
       <h2>O que você achou dessa receita?</h2>
 
-      <div className="send_comment">
-        <textarea placeholder="Mande seu comentário..."></textarea>
+      <div className="send_feedback">
+        <div className="rating_wrapper">
+          <input type="radio" name="rating" id="start_1" /><label htmlFor="start_1"></label>
+          <input type="radio" name="rating" id="start_2" /><label htmlFor="start_2"></label>
+          <input type="radio" name="rating" id="start_3" /><label htmlFor="start_3"></label>
+          <input type="radio" name="rating" id="start_4" /><label htmlFor="start_4"></label>
+          <input type="radio" name="rating" id="start_5" /><label htmlFor="start_5"></label>
+        </div>
+        <textarea className="comment" placeholder="Mande seu comentário..."></textarea>
         <button>Enviar</button>
       </div>
       <div className="comments">

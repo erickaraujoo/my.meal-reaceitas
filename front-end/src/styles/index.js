@@ -126,5 +126,6 @@ export const theme = {
     blackCharcoalWithMediumOpacity: "rgba(34, 36, 38, 0.15)",
     lightRavenWithGreatOpacity: "rgba(153, 153, 153, 0.2)",
     marsalaWithMediumOpacity: "rgba(94, 27, 68, 0.5)",
+    marsalaWithGreatOpacity: "rgba(94, 27, 68, 0.2)",
   },
 };

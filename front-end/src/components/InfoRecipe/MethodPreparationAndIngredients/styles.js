@@ -51,13 +51,22 @@ export const Section = styled.section`
           margin: 10px auto 0 auto;
         }
       }
+
+      ::-webkit-scrollbar {
+        width: 12.5px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+      }
     }
 
     div.method_preparation {
-      min-height: 560px;
-      height: auto;
+      height: 560px;
+      max-height: 560px;
       position: relative;
       background: ${theme.colors.marsala};
+      overflow: auto;
 
       h3 {
         color: ${theme.colors.white};
@@ -72,14 +81,35 @@ export const Section = styled.section`
           );
         }
       }
+
+      p:nth-child(2) {
+        text-align: right;
+        font-size: 1rem;
+        font-family: PoppinsRegular;
+        width: calc(100% - 50px);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: ${theme.colors.whiteWithMediumOpacity};
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: ${theme.colors.whiteSomke};
+      }
+
+      ::-webkit-scrollbar-track {
+        background: ${theme.colors.blackWithGreatOpacity};
+      }
     }
 
     div.ingredients {
-      min-height: 600px;
+      height: 600px;
+      max-height: 600px;
       height: auto;
       position: relative;
       z-index: 100;
       background: ${theme.colors.white};
+      overflow: auto;
 
       h3 {
         color: ${theme.colors.black};
@@ -94,9 +124,18 @@ export const Section = styled.section`
           );
         }
       }
+
+      ::-webkit-scrollbar-thumb {
+        background: ${theme.colors.marsala};
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
     }
 
-    div.ingredient:nth-child(2), div.topic_method:nth-child(2) {
+    div.ingredient:nth-child(2),
+    div.topic_method:nth-child(2) {
       margin-top: 15px;
     }
 
@@ -110,19 +149,8 @@ export const Section = styled.section`
         letter-spacing: 0.25px;
       }
 
-      p:first-child {
-        width: 50px;
-        letter-spacing: 1px;
-        font-size: 1.125rem;
-        font-family: PoppinsSemiBold;
-        opacity: 0.8;
-      }
-
-      p:nth-child(2) {
-        text-align: right;
-        font-size: 1rem;
-        font-family: PoppinsRegular;
-        width: calc(100% - 50px);
+      svg {
+        padding: 7px 0;
       }
     }
 
@@ -134,7 +162,7 @@ export const Section = styled.section`
       font-size: 1.375rem;
     }
 
-    div.topic_method p:nth-child(2) {
+    div.topic_method p:nth-child(2), div.ingredient p {
       font-size: 0.875rem;
     }
   }

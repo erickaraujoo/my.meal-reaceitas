@@ -1,4 +1,4 @@
-import React, { lazy, useState } from "react";
+import React, { lazy } from "react";
 
 import InputSearchRecipe from "../../components/Recipes/Search";
 

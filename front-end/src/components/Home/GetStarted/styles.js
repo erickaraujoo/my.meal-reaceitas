@@ -42,7 +42,7 @@ export const Container = styled.section`
       width: 250px;
 
       button {
-        height: 60px;
+        height: 45px;
         max-height: auto;
         width: 180px;
         background: ${theme.colors.orange};
@@ -50,12 +50,15 @@ export const Container = styled.section`
         font-size: 1.125rem;
         border: none;
         box-shadow: 0 2px 5px ${theme.colors.blackWithGreatOpacity};
-        border-radius: 3px;
+        border-radius: 5px;
         transition: font-size 0.2s;
         font-family: Poppins;
+        transition: background 0.2s;
 
         &:hover {
-          font-size: 1.25rem;
+          background: ${theme.colors.white};
+          color: ${theme.colors.orange};
+          border: solid 1.5px ${theme.colors.orange};
         }
       }
     }
