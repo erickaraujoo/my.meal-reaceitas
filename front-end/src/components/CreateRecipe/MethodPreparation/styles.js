@@ -91,13 +91,13 @@ export const InsertTopic = styled.div`
 `;
 
 export const FormMethodPreparation = styled.div`
-  display: ${props => props.view ? 'flex' : 'none'};
+  display: flex;
   justify-content: space-between;
   margin-top: 45px;
   width: 100%;
   
   input { 
-    width: calc(100% - 300px);
+    width: calc(100% - 200px);
     margin-right: 30px;
     border-radius: 5px;
     font-size: 1rem;
@@ -111,7 +111,7 @@ export const FormMethodPreparation = styled.div`
     font-family: Poppins;
     color: ${theme.colors.white};
     height: 45px;
-    padding: 0 20px;
+    width: 160px;
     border-radius: 3px;
     border: none;
     box-shadow: 0 2px 5px ${theme.colors.blackCharcoalWithMediumOpacity};

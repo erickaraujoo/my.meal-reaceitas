@@ -7,12 +7,9 @@ import {
 } from "./../../../context/Recipes/Create";
 
 import ImageDelete from "./../../../assets/profile/close_red.png";
-import ImageAddTopic from "./../../../assets/recipes/add.png";
-
-import { Section, InsertTopic, FormMethodPreparation } from "./styles";
+import { Section, FormMethodPreparation } from "./styles";
 
 export default function MethodPreparation() {
-  const [onView, setOnView] = useState(false);
   const [topics, setTopics] = useState([]);
   const [textTopic, setTextTopic] = useState("");
 
@@ -23,7 +20,6 @@ export default function MethodPreparation() {
     string.charAt(0).toUpperCase() + string.slice(1);
 
   const handleTextTopic = (value) => setTextTopic(value);
-  const handleView = (boolean) => setOnView(boolean);
 
   const handleInsertTopic = (value) => {
     setTextTopic("");
@@ -70,24 +66,20 @@ export default function MethodPreparation() {
           </li>
         ))}
       </ul>
-
-      <InsertTopic view={onView} onClick={() => handleView(true)}>
-        <p>Adicionar Tópico...</p>
-        <img src={ImageAddTopic} alt="Add Topic" />
-      </InsertTopic>
-
-      <FormMethodPreparation view={onView}>
+      <FormMethodPreparation>
         <input
           type="text"
           placeholder="ex: Em um liquidificador, adicione os ovos e bata com a massa..."
           value={textTopic}
           onChange={(e) => handleTextTopic(e.target.value)}
+          onKeyPress={(e) =>
+            e.which === 13 && textTopic
+              ? handleInsertTopic(e.target.value)
+              : null
+          }
         />
         <button className="add" onClick={() => handleInsertTopic(textTopic)}>
           Adicionar
-        </button>
-        <button className="cancel" onClick={() => handleView(false)}>
-          Cancelar
         </button>
       </FormMethodPreparation>
     </Section>

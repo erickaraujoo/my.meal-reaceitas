@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { debounce } from "lodash";
 
 import { createNewRecipe } from "./../../store/modules/createRecipe/actions";

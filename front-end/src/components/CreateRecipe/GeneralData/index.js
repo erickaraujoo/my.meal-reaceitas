@@ -1,35 +1,16 @@
-import React, { useMemo, useState } from "react";
-import { debounce } from "lodash";
-
-import { useGeneralData, useLoading } from "./../../../context/Recipes/Create";
+import React, { lazy } from "react";
 
 import { Section } from "./styles";
 
 import ImageAddImgRecipe from "./../../../assets/profile/imageRecipe.png";
 import ImageDescription from "./../../../assets/profile/descriptionRecipe.png";
 
-import FileList from "./../FileList";
-import Upload from "./../Upload";
+import FileList from "./FileList";
+import Upload from "./Upload";
 
 export default function GeneralData() {
-  const { setGeneralData } = useGeneralData();
-  const { loading } = useLoading();
-
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-
-  const handleName = (value) => setName(value);
-  const handleDescription = (value) => setDescription(value);
-
-  useMemo(
-    debounce(() => {
-      const handleGeneralData = (name, description) =>
-        setGeneralData([{ name, description }]);
-
-      if (loading) handleGeneralData(name, description);
-    }, 100),
-    [description, name, loading, setGeneralData]
-  );
+  const NameRecipe = lazy(() => import("./NameRecipe"));
+  const Description = lazy(() => import("./Description"));
 
   return (
     <Section>
@@ -53,12 +34,7 @@ export default function GeneralData() {
               <p>Nome da Receita</p>
             </div>
 
-            <input
-              type="text"
-              placeholder="Digite um título..."
-              value={name}
-              onChange={(e) => handleName(e.target.value)}
-            />
+            <NameRecipe />
           </div>
           <div className="description_recipe">
             <div className="title">
@@ -66,11 +42,7 @@ export default function GeneralData() {
               <p>Descrição</p>
             </div>
 
-            <textarea
-              placeholder="Digite uma descrição"
-              value={description}
-              onChange={(e) => handleDescription(e.target.value)}
-            ></textarea>
+            <Description />
           </div>
         </div>
       </div>

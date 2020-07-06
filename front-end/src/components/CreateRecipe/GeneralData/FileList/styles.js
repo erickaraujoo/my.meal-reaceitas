@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.ul`
   margin-top: 20px;
@@ -30,6 +30,13 @@ export const FileInfo = styled.div`
   display: flex;
   align-items: center;
 
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
   div {
     display: flex;
     flex-direction: column;
@@ -54,7 +61,7 @@ export const Preview = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 5px;
-  background-image: url(${props => props.src});
+  background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;

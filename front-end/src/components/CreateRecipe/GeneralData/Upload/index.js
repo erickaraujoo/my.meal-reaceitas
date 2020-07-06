@@ -4,7 +4,7 @@ import filesize from "filesize";
 
 import { DropContainer, UploadMessage } from "./styles";
 
-import { useUpload } from "./../../../context/Recipes/Create";
+import { useUpload } from "../../../../context/Recipes/Create";
 
 import Dropzone from "react-dropzone";
 
