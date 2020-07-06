@@ -113,6 +113,7 @@ export const theme = {
     blackCharcoal: "#222426",
     nero: "#1a1a1a",
     gray: "#999999",
+    limeade: "#69bf07",
     lightGray: "#d2d2d2",
     raven: "#6c757d",
     beige: "#F1F0EB",

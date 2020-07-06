@@ -1,12 +1,12 @@
 import React, { lazy } from "react";
 
-import FiltersProvider from "./../../context/Recipes/Filters.js";
+// import FiltersProvider from "./../../context/Recipes/Filters.js";
 import RecipesProvider from "./../../context/Home/Recipes.js";
 
 export default function Home() {
   const HeaderHome = lazy(() => import("../../components/Header"));
   const Search = lazy(() => import("../../components/Home/Opening"));
-  const Category = lazy(() => import("./../../components/Home/Category"));
+  // const Category = lazy(() => import("./../../components/Home/Category"));
   const Recipes = lazy(() => import("./../../components/Home/Recipes"));
   const Reviews = lazy(() => import("./../../components/Home/Reviews"));
   const GetStarted = lazy(() => import("./../../components/Home/GetStarted"));

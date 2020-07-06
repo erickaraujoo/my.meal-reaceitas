@@ -6,7 +6,7 @@ import Recipes from './../pages/Recipes';
 
 const Home = lazy(() => import("./../pages/Home"));
 const Profile = lazy(() => import("./../pages/Profile"));
-const NewRecipe = lazy(() => import("./../pages/NewRecipe"));
+const NewRecipe = lazy(() => import("../pages/CreateRecipe"));
 const Login = lazy(() => import("./../pages/Login"));
 const Register = lazy(() => import("./../pages/Register"));
 const InfoRecipe = lazy(() => import("./../pages/InfoRecipe"));
