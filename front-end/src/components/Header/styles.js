@@ -6,9 +6,8 @@ export const Header = styled.header`
   width: 100%;
   min-height: 80px;
   height: auto;
-  /* background: ${theme.colors.marsala}; */
   display: grid;
-  grid-template-columns: repeat(24, 1fr);
+  grid-template-columns: repeat(1, 60px) repeat(8, 1fr) repeat(15, minmax(55px, 1fr));
   grid-column: ${(props) => (props.gridColumns ? props.gridColumns : null)};
   box-shadow: 0 2px 8px ${theme.colors.blackCharcoalWithMediumOpacity};
 
@@ -25,7 +24,7 @@ export const Header = styled.header`
   }
 
   nav.navigations {
-    grid-column: 11/24;
+    grid-column: 10/24;
     display: flex;
     align-items: center;
     justify-content: flex-end;

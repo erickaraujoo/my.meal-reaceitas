@@ -56,7 +56,7 @@ export const Section = styled.section`
       button {
         width: 260px;
         height: 45px;
-        background: ${theme.colors.orange};
+        background: ${theme.colors.limeade};
         border: none;
         border-radius: 5px;
         font-size: 1.125rem;
@@ -67,8 +67,8 @@ export const Section = styled.section`
 
         &:hover {
           background: ${theme.colors.white};
-          color: ${theme.colors.orange};
-          border: solid 1.5px ${theme.colors.orange};
+          color: ${theme.colors.limeade};
+          border: solid 1.5px ${theme.colors.limeade};
         }
       }
     }
