@@ -17,20 +17,14 @@ export default function CreateRecipeProvider({ children }) {
 
   useMemo(
     debounce(() => {
-      if (
-        generalData.length &&
-        methodPreparation.length &&
-        ingredients.length
-      )
+      if (uploadedFiles.length)
         dispatch(
           createNewRecipe({
-            generalData,
-            ingredients,
-            methodPreparation,
+            uploadedFiles
           })
         );
     }, 400),
-    [generalData, ingredients, methodPreparation, uploadedFiles]
+    [uploadedFiles]
   );
 
   return (

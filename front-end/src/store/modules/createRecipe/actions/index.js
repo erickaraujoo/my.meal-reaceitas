@@ -1,13 +1,8 @@
 import types from "./../../types";
 
-export function createNewRecipe({
-  generalData,
-  ingredients,
-  methodPreparation,
-}) {
-  
+export function createNewRecipe({ uploadedFiles }) {
   return {
     type: types.CREATING_RECIPE,
-    payload: { generalData, ingredients, methodPreparation },
-  }
-};
+    payload: { uploadedFiles },
+  };
+}

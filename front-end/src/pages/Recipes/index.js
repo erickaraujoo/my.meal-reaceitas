@@ -1,17 +1,15 @@
 import React, { lazy } from "react";
 
 import InputSearchRecipe from "../../components/Recipes/Search";
+import { ModalIngredients } from "./../../components/Modal";
 
 import FiltersProvider from "./../../context/Recipes/Filters.js";
+import ModalRecipesProvider from "./../../context/Modal/ModalRecipes";
 
 import { Main, ContainerCategory } from "./styles";
 
-import { ModalIngredients } from "./../../components/Modal";
-
-import ModalRecipesProvider from "./../../context/Modal/ModalRecipes";
-
 function Recipes() {
-  const ListCategory = lazy(() =>
+  const ListCategory = lazy(() => 
     import("../../components/Recipes/Category")
   );
   const ListRecipes = lazy(() =>
@@ -32,11 +30,10 @@ function Recipes() {
   const Footer = lazy(() => import("./../../components/Footer"));
   const HeaderHome = lazy(() => import("../../components/Header"));
 
-
   return (
     <>
       <Main>
-        <HeaderHome gridColumns={'1/6'} />
+        <HeaderHome gridColumns={"1/6"} />
 
         <FiltersProvider>
           <FetchRecipes />
@@ -66,7 +63,7 @@ function Recipes() {
           </ContainerCategory>
 
           <section className="section_recipes">
-              <ListRecipes />
+            <ListRecipes />
 
             <Pagination />
           </section>

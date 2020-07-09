@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { theme } from '../../styles';
+import { theme } from "../../styles";
 
 export const Main = styled.main`
   width: 100%;
@@ -18,6 +18,36 @@ export const Main = styled.main`
     width: 100%;
     height: 295px;
     background-color: ${theme.colors.marsala};
-    z-index: -10;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    align-items: center;
+
+    a {
+      grid-column: 4/22;
+      text-decoration: none;
+    }
+
+    div.back {
+      position: relative;
+      bottom: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+      width: 150px;
+
+      img {
+        width: 35px;
+      }
+
+      p {
+        margin-left: 10px;
+        font-size: 1.25rem;
+        color: ${theme.colors.white};
+        font-family: Poppins;
+        letter-spacing: 0.35px;
+      }
+    }
   }
 `;

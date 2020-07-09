@@ -22,7 +22,7 @@ export default function HeaderHome({ gridColumns }) {
       <nav className="navigations">
         <ul>
           {navigations.map(({ value, id, to }, index) => (
-            <Link to={to} key={index}>
+            <Link to={{ pathname: to, source: history.location.pathname }} key={index}>
               <li className={history.location.pathname === to ? 'current' : null}>
                 <p> {value} </p>
               </li>
