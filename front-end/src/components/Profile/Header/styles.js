@@ -4,7 +4,7 @@ import { theme } from "./../../../styles";
 
 import BackgroundImageProfile from "./../../../assets/profile/fundo.png";
 
-export const Section = styled.div`
+export const Section = styled.section`
   grid-column: 4/22;
   height: 450px;
   background: ${theme.colors.white};

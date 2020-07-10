@@ -46,7 +46,6 @@ export default createGlobalStyle`
 
     button{
     		cursor: pointer;
-        max-height: 50px;
         height: auto;
         transition: background-color 0.2s;
     }

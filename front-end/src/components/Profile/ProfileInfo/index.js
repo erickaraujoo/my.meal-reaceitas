@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 import { Section } from "./styles";
 
@@ -11,12 +12,15 @@ import ImagePhone from "./../../../assets/profile/phone.png";
 import ImageDescription from "./../../../assets/profile/description.png";
 
 export default function ProfileInfo() {
+  const history = useHistory();
   return (
     <Section>
       <div className="section_personal_information">
         <div className="title">
           <h3>Informações Pessoais</h3>
-          <img src={ImageEdit} alt="Edit" />
+          <Link to={{ pathname: ':id/informacoes-pessoais', source: history.location.pathname }}>
+            <img src={ImageEdit} alt="Edit" />
+          </Link>
         </div>
 
         <ol>
@@ -42,7 +46,9 @@ export default function ProfileInfo() {
       <div className="section_perfil">
         <div className="title">
           <h3>Informações do Perfíl</h3>
-          <img src={ImageEdit} alt="Edit" />
+          <Link to={{ pathname: ':id/informacoes-perfil', source: history.location.pathname }}>
+            <img src={ImageEdit} alt="Edit" />
+          </Link>
         </div>
 
         <ol>

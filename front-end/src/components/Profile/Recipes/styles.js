@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { theme } from "./../../../styles";
 
-export const Section = styled.div`
+export const Section = styled.section`
   grid-column: 4/22;
   margin-top: 20px;
   background: ${theme.colors.white};
@@ -23,7 +23,14 @@ export const Section = styled.div`
 
     img {
       width: 30px;
-      height: 30px;
+      height: 30px; 
+      transition: 0.2s;
+
+      &:hover {
+        width: 32.5px;
+        height: 32.5px;
+        transform: translate(1.5px, -1.5px);
+      }
     }
   }
 

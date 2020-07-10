@@ -6,6 +6,8 @@ import Recipes from './../pages/Recipes';
 
 const Home = lazy(() => import("./../pages/Home"));
 const Profile = lazy(() => import("./../pages/Profile"));
+const PersonalInfo = lazy(() => import("./../pages/Profile/PersonalInfo"));
+const ProfileInfo = lazy(() => import("./../pages/Profile/ProfileInfo"));
 const NewRecipe = lazy(() => import("../pages/CreateRecipe"));
 const Login = lazy(() => import("./../pages/Login"));
 const Register = lazy(() => import("./../pages/Register"));
@@ -23,6 +25,9 @@ const Routes = () => (
         <Route exact path="/perfil/:id/receita/criar" component={() => <NewRecipe />} />
 
         <Route exact path="/perfil/:id" component={() => <Profile />} />
+        <Route exact path="/perfil/:id/informacoes-pessoais" component={() => <PersonalInfo />} />
+        <Route exact path="/perfil/:id/informacoes-perfil" component={() => <ProfileInfo />} />
+        
         <Route path="/entrar" component={() => <Login />} />
         <Route path="/cadastrar" component={() => <Register />} />
 
