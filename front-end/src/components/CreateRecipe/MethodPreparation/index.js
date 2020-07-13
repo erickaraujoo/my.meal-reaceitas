@@ -35,7 +35,7 @@ export default function MethodPreparation() {
     debounce(() => {
       const handleMethodPreparation = (topics) => setMethodPreparation(topics);
 
-      if (loading) handleMethodPreparation(topics);
+      if (loading && topics) handleMethodPreparation(topics);
     }, 200),
     [loading]
   );
@@ -78,7 +78,7 @@ export default function MethodPreparation() {
               : null
           }
         />
-        <button className="add" onClick={() => handleInsertTopic(textTopic)}>
+        <button className="add" onClick={() => textTopic && handleInsertTopic(textTopic)}>
           Adicionar
         </button>
       </FormMethodPreparation>

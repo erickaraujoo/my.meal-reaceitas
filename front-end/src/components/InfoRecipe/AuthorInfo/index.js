@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import { Section, ImageRecipe } from "./styles";
 
@@ -6,13 +7,12 @@ import ImageRecipes from "./../../../assets/info_recipe/recipes.png";
 import ImageLike from "./../../../assets/info_recipe/like.png";
 
 export default function GeneralAuthorInfo() {
+  const { usuario, imagem } = useSelector(state => state.recipes.data);
   return (
     <Section>
       <ImageRecipe
         className="image_recipe"
-        background={
-          "https://s2.glbimg.com/C4_IUcr6slIbCUM_F4QP0VOcaOc=/0x0:749x500/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2012/06/13/15/38/15/65/estrogonofe_de_carne.jpg"
-        }
+        background={ imagem }
       />
       <div className="info_author">
         <div className="profile">

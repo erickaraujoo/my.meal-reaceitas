@@ -3,17 +3,17 @@ import { recipes } from "./../../../services/api";
 
 import types from "./../../modules/types";
 
-function apiPost(payload) {
+function apiPostImage(payload) {
   try {
-    return recipes.create({ payload });
+    return recipes.createImageRecipe({ payload });
   } catch (err) {
     return err;
   }
 }
 
-function* newRecipe(actions) {
+function* newImage(actions) {
   try {
-    const { data } = yield call(apiPost, actions.payload.uploadedFiles);
+    const { data } = yield call(apiPostImage, actions.payload.uploadedFiles);
 
     yield put({ type: types.SUCCESS_CREATED_RECIPE, payload: { data } });
   } catch (err) {
@@ -21,6 +21,13 @@ function* newRecipe(actions) {
   }
 }
 
+function* newRecipe(actions) {
+  yield console.log(actions.payload);
+}
+
 export function* createNewRecipe() {
-  yield all([takeLatest(types.CREATING_RECIPE, newRecipe)]);
+  yield all([
+    takeLatest(types.CREATING_IMAGE_RECIPE, newImage),
+    takeLatest(types.CREATING_RECIPE, newRecipe),
+  ]);
 }

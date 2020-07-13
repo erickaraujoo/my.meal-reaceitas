@@ -85,7 +85,7 @@ export default function GeneralData() {
           <h3>INGREDIENTES</h3>
 
           {ingredients.map(({ text }, index) => (
-            <div className="ingredient">
+            <div className="ingredient" key={index}>
               <svg height="24" width="50">
                 <circle cx="5" cy="5" r="5" fill="#222426" />
               </svg>

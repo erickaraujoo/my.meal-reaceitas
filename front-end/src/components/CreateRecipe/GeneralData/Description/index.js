@@ -15,7 +15,7 @@ export default function Description() {
       const handleGeneralData = (description) =>
         setGeneralData(prev => [ ...prev, { description }]);
 
-      if (loading) handleGeneralData(description);
+      if (loading && description) handleGeneralData(description);
     }, 100),
     [description, loading, setGeneralData]
   );

@@ -4,16 +4,16 @@ import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
 
 import "react-circular-progressbar/dist/styles.css";
 
-import { useUpload } from "../../../../context/Recipes/Create";
+import { usePreview } from "../../../../context/Recipes/Create";
 
 import { Container, FileInfo } from "./styles";
 
 export default function FileList() {
-  const { uploadedFiles } = useUpload();
+  const { previewImages } = usePreview();
 
   return (
     <Container>
-      {uploadedFiles.map((uploadedFile) => (
+      {previewImages.map((uploadedFile) => (
         <li key={uploadedFile.id}>
           <FileInfo>
             <img src={uploadedFile.preview} alt="preview" />

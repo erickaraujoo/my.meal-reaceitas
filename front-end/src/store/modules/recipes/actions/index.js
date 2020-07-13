@@ -16,3 +16,10 @@ export function fetchRecipes({
     params: { category, search, ingredients, page, size, sort },
   };
 }
+
+export function fetchRecipeById({ id }) {
+  return {
+    type: types.FETCHING_RECIPE,
+    params: { id },
+  }
+}

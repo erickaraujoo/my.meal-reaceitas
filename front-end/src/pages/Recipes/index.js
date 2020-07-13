@@ -28,12 +28,12 @@ function Recipes() {
     import("./../../components/Recipes/Pagination")
   );
   const Footer = lazy(() => import("./../../components/Footer"));
-  const HeaderHome = lazy(() => import("../../components/Header"));
+  const Header = lazy(() => import("../../components/Header"));
 
   return (
     <>
       <Main>
-        <HeaderHome gridColumns={"1/6"} />
+        <Header gridColumns={"1/6"} />
 
         <FiltersProvider>
           <FetchRecipes />

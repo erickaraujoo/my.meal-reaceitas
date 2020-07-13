@@ -1,6 +1,6 @@
 import React from "react";
 
-import { RotateSpinner } from "react-spinners-kit";
+// import { RotateSpinner } from "react-spinners-kit";
 
 import { Loading } from "./styles";
 
@@ -14,7 +14,7 @@ export default function LoadingPage() {
           className="triangle"
           fill="none"
           stroke={theme.colors.marsala}
-          stroke-width="1"
+          strokeWidth="1"
           points="16,1 32,32 1,32"
         />
         <text className="text_loading" x="0" y="42.5" fill={theme.colors.marsala}>

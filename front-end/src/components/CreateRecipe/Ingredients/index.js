@@ -31,7 +31,7 @@ export default function Ingredients() {
     debounce(() => {
       const handleIngredients = (ingredients) => setIngredients(ingredients);
 
-      if (loading) handleIngredients(totalIngredients);
+      if (loading && totalIngredients) handleIngredients(totalIngredients);
     }, 300),
     [loading]
   );

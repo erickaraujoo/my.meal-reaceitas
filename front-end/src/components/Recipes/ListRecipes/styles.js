@@ -35,6 +35,8 @@ export const Recipe = styled.div`
   }
   
   ol {
+    a { text-decoration: none; color: ${theme.colors.black} };
+
     li {
       margin-top: 1.5em;
       list-style: none;
@@ -137,7 +139,7 @@ export const Recipe = styled.div`
     }
 
     @media (min-width: 1000px) {
-      li:first-child {
+      a:first-child li {
         margin-top: 0;
         div.image-recipe img {
           border-radius: 0 0 0 8px;

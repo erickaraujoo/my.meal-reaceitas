@@ -2,29 +2,34 @@ import React, { useState, useContext, createContext, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { debounce } from "lodash";
 
-import { createNewRecipe } from "./../../store/modules/createRecipe/actions";
+import { createImage, createNewRecipe } from "./../../store/modules/createRecipe/actions";
 
 const CreateRecipeContext = createContext();
 
 export default function CreateRecipeProvider({ children }) {
-  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [previewImages, setPreviewImages] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState("");
   const [generalData, setGeneralData] = useState([]);
   const [methodPreparation, setMethodPreparation] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState('');
 
   const dispatch = useDispatch();
 
+  useMemo(() => {
+    if (uploadedFiles)
+      dispatch(
+        createImage({
+          uploadedFiles,
+        })
+      );
+  }, [dispatch, uploadedFiles]);
+
   useMemo(
     debounce(() => {
-      if (uploadedFiles.length)
-        dispatch(
-          createNewRecipe({
-            uploadedFiles
-          })
-        );
-    }, 400),
-    [uploadedFiles]
+      if(loading) console.log("JOOJ")
+    }, 1000),
+    [generalData, ingredients, methodPreparation, uploadedFiles]
   );
 
   return (
@@ -40,6 +45,8 @@ export default function CreateRecipeProvider({ children }) {
         setUploadedFiles,
         loading,
         setLoading,
+        previewImages,
+        setPreviewImages,
       }}
     >
       {children}
@@ -69,6 +76,12 @@ export function useUpload() {
   const context = useContext(CreateRecipeContext);
   const { uploadedFiles, setUploadedFiles } = context;
   return { uploadedFiles, setUploadedFiles };
+}
+
+export function usePreview() {
+  const context = useContext(CreateRecipeContext);
+  const { previewImages, setPreviewImages } = context;
+  return { previewImages, setPreviewImages };
 }
 
 export function useLoading() {

@@ -4,16 +4,22 @@ import filesize from "filesize";
 
 import { DropContainer, UploadMessage } from "./styles";
 
-import { useUpload } from "../../../../context/Recipes/Create";
+import { useUpload, usePreview } from "../../../../context/Recipes/Create";
 
 import Dropzone from "react-dropzone";
 
 export default function Upload() {
   const { setUploadedFiles } = useUpload();
+  const { setPreviewImages } = usePreview();
 
-  const handleUploadedFiles = files => {
+  const handleUploadedFiles = async files => {
+    const toBase64 = file => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+  });
     const uploadedFiles = files.map(file => ({
-      file,
       id: uniqueId(),
       name: file.name,
       readableSize: filesize(file.size),
@@ -24,7 +30,16 @@ export default function Upload() {
       url: null,
     }));
 
-    setUploadedFiles(prevUpload => [ ...prevUpload, ...uploadedFiles ]);
+    const fileToBase64 = await toBase64(files[files.length - 1]).catch(e => Error(e));
+
+    const newFile = {
+      filename: files[files.length - 1].name,
+      mimetype: files[files.length - 1].type,
+      base64: fileToBase64,
+    }   
+
+    setUploadedFiles({ ...newFile });
+    setPreviewImages(prevImage => [ ...prevImage, ...uploadedFiles ]);
   }
 
   const renderDragMessage = (isDragActive, isDragReject) => {

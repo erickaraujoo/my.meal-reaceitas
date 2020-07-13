@@ -18,7 +18,7 @@ export default function NameRecipe() {
       const handleGeneralData = (name) =>
         setGeneralData(prev => [ ...prev, { name }]);
 
-      if (loading) handleGeneralData(name);
+      if (loading && name) handleGeneralData(name);
     }, 100),
     [name, loading, setGeneralData]
   );
