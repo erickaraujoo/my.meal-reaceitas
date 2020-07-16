@@ -6,6 +6,11 @@ export const recipes = {
   selectAll: ({ params }) => api.get("/receitas", { params }),
   selectById: ({ id }) => api.get(`/receitas/${id}`),
   createImageRecipe: ({ payload }) => api.post(`/receitas/imagem`, payload),
+  createRecipe: ({ recipe }) => api.post(`/receitas`, recipe),
+  createMethodPreparation: ({ etapa, id_receita }) =>
+    api.post(`/modopreparo`, { etapa, id_receita }),
+  createIngredients: ({ id_receita, nome }) =>
+    api.post(`/ingredientes`, { id_receita, nome }),
 };
 
 export default api;

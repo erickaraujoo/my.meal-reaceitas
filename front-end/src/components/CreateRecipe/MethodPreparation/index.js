@@ -1,20 +1,14 @@
 import React, { useState, useMemo } from "react";
 import { debounce } from "lodash";
 
-import {
-  useMethodPreparation,
-  useLoading,
-} from "./../../../context/Recipes/Create";
-
-import ImageDelete from "./../../../assets/profile/close_red.png";
+import { useMethodPreparation } from "./../../../context/Recipes/Create";
 import { Section, FormMethodPreparation } from "./styles";
 
-export default function MethodPreparation() {
-  const [topics, setTopics] = useState([]);
-  const [textTopic, setTextTopic] = useState("");
+import ImageDelete from "./../../../assets/profile/close_red.png";
 
-  const { setMethodPreparation } = useMethodPreparation();
-  const { loading } = useLoading();
+export default function MethodPreparation() {
+  const [textTopic, setTextTopic] = useState("");
+  const { methodPreparation, setMethodPreparation } = useMethodPreparation();
 
   const capitalizeFirstLetter = (string) =>
     string.charAt(0).toUpperCase() + string.slice(1);
@@ -24,22 +18,13 @@ export default function MethodPreparation() {
   const handleInsertTopic = (value) => {
     setTextTopic("");
     const text = capitalizeFirstLetter(value);
-    setTopics((prevMethod) => [...prevMethod, { text }]);
+    setMethodPreparation((prevMethod) => [...prevMethod, { text }]);
   };
 
   const handleDeleteTopic = (id) => {
-    setTopics(topics.filter((method, index) => id !== index));
+    setMethodPreparation(methodPreparation.filter((method, index) => id !== index));
   };
-
-  useMemo(
-    debounce(() => {
-      const handleMethodPreparation = (topics) => setMethodPreparation(topics);
-
-      if (loading && topics) handleMethodPreparation(topics);
-    }, 200),
-    [loading]
-  );
-
+  
   return (
     <Section>
       <div className="title">
@@ -47,7 +32,7 @@ export default function MethodPreparation() {
       </div>
 
       <ul>
-        {topics.map(({ text }, index) => (
+        {methodPreparation.map(({ text }, index) => (
           <li key={index}>
             <div className="text_method">
               <p>

@@ -7,13 +7,12 @@ import ImageRecipes from "./../../../assets/info_recipe/recipes.png";
 import ImageLike from "./../../../assets/info_recipe/like.png";
 
 export default function GeneralAuthorInfo() {
-  const { usuario, imagem } = useSelector(state => state.recipes.data);
+  const { usuario, imagem } = useSelector((state) => state.recipes.data);
+  const returnDate = (date) => date.toLocaleDateString();
+
   return (
     <Section>
-      <ImageRecipe
-        className="image_recipe"
-        background={ imagem }
-      />
+      <ImageRecipe className="image_recipe" background={imagem} />
       <div className="info_author">
         <div className="profile">
           <div className="author">
@@ -21,10 +20,12 @@ export default function GeneralAuthorInfo() {
               src="https://images.pexels.com/users/avatars/372897/max-andrey-744.jpeg?w=256&h=256&fit=crop&crop=faces&auto=compress"
               alt=""
             />
-            <h4>Gabriel Santana</h4>
+            <h4>{usuario?.nome}</h4>
           </div>
           <div className="experience">
-            <p>Cozinheiro desde 15 de Junho de 2015</p>
+            <p>
+              Cozinheiro desde {returnDate(new Date(usuario?.data_criacao))}
+            </p>
           </div>
         </div>
         <div className="author_recipes_info">

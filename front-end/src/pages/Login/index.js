@@ -41,7 +41,7 @@ export default function Login() {
             <button type="submit">Login</button>
           </form>
 
-          <div className="register" onClick={() => handlePageRegister()}>
+          <div className="register">
             <p>Se cadastrar</p>
             <img src={ImageArrowLeft} alt="" />
           </div>

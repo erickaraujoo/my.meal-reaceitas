@@ -113,7 +113,8 @@ export const Section = styled.section`
         }
       }
 
-      div.description_recipe {
+      div.description_recipe,
+      div.observation_recipe {
         margin-top: 40px;
 
         div.title {
@@ -255,4 +256,62 @@ export const Preview = styled.div`
   background-size: cover;
   background-position: 50% 50%;
   margin-right: 10px;
+`;
+
+export const ContainerFlex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+
+  div {
+    width: calc(50% - 10px);
+
+    div.title {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      img {
+        margin-right: 12px;
+        width: 25px;
+        height: 25px;
+      }
+
+      p {
+        font-family: Poppins;
+        line-height: 40px;
+        letter-spacing: 0.35px;
+        min-height: 20px;
+        height: auto;
+      }
+    }
+
+    div.input {
+      width: 100%;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 60px;
+        height: 40px;
+        background: ${theme.colors.white};
+        border: 0.5px solid ${theme.colors.blackWithGreatOpacity};
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-family: PoppinsLight;
+        font-style: normal;
+        font-size: 1rem;
+        line-height: 40px;
+        color: ${theme.colors.black};
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      p {
+        transform: translateY(2px);
+        margin-left: 10px;
+      }
+    }
+  }
 `;

@@ -9,22 +9,23 @@ const INITIAL_STATE = {
   success: false,
 };
 
-const createRecipe = (state = INITIAL_STATE, action) => 
+const createImages = (state = INITIAL_STATE, action) => 
   produce(state, (draft) => {
     switch (action.type) {
-      case types.CREATING_RECIPE:
+      case types.CREATING_IMAGE_RECIPE:
+        console.log(action);
         draft.data = [];
         draft.loading = true;
         draft.error = false;
         draft.success = false;
         break;
-      case types.SUCCESS_CREATED_RECIPE:
+      case types.SUCCESS_CREATED_IMAGE:
         draft.data = action.payload.data;
         draft.loading = false;
         draft.error = false;
         draft.success = true;
         break;
-      case types.FAILURE_CREATE_RECIPE:
+      case types.FAILURE_CREATE_IMAGE:
         draft.data = [];
         draft.loading = false;
         draft.error = true;
@@ -35,4 +36,4 @@ const createRecipe = (state = INITIAL_STATE, action) =>
     }
   });
 
-export default createRecipe;
+export default createImages;

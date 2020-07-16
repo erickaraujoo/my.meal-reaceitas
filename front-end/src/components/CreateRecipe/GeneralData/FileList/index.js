@@ -1,15 +1,22 @@
 import React from "react";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { useSelector } from "react-redux";
+
 import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
+import { PulseSpinner } from "react-spinners-kit";
+import { usePreview } from "../../../../context/Recipes/Create";
+import { Container, FileInfo } from "./styles";
 
 import "react-circular-progressbar/dist/styles.css";
 
-import { usePreview } from "../../../../context/Recipes/Create";
-
-import { Container, FileInfo } from "./styles";
-
 export default function FileList() {
   const { previewImages } = usePreview();
+  const images = useSelector((state) => state.createImages);
+
+  previewImages.map((previewImage) => {
+    if(images.success && !previewImage.uploaded) {
+      previewImage.uploaded = true;
+    }
+  });
 
   return (
     <Container>
@@ -22,40 +29,24 @@ export default function FileList() {
               <strong>{uploadedFile.name}</strong>
               <span>
                 {uploadedFile.readableSize}
-                {!!uploadedFile.url && (
-                  <button onClick={() => {}}>Excluir</button>
-                )}
+                {images.success && uploadedFile.uploaded && <button onClick={() => {}}>Excluir</button>}
               </span>
             </div>
           </FileInfo>
 
           <div className="options">
-            {!uploadedFile.uploaded && !uploadedFile.error && (
-              <CircularProgressbar
-                styles={{
-                  root: { width: 24 },
-                  path: { stroke: "#7159c1" },
-                }}
-                strokeWidth={10}
-                value={uploadedFile.progress}
-                text={"66%"}
-              />
+            {images.loading && !uploadedFile.uploaded (
+              <PulseSpinner size={25} color={"#254B6E"} loading={true} />
             )}
 
-            {uploadedFile.url && (
-              <a
-                href="https://blog.rocketseat.com.br/content/images/2019/05/profile.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            {images.success && uploadedFile.uploaded && (
+              <a href={uploadedFile.preview} target="_blank" rel="noopener noreferrer">
                 <MdLink style={{ marginRight: 8 }} size={24} color="#222" />
               </a>
             )}
 
-            {uploadedFile.uploaded && (
-              <MdCheckCircle size={24} color="#78e5d5" />
-            )}
-            {uploadedFile.error && <MdError size={24} color="e57878" />}
+            {images.success && uploadedFile.uploaded && <MdCheckCircle size={24} color="#78e5d5" />}
+            {images.error && !uploadedFile.uploaded && <MdError size={24} color="e57878" />}
           </div>
         </li>
       ))}

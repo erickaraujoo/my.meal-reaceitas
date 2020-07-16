@@ -11,18 +11,83 @@ function apiPostImage(payload) {
   }
 }
 
+function apiPostRecipe(recipe) {
+  try {
+    return recipes.createRecipe({ recipe });
+  } catch (err) {
+    return err;
+  }
+}
+
+function* apiPostMethodPreparation({ id_receita, methodPreparation }) {
+  try {
+    const topicsMap = methodPreparation.map(({ text }) => {
+      return recipes.createMethodPreparation({ etapa: text, id_receita });
+    });
+
+    yield Promise.all(topicsMap);
+
+    return topicsMap;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
+function* apiPostIngredients({ id_receita, ingredients }) {
+  try {
+    const ingredientsMap = ingredients.map(({ name }) => {
+      return recipes.createIngredients({ nome: name, id_receita });
+    });
+
+    yield Promise.all(ingredientsMap);
+
+    return ingredientsMap;
+  } catch (err) {
+    return err;
+  }
+}
+
 function* newImage(actions) {
   try {
+    const arrayNamefile = [];
+    console.log(actions.payload.uploadedFiles);
+
+    // const namefileMap = actions.payload.map(({ namefile }) => {
+    //   return arrayNamefile.push({ namefile })
+    // });
+
+
+    // yield Promise.all(namefileMap);
+
+    // yield put({ type: types.CREATING_IMAGE_RECIPE, payload: namefileMap })
+
     const { data } = yield call(apiPostImage, actions.payload.uploadedFiles);
 
-    yield put({ type: types.SUCCESS_CREATED_RECIPE, payload: { data } });
+    yield put({ type: types.SUCCESS_CREATED_IMAGE, payload: { data } });
   } catch (err) {
-    yield put({ type: types.FAILURE_CREATE_RECIPE });
+    console.log(err);
+    yield put({ type: types.FAILURE_CREATE_IMAGE });
   }
 }
 
 function* newRecipe(actions) {
-  yield console.log(actions.payload);
+  try {
+    const { data } = yield call(apiPostRecipe, actions.recipe);
+    const methodPreparation = yield call(apiPostMethodPreparation, {
+      ...actions.methodPreparation,
+      id_receita: data.id_receita,
+    });
+    const ingredients = yield call(apiPostIngredients, {
+      ...actions.ingredients,
+      id_receita: data.id_receita,
+    });
+
+    yield put({ type: types.SUCCESS_CREATED_RECIPE, payload: { data } });
+  } catch (err) {
+    console.log(err);
+    yield put({ type: types.FAILURE_CREATE_RECIPE });
+  }
 }
 
 export function* createNewRecipe() {

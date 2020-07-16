@@ -62,7 +62,7 @@ export const Section = styled.section`
     }
 
     div.method_preparation {
-      height: 560px;
+      min-height: 560px;
       max-height: 560px;
       position: relative;
       background: ${theme.colors.marsala};
@@ -103,7 +103,7 @@ export const Section = styled.section`
     }
 
     div.ingredients {
-      height: 600px;
+      min-height: 600px;
       max-height: 600px;
       height: auto;
       position: relative;
@@ -147,6 +147,10 @@ export const Section = styled.section`
 
       p {
         letter-spacing: 0.25px;
+      }
+
+      p:nth-child(2) {
+        text-align: right;
       }
 
       svg {

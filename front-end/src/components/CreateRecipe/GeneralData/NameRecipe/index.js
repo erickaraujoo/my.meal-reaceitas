@@ -1,27 +1,12 @@
-import React, { useState, useMemo } from "react";
-import { debounce } from "lodash";
-
-import {
-  useGeneralData,
-  useLoading,
-} from "./../../../../context/Recipes/Create";
+import React from "react";
+import { useName } from "./../../../../context/Recipes/Create";
 
 export default function NameRecipe() {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
 
-  const { setGeneralData } = useGeneralData();
-  const { loading } = useLoading();
-  
+  const { name, setName } = useName();
   const handleName = (value) => setName(value);
-  useMemo(
-    debounce(() => {
-      const handleGeneralData = (name) =>
-        setGeneralData(prev => [ ...prev, { name }]);
-
-      if (loading && name) handleGeneralData(name);
-    }, 100),
-    [name, loading, setGeneralData]
-  );
+  
   return (
     <input
       type="text"
