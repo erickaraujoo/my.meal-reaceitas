@@ -8,6 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
+import com.senai.mealreceitas.dto.ReceitaListagem;
+
 @Entity
 @Table(name = "tbl_ingredientes")
 public class Ingrediente {
@@ -19,7 +23,7 @@ public class Ingrediente {
 	private String nome;
 	private double preco;
 	private long id_receita;
- 
+
 	public long getId_receita() {
 		return id_receita;
 	}

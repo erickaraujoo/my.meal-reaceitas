@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senai.mealreceitas.model.Ingrediente;
-import com.senai.mealreceitas.repository.IngredienteRepository;
+import com.senai.mealreceitas.model.ModoPreparo;
+import com.senai.mealreceitas.repository.ModoPreparoRepository;
 
 @RestController
 @RequestMapping("/api/v1")
 @CrossOrigin
-public class IngredienteResource {
+public class ModoPreparoResource {
 
 	@Autowired
-	IngredienteRepository ingredienteRepo;
+	ModoPreparoRepository preparoRepo;
 	
-	@PostMapping("/ingredientes")
-	public void createIngrediente(@Valid @RequestBody Ingrediente ingrediente) {
-		ingredienteRepo.save(ingrediente);
+	@PostMapping("/modopreparo")
+	public void createModoPreparo(@Valid @RequestBody ModoPreparo preparo) {
+		preparoRepo.save(preparo);
 	}
 	
 }

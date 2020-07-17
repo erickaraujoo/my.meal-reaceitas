@@ -7,5 +7,6 @@ import com.senai.mealreceitas.model.Usuario;
 public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
 	Usuario findByUsername(String username);
+	Usuario findByUsernameOrEmail(String username, String email);
 	
 }
