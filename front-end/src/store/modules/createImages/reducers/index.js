@@ -13,7 +13,6 @@ const createImages = (state = INITIAL_STATE, action) =>
   produce(state, (draft) => {
     switch (action.type) {
       case types.CREATING_IMAGE_RECIPE:
-        console.log(action);
         draft.data = [];
         draft.loading = true;
         draft.error = false;

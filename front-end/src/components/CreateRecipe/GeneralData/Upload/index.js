@@ -10,9 +10,9 @@ export default function Upload() {
   const { setPreviewImages } = usePreview();
 
   const handleUploadedFiles = async (files) => {
-    const { uploadedFiles, newFile } = await uploadImagesRecipe(files);
-    setUploadedFiles({ ...newFile });
-    setPreviewImages((prevImage) => [...prevImage, ...uploadedFiles]);
+    const { previewImages, uploadedFiles } = await uploadImagesRecipe(files);
+    setUploadedFiles([...uploadedFiles]);
+    setPreviewImages((prevImage) => [...prevImage, ...previewImages]);
   };
 
   const renderDragMessage = (isDragActive, isDragReject) => {

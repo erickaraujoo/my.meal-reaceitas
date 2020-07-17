@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { fetchRecipeById } from "./../../store/modules/recipes/actions";
 
 export default function InfoRecipe(props) {
-  console.log("CHAMADO");
   const dispatch = useDispatch();
   const GeneralAuthorInfo = lazy(() =>
     import("../../components/InfoRecipe/AuthorInfo")

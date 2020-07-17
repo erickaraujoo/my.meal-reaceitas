@@ -16,9 +16,10 @@ export const Section = styled.section`
     padding: 0 80px;
 
     h3 {
-      font-size: 1.5rem;
-      font-family: PoppinsExtraBold;
-      opacity: 0.8;
+      font-size: 1.375rem;
+      line-height: 40px;
+      letter-spacing: 0.35px;
+      font-family: PoppinsLight;
       color: ${theme.colors.black};
     }
   }

@@ -2,6 +2,19 @@ import styled from "styled-components";
 
 import { theme } from "../../styles";
 
+export const Section = styled.section`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: ${theme.colors.blackWithMediumOpacity};
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const SectionModalIngredients = styled.section`
   position: fixed;
   height: 100vh;
@@ -149,6 +162,70 @@ export const SectionModalIngredients = styled.section`
             border: solid 1.5px ${theme.colors.orange};
           }
         }
+    }
+  }
+`;
+
+export const DivModalSuccess = styled.div`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  padding: ${(props) => (props.padding ? props.padding : null)};
+  background: ${theme.colors.white};
+  border-radius: ${(props) => props.borderRadius};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  h2 {
+    font-family: PoppinsSemiBold;
+    font-size: 2rem;
+    color: ${theme.colors.limeade};
+    letter-spacing: 0.25px;
+  }
+
+  p {
+    margin-top: 60px;
+    font-size: 1.125rem;
+    font-family: Poppins;
+    text-align: center;
+  }
+
+  h2.title_error {
+    color: ${theme.colors.orange};
+  }
+
+  a,
+  button.close_modal {
+    margin-top: 60px;
+  }
+
+  button {
+    width: ${(props) => (props.widthButton ? props.widthButton : null)};
+    height: ${(props) => (props.heightButton ? props.heightButton : null)};
+    border-radius: 5px;
+    border: none;
+    background: ${theme.colors.limeade};
+    font-size: 1.25rem;
+    color: ${theme.colors.white};
+    font-family: Poppins;
+    text-transform: uppercase;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: ${theme.colors.white};
+      border: solid 1.5px ${theme.colors.limeade};
+      color: ${theme.colors.limeade};
+    }
+  }
+
+  button.close_modal {
+    background: ${theme.colors.orange};
+
+    &:hover {
+      background: ${theme.colors.white};
+      border: solid 1.5px ${theme.colors.orange};
+      color: ${theme.colors.orange};
     }
   }
 `;

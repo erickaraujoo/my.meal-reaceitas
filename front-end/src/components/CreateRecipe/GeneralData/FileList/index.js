@@ -1,21 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
 import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
 import { PulseSpinner } from "react-spinners-kit";
-import { usePreview } from "../../../../context/Recipes/Create";
+import { usePreview, useCreatedImages } from "../../../../context/Recipes/Create";
 import { Container, FileInfo } from "./styles";
 
 import "react-circular-progressbar/dist/styles.css";
 
 export default function FileList() {
   const { previewImages } = usePreview();
-  const images = useSelector((state) => state.createImages);
+  const { createdImages } = useCreatedImages();
 
-  previewImages.map((previewImage) => {
-    if(images.success && !previewImage.uploaded) {
-      previewImage.uploaded = true;
-    }
+  previewImages.forEach((previewImage) => {
+    if (createdImages.success && !previewImage.uploaded) previewImage.uploaded = true;
   });
 
   return (
@@ -29,24 +26,34 @@ export default function FileList() {
               <strong>{uploadedFile.name}</strong>
               <span>
                 {uploadedFile.readableSize}
-                {images.success && uploadedFile.uploaded && <button onClick={() => {}}>Excluir</button>}
+                {uploadedFile.uploaded && (
+                  <button onClick={() => {}}>Excluir</button>
+                )}
               </span>
             </div>
           </FileInfo>
 
           <div className="options">
-            {images.loading && !uploadedFile.uploaded (
+            {createdImages.loading && !uploadedFile.uploaded && (
               <PulseSpinner size={25} color={"#254B6E"} loading={true} />
             )}
 
-            {images.success && uploadedFile.uploaded && (
-              <a href={uploadedFile.preview} target="_blank" rel="noopener noreferrer">
+            {uploadedFile.uploaded && (
+              <a
+                href={uploadedFile.preview}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <MdLink style={{ marginRight: 8 }} size={24} color="#222" />
               </a>
             )}
 
-            {images.success && uploadedFile.uploaded && <MdCheckCircle size={24} color="#78e5d5" />}
-            {images.error && !uploadedFile.uploaded && <MdError size={24} color="e57878" />}
+            {uploadedFile.uploaded && (
+              <MdCheckCircle size={24} color="#78e5d5" />
+            )}
+            {createdImages.error && !uploadedFile.uploaded && (
+              <MdError size={24} color="e57878" />
+            )}
           </div>
         </li>
       ))}

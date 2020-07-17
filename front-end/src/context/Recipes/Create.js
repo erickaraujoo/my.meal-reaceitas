@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { createRecipe } from "./../../store/modules/createRecipe/actions";
 import { createImage } from "./../../store/modules/createImages/actions";
@@ -8,10 +8,11 @@ import { createImage } from "./../../store/modules/createImages/actions";
 const CreateRecipeContext = createContext();
 
 export default function CreateRecipeProvider({ children }) {
+  const createdImages = useSelector((state) => state.createImages);
   const { id } = useParams();
   const [userId] = useState(id);
   const [previewImages, setPreviewImages] = useState([]);
-  const [uploadedFiles, setUploadedFiles] = useState("");
+  const [uploadedFiles, setUploadedFiles] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [observation, setObservation] = useState("");
@@ -19,12 +20,12 @@ export default function CreateRecipeProvider({ children }) {
   const [preparationTime, setPreparationTime] = useState("");
   const [methodPreparation, setMethodPreparation] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
   useMemo(() => {
-    if (uploadedFiles)
+    if (uploadedFiles.length)
       dispatch(
         createImage({
           uploadedFiles,
@@ -86,6 +87,7 @@ export default function CreateRecipeProvider({ children }) {
         setLoading,
         previewImages,
         setPreviewImages,
+        createdImages,
       }}
     >
       {children}
@@ -175,4 +177,10 @@ export function useIngredients() {
   const context = useContext(CreateRecipeContext);
   const { ingredients, setIngredients } = context;
   return { ingredients, setIngredients };
+}
+
+export function useCreatedImages() {
+  const context = useContext(CreateRecipeContext);
+  const { createdImages } = context;
+  return { createdImages };
 }

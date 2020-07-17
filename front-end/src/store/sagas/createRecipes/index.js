@@ -50,18 +50,6 @@ function* apiPostIngredients({ id_receita, ingredients }) {
 
 function* newImage(actions) {
   try {
-    const arrayNamefile = [];
-    console.log(actions.payload.uploadedFiles);
-
-    // const namefileMap = actions.payload.map(({ namefile }) => {
-    //   return arrayNamefile.push({ namefile })
-    // });
-
-
-    // yield Promise.all(namefileMap);
-
-    // yield put({ type: types.CREATING_IMAGE_RECIPE, payload: namefileMap })
-
     const { data } = yield call(apiPostImage, actions.payload.uploadedFiles);
 
     yield put({ type: types.SUCCESS_CREATED_IMAGE, payload: { data } });

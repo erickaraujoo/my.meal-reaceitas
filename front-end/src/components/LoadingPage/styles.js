@@ -34,3 +34,14 @@ export const Loading = styled.div`
     }
   }
 `;
+
+export const ProgressLoading = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  background: ${theme.colors.blackWithMediumOpacity};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
