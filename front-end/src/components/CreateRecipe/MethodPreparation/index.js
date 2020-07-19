@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from "react";
-import { debounce } from "lodash";
+import React, { useState } from "react";
 
 import { useMethodPreparation } from "./../../../context/Recipes/Create";
 import { Section, FormMethodPreparation } from "./styles";

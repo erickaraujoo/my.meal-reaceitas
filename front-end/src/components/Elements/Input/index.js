@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
-import { debounce } from "lodash";
+import { useHistory } from "react-router-dom";
 
-import { InputSearch } from "./styles";
+import { InputSearch, InputBorderLeft } from "./styles";
 
-import ImageSearch from "./../../assets/search.png";
+import ImageSearch from "./../../../assets/search.png";
 
 export const InputSearchRecipe = ({ ...props }) => {
   const { width, height, type, placeholder } = props;
@@ -35,5 +34,23 @@ export const InputSearchRecipe = ({ ...props }) => {
         <img src={ImageSearch} alt="Pesquisar" />
       </button>
     </InputSearch>
+  );
+};
+
+export const InputWithBorderLeft = ({ ...props }) => {
+  return (
+    <InputBorderLeft
+      type={props.type}
+      name={props.name}
+      autoComplete={props.autoComplete}
+      width={props.width}
+      height={props.height}
+      background={props.background}
+      borderLeft={props.borderLeft}
+      placeholder={props.placeholder}
+      ref={props.forwardRef}
+      defaultValue={''}
+      onChange={props.onChange}
+    />
   );
 };

@@ -62,11 +62,11 @@ function* newImage(actions) {
 function* newRecipe(actions) {
   try {
     const { data } = yield call(apiPostRecipe, actions.recipe);
-    const methodPreparation = yield call(apiPostMethodPreparation, {
+    yield call(apiPostMethodPreparation, {
       ...actions.methodPreparation,
       id_receita: data.id_receita,
     });
-    const ingredients = yield call(apiPostIngredients, {
+    yield call(apiPostIngredients, {
       ...actions.ingredients,
       id_receita: data.id_receita,
     });

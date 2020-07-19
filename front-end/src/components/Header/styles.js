@@ -10,6 +10,7 @@ export const Header = styled.header`
   grid-template-columns: repeat(1, 60px) repeat(8, 1fr) repeat(15, minmax(55px, 1fr));
   grid-column: ${(props) => (props.gridColumns ? props.gridColumns : null)};
   box-shadow: 0 2px 8px ${theme.colors.blackCharcoalWithMediumOpacity};
+  position: relative;
 
   div.logo {
     grid-column: 2/10;
@@ -56,6 +57,17 @@ export const Header = styled.header`
             font-size: 1.0625rem;
             color: ${theme.colors.orange};
           }
+        }
+      }
+
+      li.profile {
+        padding-left: 10px;
+
+        img {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          border: solid 0.5px ${theme.colors.blackWithGreatOpacity};
         }
       }
 

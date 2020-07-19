@@ -13,4 +13,8 @@ export const recipes = {
     api.post(`/ingredientes`, { id_receita, nome }),
 };
 
+export const users = {
+  create: ({ payload }) => api.post(`/usuario`, payload),
+};
+
 export default api;

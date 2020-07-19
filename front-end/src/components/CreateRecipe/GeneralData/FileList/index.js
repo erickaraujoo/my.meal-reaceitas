@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
 import { PulseSpinner } from "react-spinners-kit";
 import { usePreview, useCreatedImages } from "../../../../context/Recipes/Create";

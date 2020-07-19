@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import ImageReport from "./../../../assets/recipe_icon.png";
 import ImageHeart from "./../../../assets/recipes/heart.png";
@@ -11,7 +11,6 @@ import { Recipe, ImageRecipe } from "./styles";
 import { useIngredients } from "./../../../context/Recipes/Filters";
 
 export default function ListRecipes() {
-  const history = useHistory();
   const { data, error, loading } = useSelector((state) => state.recipes);
   const { ingredients, setIngredients } = useIngredients();
 

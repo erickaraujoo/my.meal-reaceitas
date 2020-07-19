@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 
 import InputSearchRecipe from "../../components/Recipes/Search";
-import { ModalIngredients } from "./../../components/Modal";
+import { ModalIngredients } from "../../components/Elements/Modal";
 
 import FiltersProvider from "./../../context/Recipes/Filters.js";
 import ModalRecipesProvider from "./../../context/Modal/ModalRecipes";

@@ -119,6 +119,7 @@ export const theme = {
     marsala: "#5e1b44",
     magnolia: "#F6F5F8",
     whiteSomke: "#F1F1F1",
+    solitude: "#E8ECF8",
 
     whiteWithMediumOpacity: "rgba(255, 255, 255, 0.5)",
     blackWithMediumOpacity: "rgba(0, 0, 0, 0.5)",

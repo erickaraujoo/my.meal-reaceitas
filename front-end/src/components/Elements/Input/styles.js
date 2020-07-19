@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { theme } from './../../styles';
+import { theme } from "../../../styles";
 
 export const InputSearch = styled.div`
   position: relative;
@@ -35,5 +35,23 @@ export const InputSearch = styled.div`
   button img {
     opacity: 0.7;
     height: 17.5px;
+  }
+`;
+
+export const InputBorderLeft = styled.input`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  margin-top: 20px;
+  border-left: ${(props) => props.borderLeft};
+  border-right: solid 0px;
+  border-bottom: solid 0px;
+  border-top: solid 0px;
+  background: ${(props) => props.background};
+  font-size: 1rem;
+  font-family: PoppinsRegular;
+
+  &::placeholder {
+    color: #B6B6B6;
+    opacity: 1;
   }
 `;

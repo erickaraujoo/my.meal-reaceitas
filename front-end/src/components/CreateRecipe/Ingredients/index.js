@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from "react";
-import { debounce } from "lodash";
+import React, { useState } from "react";
 
 import { useIngredients } from "./../../../context/Recipes/Create";
 

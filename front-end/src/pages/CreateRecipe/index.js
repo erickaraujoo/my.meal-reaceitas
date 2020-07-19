@@ -5,7 +5,7 @@ import { Main } from "./styles";
 
 import CreateRecipeProvider from "./../../context/Recipes/Create";
 import { ProgressLoadingPage } from "./../../components/LoadingPage/index";
-import { ModalSuccess, ModalError } from "./../../components/Modal";
+import { ModalSuccess, ModalError } from "../../components/Elements/Modal";
 
 export default function CreateRecipe() {
   const Header = lazy(() => import("../../components/CreateRecipe/Header"));

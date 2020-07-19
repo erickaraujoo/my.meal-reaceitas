@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { Section, SectionModalIngredients, DivModalSuccess } from "./styles";
-import { useIngredients } from "./../../context/Recipes/Filters";
-import { useDisplay } from "../../context/Modal/ModalRecipes";
-import { useLoading } from "../../context/Recipes/Create";
+import { useIngredients } from "../../../context/Recipes/Filters";
+import { useDisplay } from "../../../context/Modal/ModalRecipes";
+import { useLoading } from "../../../context/Recipes/Create";
 
-import ImageClose from "../../assets/recipes/close.png";
+import ImageClose from "../../../assets/recipes/close.png";
 
 export const ModalIngredients = () => {
   const { onScreen, setOnScreen } = useDisplay();
