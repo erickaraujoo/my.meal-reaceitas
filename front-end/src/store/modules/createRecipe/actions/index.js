@@ -15,11 +15,10 @@ export function createRecipe({
   const descricao = description;
   const acessos = 0;
   const observacao = observation;
-  const tempo_preparo = preparationTime;
+  const tempoPreparo = preparationTime;
   const rendimento = revenue;
-  const data_criacao = creationData;
-  const usuario = { id_usuario: userId };
-  const imagem = 'https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/5/d/1/3/5d138386cb0ff237d0f65cd6a9905ab4.jpg';
+  const dataCriacao = creationData;
+  const usuario = { idUsuario: userId };
 
   return {
     type: types.CREATING_RECIPE,
@@ -27,11 +26,10 @@ export function createRecipe({
       nome,
       descricao,
       observacao,
-      tempo_preparo,
+      tempoPreparo,
       rendimento,
-      imagem,
       acessos,
-      data_criacao,
+      dataCriacao,
       usuario,
     },
     ingredients: { ingredients },

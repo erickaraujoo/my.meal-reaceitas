@@ -16,15 +16,13 @@ export default function GeneralAuthorInfo() {
       <div className="info_author">
         <div className="profile">
           <div className="author">
-            <img
-              src="https://images.pexels.com/users/avatars/372897/max-andrey-744.jpeg?w=256&h=256&fit=crop&crop=faces&auto=compress"
-              alt=""
+            <img src={usuario?.imagem} alt=""
             />
             <h4>{usuario?.nome}</h4>
           </div>
           <div className="experience">
             <p>
-              Cozinheiro desde {returnDate(new Date(usuario?.data_criacao))}
+              Cozinheiro desde {returnDate(new Date(usuario?.dataCriacao))}
             </p>
           </div>
         </div>

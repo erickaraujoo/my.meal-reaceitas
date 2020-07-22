@@ -17,10 +17,8 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
 
-    p {
-      color: ${theme.colors.black};
-      font-size: 1.5rem;
-      font-family: PoppinsSemiBold;
+    img {
+      height: 50px;
     }
   }
 

@@ -4,6 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import { PopupNavUser } from "./../Elements/Popup";
 import { Header } from "./styles";
 
+import ImageLogoCompany from "../../assets/logo_orange.png";
+
 export default function HeaderHome({ gridColumns }) {
   const [navigations, setNavigations] = useState([
     { value: "Início", to: "/" },
@@ -18,8 +20,11 @@ export default function HeaderHome({ gridColumns }) {
     if (isAuthenticated) {
       setNavigations((prevNav) => [
         ...prevNav,
-        { value: "Envie sua Receita", to: "/perfil/:id/receita/criar" },
-        { value: "Perfil", image: "" },
+        {
+          value: "Envie sua Receita",
+          to: `/perfil/${isAuthenticated.idUsuario}/receita/criar`,
+        },
+        { value: "Perfil", image: isAuthenticated.image },
       ]);
     } else {
       setNavigations((prevNav) => [
@@ -35,7 +40,7 @@ export default function HeaderHome({ gridColumns }) {
   return (
     <Header gridColumns={gridColumns}>
       <div className="logo">
-        <p>MEAL RECEITAS</p>
+        <img src={ImageLogoCompany} alt="" />
       </div>
       <nav className="navigations">
         <ul>

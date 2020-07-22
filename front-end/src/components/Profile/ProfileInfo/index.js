@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { Section } from "./styles";
 
@@ -13,12 +14,19 @@ import ImageDescription from "./../../../assets/profile/description.png";
 
 export default function ProfileInfo() {
   const history = useHistory();
+  const profile = useSelector((state) => state.user.data);
+
   return (
     <Section>
       <div className="section_personal_information">
         <div className="title">
           <h3>Informações Pessoais</h3>
-          <Link to={{ pathname: ':id/informacoes-pessoais', source: history.location.pathname }}>
+          <Link
+            to={{
+              pathname: ":id/informacoes-pessoais",
+              source: history.location.pathname,
+            }}
+          >
             <img src={ImageEdit} alt="Edit" />
           </Link>
         </div>
@@ -26,19 +34,28 @@ export default function ProfileInfo() {
         <ol>
           <li>
             <img src={ImageEmail} alt="email" />
-            <p>araujo.erick2002@gmail.com</p>
+            <p> {profile.data?.email ? profile.data?.email : "Sem e-mail particular para exibir"} </p>
           </li>
           <li>
             <img src={ImagePhone} alt="phone" />
-            <p>(11) 49821-2211</p>
+            <p>
+              {profile.data?.telefone
+                ? profile.data.telefone
+                : "Sem telefone"}
+            </p>
           </li>
           <li>
             <img src={ImageNickName} alt="nickname" />
-            <p>@erick_araujo</p>
+            <p> {profile.data?.username ? profile.data?.username : "Sem nickname para exibir"} </p>
           </li>
           <li>
             <img src={ImagePassword} alt="password" />
-            <p>********</p>
+            <p>
+              {profile.data?.password ? profile.data.password.replace(
+                profile.data.password,
+                "*".repeat(profile.data.password.length)
+              ) : "Nenhuma senha para exibir"}
+            </p>
           </li>
         </ol>
       </div>
@@ -46,7 +63,12 @@ export default function ProfileInfo() {
       <div className="section_perfil">
         <div className="title">
           <h3>Informações do Perfíl</h3>
-          <Link to={{ pathname: ':id/informacoes-perfil', source: history.location.pathname }}>
+          <Link
+            to={{
+              pathname: ":id/informacoes-perfil",
+              source: history.location.pathname,
+            }}
+          >
             <img src={ImageEdit} alt="Edit" />
           </Link>
         </div>
@@ -54,7 +76,7 @@ export default function ProfileInfo() {
         <ol>
           <li>
             <img src={ImageName} alt="name" />
-            <p>Erick Araujo Barbosa</p>
+            <p>{profile.data?.nome ? profile.data?.nome : "Sem nome para exibir"}</p>
           </li>
           <li className="li_description">
             <div className="title">
@@ -63,11 +85,10 @@ export default function ProfileInfo() {
             </div>
 
             <div className="description">
-              <textarea name="" id="" readOnly>
-                Olá, meu nome é Erick Araujo, tenho nº anos e gosto muito de
-                culinária, venho ganhando conhecimnento na cozinha desde os meus
-                10 anos
-              </textarea>
+              <textarea
+                defaultValue={profile.data?.biografia ? profile.data?.biografia : "Sem biografia para exibir"}
+                readOnly
+              ></textarea>
             </div>
           </li>
         </ol>

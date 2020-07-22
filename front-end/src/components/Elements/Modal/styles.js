@@ -74,7 +74,7 @@ export const SectionModalIngredients = styled.section`
 
         input {
           width: calc(100% - 310px);
-          height: 40px;
+          height: 45px;
           background: ${theme.colors.white};
           border: 0.5px solid rgba(0, 0, 0, 0.1);
           box-sizing: border-box;
@@ -85,7 +85,7 @@ export const SectionModalIngredients = styled.section`
 
         button {
           width: 260px;
-          height: 40px;
+          height: 45px;
           background: ${theme.colors.orange};
           border: none;
           border-radius: 5px;
@@ -118,7 +118,7 @@ export const SectionModalIngredients = styled.section`
         justify-content: space-between;
         padding: 5px 15px;
         background: ${theme.colors.white};
-        border: 0.5px dashed ${theme.colors.black};
+        border: 1px dashed ${theme.colors.black};
         border-radius: 50px;
         margin-top: 20px;
         margin-left: 15px;

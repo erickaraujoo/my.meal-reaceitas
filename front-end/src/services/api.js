@@ -7,14 +7,20 @@ export const recipes = {
   selectById: ({ id }) => api.get(`/receitas/${id}`),
   createImageRecipe: ({ payload }) => api.post(`/receitas/imagem`, payload),
   createRecipe: ({ recipe }) => api.post(`/receitas`, recipe),
-  createMethodPreparation: ({ etapa, id_receita }) =>
-    api.post(`/modopreparo`, { etapa, id_receita }),
-  createIngredients: ({ id_receita, nome }) =>
-    api.post(`/ingredientes`, { id_receita, nome }),
+  createMethodPreparation: ({ etapa, idReceita }) =>
+    api.post(`/modopreparo`, { etapa, idReceita }),
+  createIngredients: ({ idReceita, nome }) =>
+    api.post(`/ingredientes`, { idReceita, nome }),
+};
+
+export const comments = {
+  create: ({ payload }) => api.post(`/avaliacoes`, payload),
 };
 
 export const users = {
-  create: ({ payload }) => api.post(`/usuario`, payload),
+  selectById: ({ userId }) => api.get(`/usuarios/${userId}`),
+  selectByLogin: ({ payload }) => api.post(`/usuarios/login`, payload),
+  create: ({ payload }) => api.post(`/usuarios`, payload),
 };
 
 export default api;

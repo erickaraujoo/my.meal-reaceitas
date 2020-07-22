@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 import { Section } from "./styles";
 
@@ -9,6 +9,7 @@ import ImageEdit from "./../../../assets/profile/edit.png";
 
 export default function Recipes() {
   const history = useHistory();
+  const { id } = useParams();
 
   const [recipes] = useState([
     {
@@ -50,7 +51,7 @@ export default function Recipes() {
         <h3>Suas Receitas</h3>
         <Link
           to={{
-            pathname: "12/receita/criar",
+            pathname: `${id}/receita/criar`,
             source: history.location.pathname,
           }}
         >

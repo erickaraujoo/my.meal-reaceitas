@@ -15,10 +15,15 @@ export default function ListRecipes() {
   const { ingredients, setIngredients } = useIngredients();
 
   const returnDate = (date) => date.toLocaleDateString();
-
-  const filterIngredients = (id) => {
-    return setIngredients(ingredients.filter((valuem, index) => index !== id));
+  const returnTotal = (value) => {
+    let total = 0;
+    value.map(({ nota }) => (total += nota));
+    total = total / value.length;
+    return total.toFixed(1);
   };
+
+  const filterIngredients = (id) =>
+    setIngredients(ingredients.filter((value, index) => index !== id));
 
   return (
     <Recipe>
@@ -38,8 +43,11 @@ export default function ListRecipes() {
       <ol className="list-recipes">
         {data.content
           ? data.content.map((recipe, index) => (
-              <Link to={{ pathname: `/receitas/${recipe.id_receita}` }}>
-                <li key={index}>
+              <Link
+                key={index}
+                to={{ pathname: `/receitas/${recipe.idReceita}` }}
+              >
+                <li>
                   {index === 0 ? (
                     <div className="best-recipe">
                       <img src={ImageReport} loading="auto" alt="Best" />
@@ -75,12 +83,21 @@ export default function ListRecipes() {
 
                     <div className="date-info">
                       <p>Data de Publicação:</p>
-                      <p> {returnDate(new Date(recipe.data_criacao))} </p>
+                      <p> {returnDate(new Date(recipe.dataCriacao))} </p>
                     </div>
 
                     <div className="avaliation-info">
-                      Avaliação:
-                      <p className="note-avaliation"> 8,9 </p>
+                      {recipe.avaliacoes.length ? (
+                        <>
+                          Avaliação:
+                          <p className="note-avaliation">
+                            {" "}
+                            {returnTotal(recipe.avaliacoes)}{" "}
+                          </p>
+                        </>
+                      ) : (
+                        <p>Sem avaliação</p>
+                      )}
                     </div>
                   </div>
                 </li>

@@ -1,8 +1,9 @@
+import { useParams } from "react-router-dom";
 import { uniqueId } from "lodash";
 import filesize from "filesize";
 import { toBase64 } from "../base64";
 
-export const uploadImagesRecipe = async (files) => {
+export const uploadImagesRecipe = async (files, userId) => {
   const preview = files.map((file) => ({
     id: uniqueId(),
     name: file.name,
@@ -38,6 +39,7 @@ export const uploadImagesRecipe = async (files) => {
       Math.random().toString(36).substring(2, 15),
     mimetype: file.type,
     base64: await toBase64(file),
+    idUsuario: userId,
   }));
 
   const uploadedFiles = await Promise.all(upload);

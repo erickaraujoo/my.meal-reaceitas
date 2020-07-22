@@ -2,17 +2,18 @@ import React from "react";
 
 import { Container } from "./styles.js";
 
-import ImageFacebook from './../../assets/footer/facebook.png';
-import ImageTwitter from './../../assets/footer/twitter.png';
-import ImageLinkedin from './../../assets/footer/linkedin.png';
+import ImageLogo from "../../assets/logo_white.png";
 
+import ImageFacebook from "./../../assets/footer/facebook.png";
+import ImageTwitter from "./../../assets/footer/twitter.png";
+import ImageLinkedin from "./../../assets/footer/linkedin.png";
 
 export default function Footer() {
   return (
     <Container>
       <div className="info">
         <div className="logo">
-          <h3>Logo</h3>
+          <img src={ImageLogo} alt="" />
         </div>
         <div className="category">
           <p className="title">Categorias</p>
@@ -62,9 +63,9 @@ export default function Footer() {
           <p> 2020 - © Meal Receitas, Todos os direitos reservados. </p>
         </div>
         <div className="social_networks">
-          <img src={ImageFacebook} alt=""/>
-          <img src={ImageTwitter} alt=""/>
-          <img src={ImageLinkedin} alt=""/>
+          <img src={ImageFacebook} alt="" />
+          <img src={ImageTwitter} alt="" />
+          <img src={ImageLinkedin} alt="" />
         </div>
       </div>
     </Container>

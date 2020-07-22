@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Dropzone from "react-dropzone";
 
 import { useUpload, usePreview } from "../../../../context/Recipes/Create";
@@ -6,11 +7,13 @@ import { uploadImagesRecipe } from "../../../../utils/upload/uploadImagesRecipe"
 import { DropContainer, UploadMessage } from "./styles";
 
 export default function Upload() {
+  const { id } = useParams();
   const { setUploadedFiles } = useUpload();
   const { setPreviewImages } = usePreview();
 
+
   const handleUploadedFiles = async (files) => {
-    const { previewImages, uploadedFiles } = await uploadImagesRecipe(files);
+    const { previewImages, uploadedFiles } = await uploadImagesRecipe(files, id);
     setUploadedFiles([...uploadedFiles]);
     setPreviewImages((prevImage) => [...prevImage, ...previewImages]);
   };

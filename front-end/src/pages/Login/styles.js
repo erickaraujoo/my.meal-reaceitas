@@ -80,7 +80,9 @@ export const ModalLogin = styled.div`
       justify-content: flex-start;
       align-items: center;
 
-      a { display: flex };
+      a {
+        display: flex;
+      }
 
       img {
         width: 25px;
@@ -152,6 +154,13 @@ export const ModalLogin = styled.div`
         margin-top: 20px;
         border: none;
         transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+          margin-left: 15px;
+        }
 
         &:hover {
           background: ${theme.colors.white};

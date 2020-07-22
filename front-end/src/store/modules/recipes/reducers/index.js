@@ -3,10 +3,9 @@ import types from "../../types";
 import produce from "immer";
 
 const INITIAL_STATE = {
-  data: {
-    content: [],
-  },
+  data: { content: [] },
   loading: false,
+  success: false,
   error: false,
 };
 
@@ -16,16 +15,19 @@ const recipes = (state = INITIAL_STATE, action) =>
       case types.FETCHING_RECIPES:
         draft.data.content = [];
         draft.loading = true;
+        draft.success = false;
         draft.error = false;
         break;
       case types.SUCCESS_FECTH_RECIPES:
         draft.data = action.payload.data;
         draft.loading = false;
+        draft.success = true;
         draft.error = false;
         break;
       case types.FAILURE_RECIPES:
-        draft.data = { ...state };
+        draft.data.content = [];
         draft.loading = false;
+        draft.success = false;
         draft.error = true;
         break;
       case types.FETCHING_RECIPE:

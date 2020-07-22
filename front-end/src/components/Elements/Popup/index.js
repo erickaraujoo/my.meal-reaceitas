@@ -13,34 +13,38 @@ export const PopupNavUser = () => {
   const [viewPopup, setViewPopup] = useState(false);
   const handlePopup = () => setViewPopup(viewPopup ? false : true);
   const handleExit = () => {
-    localStorage.removeItem('authenticated_user');
+    localStorage.removeItem("authenticated_user");
     window.location.reload();
-  } 
+  };
+  const authenticatedUser = JSON.parse(
+    localStorage.getItem("authenticated_user")
+  );
 
   return (
     <>
       <li className="profile" onClick={() => handlePopup()}>
-        <img src="" alt="" />
+        <img src={authenticatedUser.image} alt="" />
       </li>
       <PopupUser visible={viewPopup} onMouseLeave={() => handlePopup()}>
         <div className="my_profile">
-          <img
-            src="https://trello-members.s3.amazonaws.com/5e3085f91594358482af820c/cd418de21c46559e868264879206f3af/170.png"
-            alt=""
-          />
-          <h4>Erick Araujo</h4>
-          <p>araujo.erick2002@gmail.com</p>
+          <img src={authenticatedUser.image} alt="" />
+          <h4> {authenticatedUser.nome} </h4>
+          <p> {authenticatedUser.email} </p>
           <hr />
         </div>
         <ul>
           <li>
-            <Link to={{ pathname: "/perfil/12" }}>
+            <Link to={{ pathname: `/perfil/${authenticatedUser.idUsuario}` }}>
               <FaUser className="icon_popup" size={15} />
               <p className="title_popup">Meu perfil</p>
             </Link>
           </li>
           <li>
-            <Link to={{ pathname: "/perfil/12/receita/criar" }}>
+            <Link
+              to={{
+                pathname: `/perfil/${authenticatedUser.idUsuario}/receita/criar`,
+              }}
+            >
               <FaBookOpen className="icon_popup" size={15} />
               <p className="title_popup">Criar uma receita</p>
             </Link>

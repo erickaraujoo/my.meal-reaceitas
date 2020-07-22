@@ -14,15 +14,15 @@ export default function Reviews() {
             alt=""
           />
           <h4>Fernandes Mercedez</h4>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+          <p>"Gostei bastante do site pois contém diversas receitas!"</p>
         </div>
         <div>
           <img
-            src="https://lh4.googleusercontent.com/-xihhXhkFUOs/AAAAAAAAAAI/AAAAAAAAAMY/V5Rd1ofCGgY/photo.jpg"
+            src="https://pbs.twimg.com/profile_images/593378416419807232/b8Q_HETJ_400x400.jpg"
             alt=""
           />
-          <h4>João Gaiola</h4>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+          <h4>Mario Souza</h4>
+          <p>"Agora consigo buscar as receitas com os ingredientes que eu quero"</p>
         </div>
         <div>
           <img
@@ -30,7 +30,7 @@ export default function Reviews() {
             alt=""
           />
           <h4>Gabriel Portinolli</h4>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+          <p>"Agora terei resultado com meus treinos e com as receitas desse site!"</p>
         </div>
       </div>
     </Review>

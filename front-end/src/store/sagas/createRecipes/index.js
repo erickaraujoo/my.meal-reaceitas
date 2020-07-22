@@ -19,10 +19,10 @@ function apiPostRecipe(recipe) {
   }
 }
 
-function* apiPostMethodPreparation({ id_receita, methodPreparation }) {
+function* apiPostMethodPreparation({ idReceita, methodPreparation }) {
   try {
     const topicsMap = methodPreparation.map(({ text }) => {
-      return recipes.createMethodPreparation({ etapa: text, id_receita });
+      return recipes.createMethodPreparation({ etapa: text, idReceita });
     });
 
     yield Promise.all(topicsMap);
@@ -34,10 +34,10 @@ function* apiPostMethodPreparation({ id_receita, methodPreparation }) {
   }
 }
 
-function* apiPostIngredients({ id_receita, ingredients }) {
+function* apiPostIngredients({ idReceita, ingredients }) {
   try {
     const ingredientsMap = ingredients.map(({ name }) => {
-      return recipes.createIngredients({ nome: name, id_receita });
+      return recipes.createIngredients({ nome: name, idReceita });
     });
 
     yield Promise.all(ingredientsMap);
@@ -64,11 +64,11 @@ function* newRecipe(actions) {
     const { data } = yield call(apiPostRecipe, actions.recipe);
     yield call(apiPostMethodPreparation, {
       ...actions.methodPreparation,
-      id_receita: data.id_receita,
+      idReceita: data.idReceita,
     });
     yield call(apiPostIngredients, {
       ...actions.ingredients,
-      id_receita: data.id_receita,
+      idReceita: data.idReceita,
     });
 
     yield put({ type: types.SUCCESS_CREATED_RECIPE, payload: { data } });

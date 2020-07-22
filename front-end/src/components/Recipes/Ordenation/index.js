@@ -10,11 +10,9 @@ export default function OrderRecipesBy() {
   const [options] = useState([
     { title: "Selecionar", value: "" },
     { title: "Nome da receita", value: "nome" },
-    { title: "Data de criação", value: "data_criacao" },
-    { title: "Mais avaliado", value: "avaliacoes" },
-    { title: "Mais acessado", value: "acessos" },
-    { title: "Mais favoritados", value: "favoritos" },
-    { title: "Mais comentados", value: "comentarios" },
+    { title: "Data de criação", value: "dataCriacao,desc" },
+    // { title: "Mais avaliado", value: "avaliacoes" },
+    // { title: "Mais acessado", value: "acessos" },
   ]);
 
   const handleSort = (value) => setSort(value);

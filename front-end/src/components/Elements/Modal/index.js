@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 import { Section, SectionModalIngredients, DivModalSuccess } from "./styles";
 import { useIngredients } from "../../../context/Recipes/Filters";
@@ -87,6 +88,21 @@ export const ModalIngredients = () => {
       </SectionModalIngredients>
     );
   else return null;
+};
+
+export const ModalNewRegister = ({ success, onClick, ...props }) => {
+  if (success)
+    return (
+      <Section>
+        <DivModalSuccess {...props}>
+          <h2>{props.titleModal}</h2>
+          <p>{props.textModal}</p>
+          <button onClick={onClick}>{props.textButton}</button>
+        </DivModalSuccess>
+      </Section>
+    );
+
+  return null;
 };
 
 export const ModalSuccess = ({ success, ...props }) => {

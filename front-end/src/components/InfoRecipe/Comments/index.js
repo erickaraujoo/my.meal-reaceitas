@@ -1,149 +1,48 @@
-import React from "react";
+import React, { lazy, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { Section } from "./styles";
 
 import ImageStar from "./../../../assets/info_recipe/start.png";
+import { useState } from "react";
 
 export default function Comments() {
+  const SendFeedback = lazy(() => import("./Avaliation"));
+  const [avaliations, setAvaliations] = useState(useSelector((state) => state.comments.data.avaliacoes));
+  const newComment = useSelector((state) => state.comments);
+
   return (
     <Section>
       <h2>O que você achou dessa receita?</h2>
 
-      <div className="send_feedback">
-        <div className="rating_wrapper">
-          <input type="radio" name="rating" id="start_1" /><label htmlFor="start_1"></label>
-          <input type="radio" name="rating" id="start_2" /><label htmlFor="start_2"></label>
-          <input type="radio" name="rating" id="start_3" /><label htmlFor="start_3"></label>
-          <input type="radio" name="rating" id="start_4" /><label htmlFor="start_4"></label>
-          <input type="radio" name="rating" id="start_5" /><label htmlFor="start_5"></label>
-        </div>
-        <textarea className="comment" placeholder="Mande seu comentário..."></textarea>
-        <button>Enviar</button>
-      </div>
+      <SendFeedback />
       <div className="comments">
-        <h3>Comentários (6)</h3>
+        <h3>Comentários ({avaliations?.length})</h3>
 
         <ul>
-          <li>
-            <div className="photo">
-              <img
-                src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/silueta-generica-large.png"
-                alt=""
-              />
-            </div>
-            <div className="triangle" />
-            <div className="comment">
-              <div className="title">
-                <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
-                <div className="avaliation">
-                  <p>Avaliação: 4.5</p>
-                  <img src={ImageStar} alt="" />
+          {avaliations?.map(({ nota, comentario }, index) => (
+            <li key={index}>
+              <div className="photo">
+                <img
+                  src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/silueta-generica-large.png"
+                  alt=""
+                />
+              </div>
+              <div className="triangle" />
+              <div className="comment">
+                <div className="title">
+                  <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
+                  <div className="avaliation">
+                    <p>Avaliação: {nota}</p>
+                    <img src={ImageStar} alt="" />
+                  </div>
+                </div>
+                <div className="text">
+                  <p>{comentario}</p>
                 </div>
               </div>
-              <div className="text">
-                <p>
-                  Muito bom a receita, recomendo a todos os profissionais da
-                  área!!
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="photo">
-              <img
-                src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/silueta-generica-large.png"
-                alt=""
-              />
-            </div>
-            <div className="triangle" />
-            <div className="comment">
-              <div className="title">
-                <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
-                <div className="avaliation">
-                  <p>Avaliação: 4.5</p>
-                  <img src={ImageStar} alt="" />
-                </div>
-              </div>
-              <div className="text">
-                <p>
-                  Muito bom a receita, recomendo a todos os profissionais da
-                  área!!
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="photo">
-              <img
-                src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/silueta-generica-large.png"
-                alt=""
-              />
-            </div>
-            <div className="triangle" />
-            <div className="comment">
-              <div className="title">
-                <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
-                <div className="avaliation">
-                  <p>Avaliação: 4.5</p>
-                  <img src={ImageStar} alt="" />
-                </div>
-              </div>
-              <div className="text">
-                <p>
-                  Muito bom a receita, recomendo a todos os profissionais da
-                  área!!
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="photo">
-              <img
-                src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/silueta-generica-large.png"
-                alt=""
-              />
-            </div>
-            <div className="triangle" />
-            <div className="comment">
-              <div className="title">
-                <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
-                <div className="avaliation">
-                  <p>Avaliação: 4.5</p>
-                  <img src={ImageStar} alt="" />
-                </div>
-              </div>
-              <div className="text">
-                <p>
-                  Muito bom a receita, recomendo a todos os profissionais da
-                  área!!
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="photo">
-              <img
-                src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/silueta-generica-large.png"
-                alt=""
-              />
-            </div>
-            <div className="triangle" />
-            <div className="comment">
-              <div className="title">
-                <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
-                <div className="avaliation">
-                  <p>Avaliação: 4.5</p>
-                  <img src={ImageStar} alt="" />
-                </div>
-              </div>
-              <div className="text">
-                <p>
-                  Muito bom a receita, recomendo a todos os profissionais da
-                  área!!
-                </p>
-              </div>
-            </div>
-          </li>
+            </li>
+          ))}
         </ul>
       </div>
     </Section>

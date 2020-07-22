@@ -1,29 +1,54 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { CircleSpinner } from "react-spinners-kit";
 
 import { InputWithBorderLeft } from "../../components/Elements/Input";
 import { validationInputForms } from "./../../utils/validations";
 import { SectionLogin, ModalLogin } from "./styles";
+import { getUserByLogin } from "../../store/modules/user/actions";
 
 import ImageArrowBack from "../../assets/arrow_back.png";
 
 export default function Login() {
+  const dispatch = useDispatch();
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm({
     defaultValues: {},
   });
-  const onSubmit = (data) => {
-    localStorage.setItem("authenticated_user", JSON.stringify(data));
-    history.push("/");
+  const user = useSelector((state) => state.user);
+
+  const onSubmit = ({ email, password }) => {
+    dispatch(
+      getUserByLogin({
+        email,
+        password,
+      })
+    );
   };
+
+  if (user.success) {
+    const authenticatedUser = {
+      idUsuario: user.data.data.idUsuario,
+      nome: user.data.data.nome,
+      email: user.data.data.email,
+      image: user.data.data.imagem,
+    };
+
+    localStorage.setItem(
+      "authenticated_user",
+      JSON.stringify(authenticatedUser)
+    );
+    history.push("/");
+  }
 
   return (
     <SectionLogin>
       <ModalLogin>
         <div className="modal_welcome">
           <div className="companyName">
-            <Link to={{ pathname: '/' }}>
+            <Link to={{ pathname: "/" }}>
               <img src={ImageArrowBack} alt="" />
             </Link>
             <p className="companyName">MEAL RECEITAS</p>
@@ -49,6 +74,12 @@ export default function Login() {
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)}>
+            {user.error && user.data && (
+              <p className="error"> {user.data.data} </p>
+            )}
+            {user.error && !user.data && (
+              <p className="error"> Erro ao tentar se conectar com o banco! </p>
+            )}
             <InputWithBorderLeft
               name={"email"}
               width={"100%"}
@@ -84,7 +115,10 @@ export default function Login() {
               <Link to={{ pathname: `/` }}>Esqueci minha senha</Link>
             </p>
 
-            <button type="submit">LOGIN</button>
+            <button type="submit">
+              LOGIN
+              {user.loading && <CircleSpinner size={20} color={"#fff"} />}
+            </button>
 
             <p className="register">
               Não tem uma conta?

@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useMemo, useEffect, useContext, createContext } from "react";
 import { useDispatch } from "react-redux";
+import { useLocation } from 'react-router-dom';
 
 import { fetchRecipes } from "../../store/modules/recipes/actions";
 
@@ -7,6 +8,7 @@ const FiltersContext = createContext();
 
 export default function FiltersProvider({ children }) {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState("");
@@ -14,6 +16,10 @@ export default function FiltersProvider({ children }) {
   const [search, setSearch] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [size] = useState(10);
+
+  useMemo(() => {
+    if(location.params) setSearch(location.params);
+  }, [location.params]);
 
   useEffect(() => {
     let arrayIngredients = Object.values(ingredients).map(({ name }) => {

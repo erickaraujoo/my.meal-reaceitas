@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
 export default function GetStarted() {
-  return(
+  return (
     <Container>
       <div className="modal">
         <div className="text">
@@ -11,9 +12,11 @@ export default function GetStarted() {
           <p>Encontre sua receita favorita agora</p>
         </div>
         <div className="button_getStarted">
-          <button>Iniciar</button>
+          <Link to={{ pathname: '/receitas' }}>
+            <button>Iniciar</button>
+          </Link>
         </div>
       </div>
     </Container>
   );
-};
+}

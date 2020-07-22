@@ -15,9 +15,8 @@ export const Container = styled.footer`
     padding: 50px 0 80px;
 
     div.logo {
-      h3 {
-        color: ${theme.colors.white};
-        font-family: PoppinsRegular;
+      img {
+        height: 50px;
       }
     }
 

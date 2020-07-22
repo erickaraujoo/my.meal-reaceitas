@@ -71,6 +71,21 @@ export const Recipes = styled.section`
       list-style: none;
       flex-wrap: wrap;
 
+      div.loading_recipes {
+        grid-column: 4/22;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+
+        p {
+          font-size: 1.25rem;
+          font-family: Poppins;
+          color: ${theme.colors.orange};
+          margin-right: 10px;
+        }
+      }
+
       li {
         margin-top: 20px;
         min-height: 400px;
@@ -78,15 +93,14 @@ export const Recipes = styled.section`
         background: transparent;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
         cursor: pointer;
+        position: relative;
 
         &:hover > div.image_recipe {
           filter: brightness(35%);
         }
 
         div.avaliation {
-          margin-top: -400px;
           background: ${theme.colors.white};
           display: flex;
           align-items: center;
@@ -94,7 +108,7 @@ export const Recipes = styled.section`
           min-height: 35px;
           padding: 5px 0;
           border-radius: 3px;
-          position: relative;
+          position: absolute;
           left: 20px;
           top: 20px;
 
@@ -113,10 +127,11 @@ export const Recipes = styled.section`
         }
 
         div.info_recipe {
-          height: 345px;
+          height: 400px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
+          padding: 20px 0;
 
           div.name_recipe {
             padding: 0 20px;
@@ -193,8 +208,11 @@ export const Recipes = styled.section`
 `;
 
 export const BackgroundRecipe = styled.div`
-  position: relative;
-  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   background-image: url(${(props) => props.background});
   background-size: cover;
   background-position: center;

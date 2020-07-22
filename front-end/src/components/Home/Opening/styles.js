@@ -31,6 +31,7 @@ export const Opening = styled.section`
       margin-top: 20px;
       display: flex;
       justify-content: space-between;
+        box-shadow: 0 2px 5px ${theme.colors.blackWithGreatOpacity};
 
       input {
         height: 55px;
@@ -39,7 +40,6 @@ export const Opening = styled.section`
         font-family: PoppinsRegular;
         letter-spacing: 0.5px;
         border: none;
-        box-shadow: 0 2px 5px ${theme.colors.blackWithGreatOpacity};
       }
 
       button {
@@ -49,13 +49,12 @@ export const Opening = styled.section`
         outline: none;
         overflow: hidden;
         position: relative;
-        background-color: #222;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        background-color: ${theme.colors.orange};
         height: 55px;
         max-height: 55px;
         width: 70px;
 
-        &:after {
+        /* &:after {
           content: "";
           position: absolute;
           left: 0;
@@ -68,12 +67,12 @@ export const Opening = styled.section`
           -webkit-transform: translateX(-50%) translateY(0%) rotate(45deg);
           transform: translateX(-130%) translateY(2.5%) rotate(45deg);
           /* transform: translateX(-98%) translateY(-25%) rotate(45deg); */
-        }
+        /* } */
 
-        &:hover:after {
+        /* &:hover:after {
           -webkit-transform: translateX(-50%) translateY(-25%) rotate(45deg);
           transform: translateX(-50%) translateY(-25%) rotate(45deg);
-        }
+        } */
 
         img {
           width: auto;
@@ -95,7 +94,7 @@ export const Opening = styled.section`
       margin-top: 80px;
       display: flex;
       flex-direction: column;
-      align-items: right;
+      align-items: flex-end;
 
       p {
         margin: 0;
@@ -105,8 +104,13 @@ export const Opening = styled.section`
         text-align: right;
       }
 
-      button {
+      a {
+        width : 200px;
+        height: 50px;
         margin-top: 30px;
+      }
+
+      button {
         margin-left: auto;
         border: none;
         text-align: center;
@@ -118,18 +122,23 @@ export const Opening = styled.section`
         color: ${theme.colors.white};
         font-size: 1rem;
         font-family: Poppins;
-        background-color: #222;
-        padding: 0 60px;
+        background-color: ${theme.colors.orange};
+        width: 200px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        border-radius: 3px;
+        border-radius: 5px;
         height: 50px;
 
         & span {
           position: relative;
           z-index: 1;
+          transition: 0.2s;
         }
 
-        &:after {
+        &:hover > span {
+          font-size: 1.125rem;
+        }
+
+        /* &:after {
           content: "";
           position: absolute;
           left: 0;
@@ -146,7 +155,7 @@ export const Opening = styled.section`
         &:hover:after {
           -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
           transform: translateX(-9%) translateY(-25%) rotate(45deg);
-        }
+        } */
       }
     }
   }
