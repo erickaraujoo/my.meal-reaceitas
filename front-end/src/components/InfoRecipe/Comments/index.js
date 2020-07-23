@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import React, { lazy, useMemo } from "react";
 import { useSelector } from "react-redux";
 
 import { Section } from "./styles";
@@ -8,8 +8,17 @@ import { useState } from "react";
 
 export default function Comments() {
   const SendFeedback = lazy(() => import("./Avaliation"));
-  const [avaliations, setAvaliations] = useState(useSelector((state) => state.comments.data.avaliacoes));
+  const [avaliations, setAvaliations] = useState(useSelector((state) => state.recipes.data.avaliacoes));
   const newComment = useSelector((state) => state.comments);
+
+  useMemo(() => {
+    if(newComment.success) {
+      setAvaliations(prevAvaliation => [
+        ...prevAvaliation,
+        newComment.data,
+      ])
+    }
+  }, [newComment.data, newComment.success]);
 
   return (
     <Section>
@@ -17,7 +26,7 @@ export default function Comments() {
 
       <SendFeedback />
       <div className="comments">
-        <h3>Comentários ({avaliations?.length})</h3>
+        <h3>Comentários ({avaliations?.length ? avaliations.length : 0})</h3>
 
         <ul>
           {avaliations?.map(({ nota, comentario }, index) => (
@@ -33,16 +42,19 @@ export default function Comments() {
                 <div className="title">
                   <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
                   <div className="avaliation">
-                    <p>Avaliação: {nota}</p>
+                    <p>Avaliação: {nota.toFixed(1)}</p>
                     <img src={ImageStar} alt="" />
                   </div>
                 </div>
                 <div className="text">
-                  <p>{comentario}</p>
+                  <p>{comentario ? comentario : 'Sem comentário'}</p>
                 </div>
               </div>
             </li>
           ))}
+          {!avaliations?.length && (
+            <p className="avaliation_notfound">Essa receita não possui nenhum comentário</p>
+          )}
         </ul>
       </div>
     </Section>

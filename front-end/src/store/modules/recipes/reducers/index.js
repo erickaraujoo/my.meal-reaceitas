@@ -33,16 +33,19 @@ const recipes = (state = INITIAL_STATE, action) =>
       case types.FETCHING_RECIPE:
         draft.data.content = [];
         draft.loading = true;
+        draft.success = false;
         draft.error = false;
         break;
       case types.SUCCESS_FECTH_RECIPE:
         draft.data = action.payload.data;
         draft.loading = false;
+        draft.success = true;
         draft.error = false;
         break;
       case types.FAILURE_FETCH_RECIPE:
-        draft.data = { ...state };
+        draft.data = [];
         draft.loading = false;
+        draft.success = false;
         draft.error = true;
         break;
       default:

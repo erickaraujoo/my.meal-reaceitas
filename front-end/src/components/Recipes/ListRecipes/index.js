@@ -55,7 +55,7 @@ export default function ListRecipes() {
                     </div>
                   ) : null}
                   <div className="image-recipe">
-                    <ImageRecipe background={recipe.imagem} />
+                    <ImageRecipe background={recipe.imagens[0]?.url} />
                   </div>
 
                   <div className="data-recipe">
@@ -63,8 +63,8 @@ export default function ListRecipes() {
                     <p className="author">Por: {recipe.nome} </p>
 
                     <p className="description">
-                      {recipe.description
-                        ? recipe.description
+                      {recipe.descricao
+                        ? recipe.descricao
                         : "Sem descrição"}
                     </p>
                   </div>

@@ -20,6 +20,7 @@ export default function CreateRecipeProvider({ children }) {
   const [preparationTime, setPreparationTime] = useState("");
   const [methodPreparation, setMethodPreparation] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ export default function CreateRecipeProvider({ children }) {
           revenue,
           methodPreparation,
           ingredients,
+          category,
           creationData,
           userId,
         })
@@ -58,6 +60,7 @@ export default function CreateRecipeProvider({ children }) {
     revenue,
     dispatch,
     ingredients,
+    category,
     loading,
     methodPreparation,
     name,
@@ -88,6 +91,8 @@ export default function CreateRecipeProvider({ children }) {
         previewImages,
         setPreviewImages,
         createdImages,
+        category,
+        setCategory,
       }}
     >
       {children}
@@ -103,6 +108,7 @@ export function useCreate() {
     preparationTime,
     revenue,
     ingredients,
+    category,
     methodPreparation,
     name,
     description,
@@ -111,6 +117,7 @@ export function useCreate() {
     setLoading,
     previewImages,
     ingredients,
+    category,
     preparationTime,
     revenue,
     methodPreparation,
@@ -177,6 +184,12 @@ export function useIngredients() {
   const context = useContext(CreateRecipeContext);
   const { ingredients, setIngredients } = context;
   return { ingredients, setIngredients };
+}
+
+export function useCategory() {
+  const context = useContext(CreateRecipeContext);
+  const { category, setCategory } = context;
+  return { category, setCategory };
 }
 
 export function useCreatedImages() {

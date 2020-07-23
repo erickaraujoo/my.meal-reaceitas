@@ -121,7 +121,7 @@ export const Section = styled.section`
 
 export const ImageRecipe = styled.div`
   background-image: url(${(props) => `'${props.background}'`});
-  background-position: bottom;
+  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
 `;

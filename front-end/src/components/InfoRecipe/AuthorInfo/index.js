@@ -7,22 +7,23 @@ import ImageRecipes from "./../../../assets/info_recipe/recipes.png";
 import ImageLike from "./../../../assets/info_recipe/like.png";
 
 export default function GeneralAuthorInfo() {
-  const { usuario, imagem } = useSelector((state) => state.recipes.data);
+  const receita = useSelector((state) => state.recipes.data);
+  const { success } = useSelector((state) => state.recipes);
   const returnDate = (date) => date.toLocaleDateString();
 
   return (
     <Section>
-      <ImageRecipe className="image_recipe" background={imagem} />
+      <ImageRecipe className="image_recipe" background={success ? receita.imagens[0].url : null} />
       <div className="info_author">
         <div className="profile">
           <div className="author">
-            <img src={usuario?.imagem} alt=""
+            <img src={receita.usuario?.imagem} alt=""
             />
-            <h4>{usuario?.nome}</h4>
+            <h4>{receita.usuario?.nome}</h4>
           </div>
           <div className="experience">
             <p>
-              Cozinheiro desde {returnDate(new Date(usuario?.dataCriacao))}
+              Cozinheiro desde {returnDate(new Date(receita.usuario?.dataCriacao))}
             </p>
           </div>
         </div>

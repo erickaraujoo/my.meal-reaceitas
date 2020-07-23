@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { validationInputForms } from "../../../../utils/validations";
@@ -10,15 +10,23 @@ import { SendFeedback } from "./styles";
 
 export default function Avaliation() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id: idReceita } = useParams();
-  const { idUsuario } = JSON.parse(localStorage.getItem("authenticated_user"));
   const { register, handleSubmit, errors } = useForm({
     defaultValues: {},
   });
   const comment = useSelector((state) => state.comments);
 
-  const onSubmit = ({ nota, comentario }) =>
-    dispatch(sendComment({ idUsuario, idReceita, nota, comentario }));
+  const onSubmit = ({ nota, comentario }) => {
+    if(localStorage.getItem("authenticated_user")) {
+      const { idUsuario } = JSON.parse(
+        localStorage.getItem("authenticated_user")
+      );
+      dispatch(sendComment({ usuario: { idUsuario }, idReceita, nota, comentario }));
+    } else {
+      history.push('/entrar');
+    }
+  };
 
   useEffect(() => {
     if (comment.success) cogoToast.success("Avaliação criada com sucesso!");

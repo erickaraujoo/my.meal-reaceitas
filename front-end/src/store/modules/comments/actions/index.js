@@ -1,8 +1,8 @@
 import types from "../../types";
 
-export function sendComment({ idUsuario, idReceita, nota, comentario }) {
+export function sendComment({ usuario, idReceita, nota, comentario }) {
   return {
     type: types.CREATING_COMMENT,
-    payload: { idUsuario, idReceita, nota, comentario }
+    payload: { usuario, idReceita, nota, comentario }
   }
 }

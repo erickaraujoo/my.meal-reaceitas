@@ -35,6 +35,8 @@ export const Section = styled.section`
   }
 
   ul {
+    a { text-decoration: none; color: ${theme.colors.black} }
+
     li {
       list-style: none;
       min-height: 70px;
@@ -110,6 +112,15 @@ export const Section = styled.section`
     }
     li + li {
       margin-top: 20px;
+    }
+
+    p.recipes_notfound {
+      width: 100%;
+      padding: 80px 0 50px;
+      text-align: center;
+      color: ${theme.colors.black};
+      font-size: 1.25rem;
+      font-family: Poppins;
     }
   }
 `;

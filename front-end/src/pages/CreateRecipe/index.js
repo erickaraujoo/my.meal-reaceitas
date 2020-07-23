@@ -12,6 +12,9 @@ export default function CreateRecipe() {
   const GeneralData = lazy(() =>
     import("../../components/CreateRecipe/GeneralData")
   );
+  const Category = lazy(() =>
+    import("../../components/CreateRecipe/Category")
+  );
   const MethodPreparation = lazy(() =>
     import("../../components/CreateRecipe/MethodPreparation")
   );
@@ -62,6 +65,7 @@ export default function CreateRecipe() {
             heightButton={"50px"}
           />
           <GeneralData />
+          <Category />
           <MethodPreparation />
           <Ingredients />
           <SendRecipe />

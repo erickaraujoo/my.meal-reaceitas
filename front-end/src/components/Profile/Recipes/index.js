@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
 import { Link, useHistory, useParams } from "react-router-dom";
 
 import { Section } from "./styles";
@@ -10,41 +11,9 @@ import ImageEdit from "./../../../assets/profile/edit.png";
 export default function Recipes() {
   const history = useHistory();
   const { id } = useParams();
+  const { recipes } = useSelector((state) => state.user.data);
+  const returnDate = (date) => date.toLocaleDateString();
 
-  const [recipes] = useState([
-    {
-      image:
-        "https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg",
-      name: "Bolo de Fubá",
-      date: "24/05/2020",
-      hits: "152",
-      favorites: "15",
-    },
-    {
-      image:
-        "https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg",
-      name: "Bolo de Fubá",
-      date: "24/05/2020",
-      hits: "152",
-      favorites: "15",
-    },
-    {
-      image:
-        "https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg",
-      name: "Bolo de Fubá",
-      date: "24/05/2020",
-      hits: "152",
-      favorites: "15",
-    },
-    {
-      image:
-        "https://img.cybercook.com.br/receitas/677/bolo-de-fuba-22-623x350.jpeg",
-      name: "Bolo de Fubá",
-      date: "24/05/2020",
-      hits: "152",
-      favorites: "15",
-    },
-  ]);
   return (
     <Section>
       <div className="title">
@@ -60,21 +29,26 @@ export default function Recipes() {
       </div>
 
       <ul>
-        {recipes.map(({ image, name, date, hits, favorites }, index) => (
-          <li key={index}>
-            <div className="image">
-              <img src={image} alt={name} />
-            </div>
-            <p className="name">{name}</p>
-            <p className="date">{date}</p>
-            <p className="hits">{hits} acessos</p>
-            <p className="favorites">{favorites} favoritos</p>
-            <div className="options">
-              <img className="edit" src={ImageEdit} alt="edit" />
-              <img className="delete" src={ImageClose} alt="delete" />
-            </div>
-          </li>
+        {recipes?.content.map((recipe, index) => (
+          <Link to={{ pathname: `/receitas/${recipe.idReceita}` }}>
+            <li key={index}>
+              <div className="image">
+                <img src={recipe.imagens[0].url} alt={recipe.nome} />
+              </div>
+              <p className="name">{recipe.nome}</p>
+              <p className="date">{returnDate(new Date(recipe.dataCriacao))}</p>
+              <p className="hits">{recipe.acessos} acessos</p>
+              <p className="favorites">{recipe.favoritos} favoritos</p>
+              <div className="options">
+                <img className="edit" src={ImageEdit} alt="edit" />
+                <img className="delete" src={ImageClose} alt="delete" />
+              </div>
+            </li>
+          </Link>
         ))}
+        {!recipes?.content.length && (
+          <p className="recipes_notfound">Você não possui nenhuma receita!</p>
+        )}
       </ul>
     </Section>
   );

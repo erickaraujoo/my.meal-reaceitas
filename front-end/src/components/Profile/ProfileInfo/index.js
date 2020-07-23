@@ -14,7 +14,7 @@ import ImageDescription from "./../../../assets/profile/description.png";
 
 export default function ProfileInfo() {
   const history = useHistory();
-  const profile = useSelector((state) => state.user.data);
+  const { user } = useSelector((state) => state.user.data);
 
   return (
     <Section>
@@ -34,26 +34,26 @@ export default function ProfileInfo() {
         <ol>
           <li>
             <img src={ImageEmail} alt="email" />
-            <p> {profile.data?.email ? profile.data?.email : "Sem e-mail particular para exibir"} </p>
+            <p> {user?.email ? user?.email : "Sem e-mail particular para exibir"} </p>
           </li>
           <li>
             <img src={ImagePhone} alt="phone" />
             <p>
-              {profile.data?.telefone
-                ? profile.data.telefone
+              {user?.telefone
+                ? user.telefone
                 : "Sem telefone"}
             </p>
           </li>
           <li>
             <img src={ImageNickName} alt="nickname" />
-            <p> {profile.data?.username ? profile.data?.username : "Sem nickname para exibir"} </p>
+            <p> {user?.username ? user?.username : "Sem nickname para exibir"} </p>
           </li>
           <li>
             <img src={ImagePassword} alt="password" />
             <p>
-              {profile.data?.password ? profile.data.password.replace(
-                profile.data.password,
-                "*".repeat(profile.data.password.length)
+              {user?.password ? user.password.replace(
+                user.password,
+                "*".repeat(user.password.length)
               ) : "Nenhuma senha para exibir"}
             </p>
           </li>
@@ -76,7 +76,7 @@ export default function ProfileInfo() {
         <ol>
           <li>
             <img src={ImageName} alt="name" />
-            <p>{profile.data?.nome ? profile.data?.nome : "Sem nome para exibir"}</p>
+            <p>{user?.nome ? user?.nome : "Sem nome para exibir"}</p>
           </li>
           <li className="li_description">
             <div className="title">
@@ -86,7 +86,7 @@ export default function ProfileInfo() {
 
             <div className="description">
               <textarea
-                defaultValue={profile.data?.biografia ? profile.data?.biografia : "Sem biografia para exibir"}
+                defaultValue={user?.biografia ? user?.biografia : "Sem biografia para exibir"}
                 readOnly
               ></textarea>
             </div>

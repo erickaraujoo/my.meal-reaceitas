@@ -113,6 +113,15 @@ export const Section = styled.section`
       li + li {
         margin-top: 30px;
       }
+
+      p.avaliation_notfound {
+        width: 100%;
+        padding: 80px 0 0;
+        text-align: center;
+        color: ${theme.colors.black};
+        font-size: 1.25rem;
+        font-family: Poppins;
+      }
     }
   }
 `;

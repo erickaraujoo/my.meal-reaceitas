@@ -21,6 +21,7 @@ export const users = {
   selectById: ({ userId }) => api.get(`/usuarios/${userId}`),
   selectByLogin: ({ payload }) => api.post(`/usuarios/login`, payload),
   create: ({ payload }) => api.post(`/usuarios`, payload),
+  selectRecipes: ({ userId }) => api.get(`/usuario/${userId}/receitas`),
 };
 
 export default api;

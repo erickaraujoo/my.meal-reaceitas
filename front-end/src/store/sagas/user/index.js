@@ -18,6 +18,14 @@ function apiGetById({ userId }) {
   }
 }
 
+function apiGetRecipes({ userId }) {
+  try {
+    return users.selectRecipes({ userId });
+  } catch (err) {
+    return err;
+  }
+}
+
 function apiGetByLogin(payload) {
   try {
     return users.selectByLogin({ payload });
@@ -39,9 +47,10 @@ function* createUser(actions) {
 
 function* getUserById(actions) {
   try {
-    const { data } = yield call(apiGetById, actions.params);
+    const user = yield call(apiGetById, actions.params);
+    const recipes = yield call(apiGetRecipes, actions.params);
 
-    yield put({ type: types.SUCCESS_FETCH_USER, payload: { data } });
+    yield put({ type: types.SUCCESS_FETCH_USER, payload: { user: user.data, recipes: recipes.data } });
   } catch (err) {
     if (err.response && err.response.status === 401)
       yield put({

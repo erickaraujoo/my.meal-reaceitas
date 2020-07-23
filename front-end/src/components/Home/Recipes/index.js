@@ -21,17 +21,12 @@ export default function ListRecipes() {
     { value: "Massas", id: 10 },
     { value: "Light", id: 13 },
   ]);
-  // const [recipes] = useState([
-  //   {
-  //     avaliation: "8,5",
-  //     image:
-  //       "https://images.squarespace-cdn.com/content/5b625f0d96d455ef934bf48c/1562155589911-QZQQHTBXH99SJ4ILLR0K/WhatsApp+Image+2019-07-02+at+12.57.55.jpeg?format=1000w&content-type=image%2Fjpeg",
-  //     recipe: "Fricasse de frango",
-  //     imageAuthor:
-  //       "https://images.pexels.com/users/avatars/1638660/jill-wellington-390.jpeg?w=256&h=256&fit=crop&crop=faces&auto=compress",
-  //     author: "Maria Mercedez",
-  //   }
-  // ]);
+  const returnTotal = (value) => {
+    let total = 0;
+    value.map(({ nota }) => (total += nota));
+    total = total / value.length;
+    return total.toFixed(1);
+  };
 
   useEffect(() => setCategory(currentButton), [currentButton, setCategory])
 
@@ -59,20 +54,20 @@ export default function ListRecipes() {
       <div className="recipes">
         <ul>
           {recipes.data.content.map(
-            ({ avaliation, image, recipe, imageAuthor, author }, index) => (
+            ({ avaliacoes, imagens, nome, usuario }, index) => (
               <li key={index}>
-                <BackgroundRecipe className="image_recipe" background={image} />
+                <BackgroundRecipe className="image_recipe" background={imagens[0]} />
                 <div className="avaliation">
                   <img src={ImageStar} alt=""/>
-                  <p>{avaliation}</p>
+                  <p>{returnTotal(avaliacoes)}</p>
                 </div>
                 <div className="info_recipe">
                   <div className="name_recipe">
-                    <p>{recipe}</p>
+                    <p>{nome}</p>
                   </div>
                   <div className="creator">
-                    <img src={imageAuthor} alt="" />
-                    <p>{author}</p>
+                    <img src={usuario.imagem} alt="" />
+                    <p>{usuario.nome}</p>
                   </div>
                 </div>
               </li>

@@ -9,6 +9,7 @@ export default function SendRecipe() {
     setLoading,
     previewImages,
     ingredients,
+    category,
     preparationTime,
     revenue,
     methodPreparation,
@@ -26,6 +27,7 @@ export default function SendRecipe() {
             previewImages.length &&
             ingredients.length &&
             methodPreparation.length &&
+            category.length &&
             name &&
             description &&
             preparationTime &&

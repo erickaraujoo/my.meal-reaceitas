@@ -9,7 +9,7 @@ import ImageProfile from "../../../assets/login/user.png";
 import { Section } from "./styles";
 
 export default function Header() {
-  const profile = useSelector((state) => state.user.data);
+  const { user } = useSelector((state) => state.user.data);
   const history = useHistory();
   return (
     <>
@@ -26,10 +26,10 @@ export default function Header() {
         <div className="background"></div>
         <div className="main_info">
           <div className="image_profile">
-            <img src={profile.data?.imagem ? profile.data.imagem : ImageProfile} alt="" />
+            <img src={user?.imagem ? user.imagem : ImageProfile} alt="" />
           </div>
 
-          <h2>{profile.data?.nome}</h2>
+          <h2>{user?.nome}</h2>
 
           <div className="premium_member">
             <img src={ImagePremium} alt="" />

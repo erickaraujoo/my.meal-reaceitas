@@ -8,6 +8,7 @@ export function createRecipe({
   preparationTime,
   revenue,
   ingredients,
+  category,
   creationData,
   userId,
 }) {
