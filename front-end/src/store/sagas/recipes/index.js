@@ -19,6 +19,14 @@ function apiGetById({ id }) {
   }
 }
 
+function apiDelete({ id }) {
+  try {
+    return recipes.deleteRecipe({ id });
+  } catch (err) {
+    return err;
+  }
+}
+
 function* getRecipes(action) {
   try {
     const { data } = yield call(apiGetAll, action.params);
@@ -39,9 +47,20 @@ function* getRecipeById(actions) {
   }
 }
 
+function* deleteRecipe(actions) {
+  try {
+    const { data } = yield call (apiDelete, actions.params);
+
+    yield put({ type: types.SUCCESS_DELETE_RECIPE, payload: { data } });
+  } catch (err) {
+    yield put({ type: types.FAILURE_FETCH_RECIPE });
+  }
+}
+
 export function* fetchRecipesSaga() {
   yield all([
     takeLatest(types.FETCHING_RECIPES, getRecipes),
     takeLatest(types.FETCHING_RECIPE, getRecipeById),
+    takeLatest(types.DELETING_RECIPE, deleteRecipe),
   ]);
 }

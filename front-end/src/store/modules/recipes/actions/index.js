@@ -23,3 +23,10 @@ export function fetchRecipeById({ id }) {
     params: { id },
   }
 }
+
+export function deleteRecipe({ id }) {
+  return {
+    type: types.DELETING_RECIPE,
+    params: { id },
+  }
+}

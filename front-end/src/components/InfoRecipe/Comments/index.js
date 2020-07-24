@@ -8,17 +8,41 @@ import { useState } from "react";
 
 export default function Comments() {
   const SendFeedback = lazy(() => import("./Avaliation"));
-  const [avaliations, setAvaliations] = useState(useSelector((state) => state.recipes.data.avaliacoes));
+  const avaliations = useSelector((state) => state.recipes.data.avaliacoes);
+  const comments = [];
+
+  if (avaliations) avaliations.map((avaliation) => comments.push(avaliation));
+  console.log(comments);
+
   const newComment = useSelector((state) => state.comments);
+  const returnDate = (date) => {
+    console.log(date);
+    const formattedData = date.toLocaleDateString().split("/");
+    return `${formattedData[0]} de ${date.toLocaleDateString("default", {
+      month: "long",
+    })} de ${formattedData[2]}`;
+  };
+  const returnTime = (date) => date.toLocaleTimeString();
 
   useMemo(() => {
-    if(newComment.success) {
-      setAvaliations(prevAvaliation => [
-        ...prevAvaliation,
-        newComment.data,
-      ])
+    if (newComment.success) {
+      const userStorage = JSON.parse(
+        localStorage.getItem("authenticated_user")
+      );
+      comments.push({
+        comentario: newComment.data.comentario,
+        idAvaliacao: newComment.data.idAvaliacao,
+        idReceita: newComment.data.idReceita,
+        nota: newComment.data.nota,
+        dataCriacao: new Date(),
+        usuario: {
+          idUsuario: newComment.data.usuario.idUsuario,
+          nome: userStorage.nome,
+          imagem: userStorage.image,
+        },
+      });
     }
-  }, [newComment.data, newComment.success]);
+  }, [comments, newComment.data, newComment.success]);
 
   return (
     <Section>
@@ -29,31 +53,37 @@ export default function Comments() {
         <h3>Comentários ({avaliations?.length ? avaliations.length : 0})</h3>
 
         <ul>
-          {avaliations?.map(({ nota, comentario }, index) => (
-            <li key={index}>
-              <div className="photo">
-                <img
-                  src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/silueta-generica-large.png"
-                  alt=""
-                />
-              </div>
-              <div className="triangle" />
-              <div className="comment">
-                <div className="title">
-                  <p>Erick Araujo / 29 de Junho de 2020, 10:26 am</p>
-                  <div className="avaliation">
-                    <p>Avaliação: {nota.toFixed(1)}</p>
-                    <img src={ImageStar} alt="" />
+          {comments?.map(
+            ({ nota, comentario, dataCriacao, usuario }, index) => (
+              <li key={index}>
+                <div className="photo">
+                  <img src={usuario.imagem} alt="" />
+                </div>
+                <div className="triangle" />
+                <div className="comment">
+                  <div className="title">
+                    <p>
+                      {`${usuario.nome} / ${returnDate(
+                        new Date(dataCriacao)
+                      )}, ${returnTime(new Date(dataCriacao))}`}
+                    </p>
+                    {/* <p> Erick Araujo / 29 de Junho de 2020, 10:26 am </p> */}
+                    <div className="avaliation">
+                      <p>Avaliação: {nota.toFixed(1)}</p>
+                      <img src={ImageStar} alt="" />
+                    </div>
+                  </div>
+                  <div className="text">
+                    <p>{comentario ? comentario : null}</p>
                   </div>
                 </div>
-                <div className="text">
-                  <p>{comentario ? comentario : 'Sem comentário'}</p>
-                </div>
-              </div>
-            </li>
-          ))}
-          {!avaliations?.length && (
-            <p className="avaliation_notfound">Essa receita não possui nenhum comentário</p>
+              </li>
+            )
+          )}
+          {!avaliations && (
+            <p className="avaliation_notfound">
+              Essa receita não possui nenhum comentário
+            </p>
           )}
         </ul>
       </div>

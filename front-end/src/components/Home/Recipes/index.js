@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { CircleSpinner } from "react-spinners-kit";
 
@@ -11,6 +11,7 @@ import ImageStar from "./../../../assets/home/start.png";
 
 export default function ListRecipes() {
   const recipes = useSelector(state => state.recipes);
+  const history = useHistory();
   const { setCategory } = useCategory();
   const [currentButton, setCurrentButton] = useState(2);
   const [buttons] = useState([
@@ -54,12 +55,12 @@ export default function ListRecipes() {
       <div className="recipes">
         <ul>
           {recipes.data.content.map(
-            ({ avaliacoes, imagens, nome, usuario }, index) => (
-              <li key={index}>
-                <BackgroundRecipe className="image_recipe" background={imagens[0]} />
+            ({ avaliacoes, imagens, nome, usuario, idReceita }, index) => (
+              <li key={index} onClick={() => history.push(`/receitas/${idReceita}`)}>
+                <BackgroundRecipe className="image_recipe" background={imagens[0].url} />
                 <div className="avaliation">
                   <img src={ImageStar} alt=""/>
-                  <p>{returnTotal(avaliacoes)}</p>
+                  <p>{avaliacoes?.length ? returnTotal(avaliacoes) : 'Sem avaliação'}</p>
                 </div>
                 <div className="info_recipe">
                   <div className="name_recipe">

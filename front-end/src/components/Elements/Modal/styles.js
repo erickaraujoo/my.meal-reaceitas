@@ -166,7 +166,7 @@ export const SectionModalIngredients = styled.section`
   }
 `;
 
-export const DivModalSuccess = styled.div`
+export const DivModal = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   padding: ${(props) => (props.padding ? props.padding : null)};
@@ -196,7 +196,7 @@ export const DivModalSuccess = styled.div`
   }
 
   a,
-  button.close_modal {
+  button {
     margin-top: 60px;
   }
 
@@ -219,13 +219,50 @@ export const DivModalSuccess = styled.div`
     }
   }
 
-  button.close_modal {
+  button.close_modal, button.warning {
     background: ${theme.colors.orange};
 
     &:hover {
       background: ${theme.colors.white};
       border: solid 1.5px ${theme.colors.orange};
       color: ${theme.colors.orange};
+    }
+  }
+`;
+
+export const ContainerFlexButtons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  button.cancel {
+    background: ${theme.colors.white};
+    border: solid 1.5px ${theme.colors.gray};
+    color: ${theme.colors.gray};
+
+    &:hover {
+      background: ${theme.colors.gray};
+      color: ${theme.colors.white};
+    }
+  }
+  
+  button.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover > div {
+      border: 4px solid ${theme.colors.orange};
+      border-right-color: transparent;
+    }
+
+    div {
+      margin-left: 10px;
     }
   }
 `;

@@ -11,6 +11,7 @@ export const recipes = {
     api.post(`/modopreparo`, { etapa, idReceita }),
   createIngredients: ({ idReceita, nome }) =>
     api.post(`/ingredientes`, { idReceita, nome }),
+    deleteRecipe: ({ id }) => api.put(`/receitas/excluir`, id),
 };
 
 export const comments = {

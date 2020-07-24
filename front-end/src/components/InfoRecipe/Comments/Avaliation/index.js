@@ -22,7 +22,8 @@ export default function Avaliation() {
       const { idUsuario } = JSON.parse(
         localStorage.getItem("authenticated_user")
       );
-      dispatch(sendComment({ usuario: { idUsuario }, idReceita, nota, comentario }));
+      const dataCriacao = new Date();
+      dispatch(sendComment({ usuario: { idUsuario }, idReceita, nota, comentario, dataCriacao }));
     } else {
       history.push('/entrar');
     }

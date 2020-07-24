@@ -23,7 +23,7 @@ export const Section = styled.section`
 
     img {
       width: 30px;
-      height: 30px; 
+      height: 30px;
       transition: 0.2s;
 
       &:hover {
@@ -35,7 +35,10 @@ export const Section = styled.section`
   }
 
   ul {
-    a { text-decoration: none; color: ${theme.colors.black} }
+    a {
+      text-decoration: none;
+      color: ${theme.colors.black};
+    }
 
     li {
       list-style: none;
@@ -99,10 +102,25 @@ export const Section = styled.section`
           width: 25px;
           height: 25px;
           margin-right: 10px;
+          transition: 0.2s;
+
+          &:hover {
+            width: 27.5px;
+            height: 27.5px;
+            transform: translate(1px);
+          }
         }
         img.delete {
           width: 27.5px;
           height: 27.5px;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            width: 30px;
+            height: 30px;
+            transform: translate(1px);
+          }
         }
       }
     }

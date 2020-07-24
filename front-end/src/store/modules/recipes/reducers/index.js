@@ -48,6 +48,24 @@ const recipes = (state = INITIAL_STATE, action) =>
         draft.success = false;
         draft.error = true;
         break;
+      case types.DELETING_RECIPE:
+        draft.data.content = [];
+        draft.loading = true;
+        draft.success = false;
+        draft.error = false;
+        break;
+      case types.SUCCESS_DELETE_RECIPE:
+        draft.data.content = action.payload;
+        draft.loading = false;
+        draft.success = true;
+        draft.error = false;
+        break;
+      case types.FAILURE_DELETE_RECIPE:
+        draft.data.content = [];
+        draft.loading = false;
+        draft.success = false;
+        draft.error = true;
+        break;
       default:
         return state;
     }

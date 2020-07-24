@@ -62,14 +62,14 @@ function* newImage(actions) {
 function* newRecipe(actions) {
   try {
     const { data } = yield call(apiPostRecipe, actions.recipe);
-    yield call(apiPostMethodPreparation, {
-      ...actions.methodPreparation,
-      idReceita: data.idReceita,
-    });
-    yield call(apiPostIngredients, {
-      ...actions.ingredients,
-      idReceita: data.idReceita,
-    });
+    // yield call(apiPostMethodPreparation, {
+    //   ...actions.methodPreparation,
+    //   idReceita: data.idReceita,
+    // });
+    // yield call(apiPostIngredients, {
+    //   ...actions.ingredients,
+    //   idReceita: data.idReceita,
+    // });
 
     yield put({ type: types.SUCCESS_CREATED_RECIPE, payload: { data } });
   } catch (err) {

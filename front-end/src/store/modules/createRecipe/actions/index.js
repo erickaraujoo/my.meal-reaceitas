@@ -20,6 +20,8 @@ export function createRecipe({
   const rendimento = revenue;
   const dataCriacao = creationData;
   const usuario = { idUsuario: userId };
+  const categorias = [];
+  category.map((id) => categorias.push({ idCategoria: id }));
 
   return {
     type: types.CREATING_RECIPE,
@@ -32,6 +34,7 @@ export function createRecipe({
       acessos,
       dataCriacao,
       usuario,
+      categorias,
     },
     ingredients: { ingredients },
     methodPreparation: { methodPreparation },

@@ -104,16 +104,15 @@ export const Recipes = styled.section`
           background: ${theme.colors.white};
           display: flex;
           align-items: center;
-          width: 80px;
+          min-width: 70px;
           min-height: 35px;
-          padding: 5px 0;
+          padding: 5px 10px;
           border-radius: 3px;
           position: absolute;
           left: 20px;
           top: 20px;
 
           img {
-            margin-left: 10px;
             width: auto;
             height: 17.5px;
             transform: translateY(-2px);
