@@ -5,6 +5,7 @@ public class UploadInput {
 	private String filename;
 	private String mimetype;
 	private String base64;
+	private Long idUsuario;
 	
 	public UploadInput() {}
 	
@@ -37,6 +38,14 @@ public class UploadInput {
 
 	public void setBase64(String base64) {
 		this.base64 = base64;
+	}
+
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,16 +27,31 @@ public class Receita {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_receita;
+	@Column(name = "id_receita")
+	private long idReceita;
 	
 	private String nome;
 	private String descricao;
 	private String observacao;
-	private String tempo_preparo;
+	
+	@Column(name = "tempo_preparo")
+	private String tempoPreparo;
+	
 	private String rendimento;
-	private String imagem;
 	private int acessos;
-	private Timestamp data_criacao;
+	
+	@Column(name = "data_criacao")
+	private Timestamp dataCriacao;
+	
+	private boolean excluido;
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "id_receita")
+	private List<Avaliacao> avaliacoes;
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "id_receita")
+	private List<ReceitaImagem> imagens;
 	
 	@ManyToMany
 	@JoinTable(name = "tbl_receitas_categorias",
@@ -43,42 +59,24 @@ public class Receita {
 			   inverseJoinColumns = @JoinColumn(name = "id_categoria"))
 	private List<Categoria> categorias;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "id_receita")
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Ingrediente> ingredientes;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "id_receita")
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<ModoPreparo> modo_preparo;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 
-	public List<ModoPreparo> getModo_preparo() {
-		return modo_preparo;
+	public long getIdReceita() {
+		return idReceita;
 	}
 
-	public void setModo_preparo(List<ModoPreparo> modo_preparo) {
-		this.modo_preparo = modo_preparo;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public long getId_receita() {
-		return id_receita;
-	}
-
-	public void setId_receita(long id_receita) {
-		this.id_receita = id_receita;
+	public void setIdReceita(long idReceita) {
+		this.idReceita = idReceita;
 	}
 
 	public String getNome() {
@@ -105,12 +103,12 @@ public class Receita {
 		this.observacao = observacao;
 	}
 
-	public String getTempo_preparo() {
-		return tempo_preparo;
+	public String getTempoPreparo() {
+		return tempoPreparo;
 	}
 
-	public void setTempo_preparo(String tempo_preparo) {
-		this.tempo_preparo = tempo_preparo;
+	public void setTempoPreparo(String tempoPreparo) {
+		this.tempoPreparo = tempoPreparo;
 	}
 
 	public String getRendimento() {
@@ -121,20 +119,52 @@ public class Receita {
 		this.rendimento = rendimento;
 	}
 
-	public String getImagem() {
-		return imagem;
+	public int getAcessos() {
+		return acessos;
 	}
 
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
+	public void setAcessos(int acessos) {
+		this.acessos = acessos;
 	}
 
-	public Timestamp getData_criacao() {
-		return data_criacao;
+	public Timestamp getDataCriacao() {
+		return dataCriacao;
 	}
 
-	public void setData_criacao(Timestamp data_criacao) {
-		this.data_criacao = data_criacao;
+	public void setDataCriacao(Timestamp dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public boolean isExcluido() {
+		return excluido;
+	}
+
+	public void setExcluido(boolean excluido) {
+		this.excluido = excluido;
+	}
+
+	public List<Avaliacao> getAvaliacoes() {
+		return avaliacoes;
+	}
+
+	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+		this.avaliacoes = avaliacoes;
+	}
+
+	public List<ReceitaImagem> getImagens() {
+		return imagens;
+	}
+
+	public void setImagens(List<ReceitaImagem> imagens) {
+		this.imagens = imagens;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 
 	public List<Ingrediente> getIngredientes() {
@@ -145,20 +175,20 @@ public class Receita {
 		this.ingredientes = ingredientes;
 	}
 
-	public int getAcessos() {
-		return acessos;
+	public List<ModoPreparo> getModo_preparo() {
+		return modo_preparo;
 	}
 
-	public void setAcessos(int acessos) {
-		this.acessos = acessos;
+	public void setModo_preparo(List<ModoPreparo> modo_preparo) {
+		this.modo_preparo = modo_preparo;
 	}
 
-	public List<Categoria> getCategorias() {
-		return categorias;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

@@ -38,24 +38,24 @@ public class ReceitaServiceImpl implements ReceitaService {
 
 				List<Predicate> predicates = new ArrayList<>();
 
-				if (nome != null) {
+				if (nome != "" && nome != null) {
 					
 					Predicate receitaPdt = criteriaBuilder.like(root.get("nome"), "%" + nome + "%");
-					Predicate teste = criteriaBuilder.and(receitaPdt);
-					predicates.add(teste);
+					Predicate ingredienteCtr = criteriaBuilder.and(receitaPdt);
+					predicates.add(ingredienteCtr);
 					
 				}
 				
 				if (categoria != null) {
 					
 					Join<Receita, Categoria> joinCat = root.join("categorias", JoinType.INNER);
-					Predicate categoriaPdt = criteriaBuilder.equal(joinCat.get("id_categoria"), categoria);
-					Predicate teste2 = criteriaBuilder.and(categoriaPdt);
-					predicates.add(teste2);
+					Predicate categoriaPdt = criteriaBuilder.equal(joinCat.get("idCategoria"), categoria);
+					Predicate categoriaCtr = criteriaBuilder.and(categoriaPdt);
+					predicates.add(categoriaCtr);
 					
 				}
 				
-				if(ingredientes != null) {
+				if(ingredientes != "" && ingredientes != null) {
 					
 					String[] ingredientesArr = ingredientes.split(",");
 					
@@ -72,6 +72,8 @@ public class ReceitaServiceImpl implements ReceitaService {
 					predicates.add(criteriaBuilder.or(ingPredicates.toArray(new Predicate[predicates.size()])));
 					
 				}
+				
+				predicates.add(criteriaBuilder.isFalse(root.get("excluido")));
 
 				return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 

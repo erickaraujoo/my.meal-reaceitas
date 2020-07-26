@@ -1,5 +1,6 @@
 package com.senai.mealreceitas.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,16 +13,17 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_categoria;
+	@Column(name = "id_categoria")
+	private long idCategoria;
 	
 	private String nome;
 
-	public long getId_categoria() {
-		return id_categoria;
+	public long getIdCategoria() {
+		return idCategoria;
 	}
 
-	public void setId_categoria(long id_categoria) {
-		this.id_categoria = id_categoria;
+	public void setIdCategoria(long idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 
 	public String getNome() {

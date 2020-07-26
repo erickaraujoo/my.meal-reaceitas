@@ -1,5 +1,6 @@
 package com.senai.mealreceitas.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,18 +13,23 @@ public class Favorito {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_favorito;
+	@Column(name = "id_favorito")
+	private long idFavorito;
 
 	private String nome;
-	private long id_receita;
-	private long id_usuario;
+	
+	@Column(name = "id_receita")
+	private long idReceita;
+	
+	@Column(name = "id_usuario")
+	private long idUsuario;
 
-	public long getId_favorito() {
-		return id_favorito;
+	public long getIdFavorito() {
+		return idFavorito;
 	}
 
-	public void setId_favorito(long id_favorito) {
-		this.id_favorito = id_favorito;
+	public void setIdFavorito(long idFavorito) {
+		this.idFavorito = idFavorito;
 	}
 
 	public String getNome() {
@@ -34,20 +40,20 @@ public class Favorito {
 		this.nome = nome;
 	}
 
-	public long getId_receita() {
-		return id_receita;
+	public long getIdReceita() {
+		return idReceita;
 	}
 
-	public void setId_receita(long id_receita) {
-		this.id_receita = id_receita;
+	public void setIdReceita(long idReceita) {
+		this.idReceita = idReceita;
 	}
 
-	public long getId_usuario() {
-		return id_usuario;
+	public long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-
+	
 }

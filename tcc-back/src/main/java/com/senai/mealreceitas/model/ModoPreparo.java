@@ -1,5 +1,6 @@
 package com.senai.mealreceitas.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,17 +13,20 @@ public class ModoPreparo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_preparo;
+	@Column(name = "id_preparo")
+	private long idPreparo;
 
 	private String etapa;
-	private long id_receita;
+	
+	@Column(name = "id_receita")
+	private long idReceita;
 
-	public long getId_preparo() {
-		return id_preparo;
+	public long getIdPreparo() {
+		return idPreparo;
 	}
 
-	public void setId_preparo(long id_preparo) {
-		this.id_preparo = id_preparo;
+	public void setIdPreparo(long idPreparo) {
+		this.idPreparo = idPreparo;
 	}
 
 	public String getEtapa() {
@@ -33,12 +37,12 @@ public class ModoPreparo {
 		this.etapa = etapa;
 	}
 
-	public long getId_receita() {
-		return id_receita;
+	public long getIdReceita() {
+		return idReceita;
 	}
 
-	public void setId_receita(long id_receita) {
-		this.id_receita = id_receita;
+	public void setIdReceita(long idReceita) {
+		this.idReceita = idReceita;
 	}
 
 }

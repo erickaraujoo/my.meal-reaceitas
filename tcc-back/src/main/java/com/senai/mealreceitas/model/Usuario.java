@@ -16,27 +16,37 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_usuario;
+	@Column(name = "id_usuario")
+	private long idUsuario;
 
 	private String nome;
 	private String email;
-	
+
 	@Column(name = "usuario")
 	private String username;
-	
+
 	@Column(name = "senha")
 	private String password;
-	
-	private Timestamp data_criacao;
-	private Timestamp data_desativacao;
-	//private String role;
 
-	public long getId_usuario() {
-		return id_usuario;
+	private String biografia;
+	private String estado;
+	private String cidade;
+	private String complemento;
+	private String imagem;
+
+	@Column(name = "data_criacao")
+	private Timestamp dataCriacao;
+
+	@Column(name = "data_desativacao")
+	private Timestamp dataDesativacao;
+//	private String role;
+
+	public long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getNome() {
@@ -71,28 +81,68 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public Timestamp getData_criacao() {
-		return data_criacao;
+	public String getBiografia() {
+		return biografia;
 	}
 
-	public void setData_criacao(Timestamp data_criado) {
-		this.data_criacao = data_criado;
+	public void setBiografia(String biografia) {
+		this.biografia = biografia;
 	}
 
-	public Timestamp getData_desativacao() {
-		return data_desativacao;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setData_desativacao(Timestamp data_desativado) {
-		this.data_desativacao = data_desativado;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
-/*	public String getRole() {
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
+	public Timestamp getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Timestamp dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public Timestamp getDataDesativacao() {
+		return dataDesativacao;
+	}
+
+	public void setDataDesativacao(Timestamp dataDesativacao) {
+		this.dataDesativacao = dataDesativacao;
+	}
+/*
+	public String getRole() {
 		return role;
 	}
 
 	public void setRole(String role) {
 		this.role = role;
-	}*/
-
+	}
+*/
 }

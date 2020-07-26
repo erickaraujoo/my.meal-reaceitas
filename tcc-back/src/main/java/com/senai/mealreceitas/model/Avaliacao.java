@@ -1,9 +1,14 @@
 package com.senai.mealreceitas.model;
 
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,19 +17,28 @@ public class Avaliacao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_avaliacao;
+	@Column(name = "id_avaliacao")
+	private long idAvaliacao;
 
 	private int nota;
 	private String comentario;
-	private long id_receita;
-	private long id_usuario;
+	
+	@Column(name = "id_receita")
+	private long idReceita;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
+	
+	@Column(name = "data_criacao")
+	private Timestamp dataCriacao;
 
-	public long getId_avaliacao() {
-		return id_avaliacao;
+	public long getIdAvaliacao() {
+		return idAvaliacao;
 	}
 
-	public void setId_avaliacao(long id_avaliacao) {
-		this.id_avaliacao = id_avaliacao;
+	public void setIdAvaliacao(long idAvaliacao) {
+		this.idAvaliacao = idAvaliacao;
 	}
 
 	public int getNota() {
@@ -43,20 +57,28 @@ public class Avaliacao {
 		this.comentario = comentario;
 	}
 
-	public long getId_receita() {
-		return id_receita;
+	public Timestamp getDataCriacao() {
+		return dataCriacao;
 	}
 
-	public void setId_receita(long id_receita) {
-		this.id_receita = id_receita;
+	public void setDataCriacao(Timestamp dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
 
-	public long getId_usuario() {
-		return id_usuario;
+	public long getIdReceita() {
+		return idReceita;
 	}
 
-	public void setId_usuario(long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdReceita(long idReceita) {
+		this.idReceita = idReceita;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }
